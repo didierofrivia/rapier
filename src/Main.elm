@@ -74,10 +74,20 @@ update msg model =
             ( model, Cmd.none )
 
         GotSettingsMsg subMsg ->
-            ( model, Cmd.none )
+            case model of
+                Settings modelSettings ->
+                    Settings.update subMsg modelSettings
+                        |> updateWith Settings GotSettingsMsg model
+
+                _ ->
+                    ( model, Cmd.none )
 
         GotNotFoundMsg subMsg ->
             ( model, Cmd.none )
+
+
+
+-- This aims to craft the right Model, Msg and Cmd from submodules
 
 
 updateWith : (subModel -> Model) -> (subMsg -> Msg) -> Model -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
@@ -109,7 +119,7 @@ loadPage route model =
             ( Dashboard { session = getSession model }, Cmd.none )
 
         Router.Settings ->
-            ( Settings { session = getSession model, status = Settings.Loading }, Cmd.none )
+            updateWith Settings GotSettingsMsg model ( { status = Settings.Loading, session = getSession model }, Settings.getSettings )
 
 
 

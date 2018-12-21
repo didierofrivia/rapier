@@ -1,11 +1,15 @@
 module Main exposing (Model, Msg(..), init, main, subscriptions, update, view)
 
-import Browser
+import Browser exposing (..)
 import Browser.Navigation as Nav
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Page exposing (..)
+import Page.Dashboard as Dashboard exposing (..)
+import Page.NotFound as NotFound exposing (..)
+import Page.Settings as Settings exposing (..)
 import Router exposing (Route(..), fromUrl, parser)
+import Session exposing (..)
 import Url
 
 
@@ -29,16 +33,15 @@ main =
 -- MODEL
 
 
-type alias Model =
-    { key : Nav.Key
-    , url : Url.Url
-    , route : Route
-    }
+type Model
+    = Dashboard Dashboard.Model
+    | Settings Settings.Model
+    | NotFound NotFound.Model
 
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model key url Dashboard, Cmd.none )
+    loadPage (Router.fromUrl url) (Dashboard { session = Session key })
 
 
 
@@ -48,6 +51,9 @@ init flags url key =
 type Msg
     = LinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
+    | GotSettingsMsg Settings.Msg
+    | GotDashboardMsg Dashboard.Msg
+    | GotNotFoundMsg NotFound.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -56,15 +62,54 @@ update msg model =
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    ( model, Nav.pushUrl model.key (Url.toString url) )
+                    ( model, Nav.pushUrl (getSession model).key (Url.toString url) )
 
                 Browser.External href ->
                     ( model, Nav.load href )
 
         UrlChanged url ->
-            ( { model | route = fromUrl url }
-            , Cmd.none
-            )
+            loadPage (fromUrl url) model
+
+        GotDashboardMsg subMsg ->
+            ( model, Cmd.none )
+
+        GotSettingsMsg subMsg ->
+            ( model, Cmd.none )
+
+        GotNotFoundMsg subMsg ->
+            ( model, Cmd.none )
+
+
+updateWith : (subModel -> Model) -> (subMsg -> Msg) -> Model -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
+updateWith toModel toMsg model ( subModel, subCmd ) =
+    ( toModel subModel
+    , Cmd.map toMsg subCmd
+    )
+
+
+getSession model =
+    case model of
+        Dashboard submodel ->
+            submodel.session
+
+        Settings submodel ->
+            submodel.session
+
+        NotFound submodel ->
+            submodel.session
+
+
+loadPage : Route -> Model -> ( Model, Cmd Msg )
+loadPage route model =
+    case route of
+        Router.NotFound ->
+            ( NotFound { session = getSession model }, Cmd.none )
+
+        Router.Dashboard ->
+            ( Dashboard { session = getSession model }, Cmd.none )
+
+        Router.Settings ->
+            ( Settings { session = getSession model, status = Settings.Loading }, Cmd.none )
 
 
 
@@ -80,6 +125,26 @@ subscriptions _ =
 -- VIEW
 
 
-view : Model -> Browser.Document Msg
+view : Model -> Document Msg
 view model =
-    Page.view { route = model.route }
+    -- All this is just to create the right type! Because Document msg != Document Msg
+    -- It was returning from the Pages, Html Pages.Settings.Msg and the view needed Main.Msg
+    let
+        viewPage toMsg page =
+            let
+                { title, body } =
+                    Page.view page
+            in
+            { title = title
+            , body = List.map (Html.map toMsg) body
+            }
+    in
+    case model of
+        Dashboard submodule ->
+            viewPage GotDashboardMsg (Dashboard.view { session = getSession model })
+
+        Settings submodule ->
+            viewPage GotSettingsMsg (Settings.view submodule)
+
+        NotFound submodule ->
+            viewPage GotNotFoundMsg (NotFound.view submodule)

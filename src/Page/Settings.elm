@@ -6,7 +6,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode as Decode exposing (Decoder, field, string)
+import Json.Decode as Decode exposing (Decoder, field, int, string)
 import Json.Decode.Pipeline exposing (required)
 import Session exposing (..)
 
@@ -18,7 +18,7 @@ import Session exposing (..)
 type Status
     = Failure
     | Loading
-    | Success GlobalSettings
+    | Success Settings
 
 
 type alias Model =
@@ -33,7 +33,7 @@ type alias Model =
 
 type Msg
     = GetSettings
-    | GotSettings (Result Http.Error GlobalSettings)
+    | GotSettings (Result Http.Error Settings)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -84,13 +84,13 @@ viewSettings model =
         Loading ->
             text "Loading..."
 
-        Success config ->
+        Success settings ->
             div []
                 [ h2 [] [ text "Got Settings!" ]
-                , text ("Config Level: " ++ config.logLevel)
-                , text ("Error Log: " ++ config.errorLog)
-                , text ("Access Log: " ++ config.accessLog)
-                , text ("Open Tracing Tracer: " ++ config.opentracingTracer)
+                , text ("Config Level: " ++ settings.global.logLevel)
+                , text ("Error Log: " ++ settings.global.errorLog)
+                , text ("Access Log: " ++ settings.global.accessLog)
+                , text ("Open Tracing Tracer: " ++ settings.global.opentracingTracer)
                 ]
 
 
@@ -98,11 +98,24 @@ viewSettings model =
 -- HTTP
 
 
+type alias Settings =
+    { global : GlobalSettings
+    }
+
+
 type alias GlobalSettings =
     { logLevel : String
     , errorLog : String
     , accessLog : String
     , opentracingTracer : String
+    , upstream : Upstream
+    }
+
+
+type alias Upstream =
+    { loadBalancer : String
+    , retry : String
+    , retry_times : Int
     }
 
 
@@ -114,13 +127,25 @@ getSettings =
         }
 
 
-settingsDecoder : Decoder GlobalSettings
+settingsDecoder : Decoder Settings
 settingsDecoder =
-    field "global"
-        (Decode.succeed
-            GlobalSettings
-            |> required "log_level" string
-            |> required "error_log" string
-            |> required "access_log" string
-            |> required "opentracing_tracer" string
-        )
+    Decode.succeed Settings |> required "global" globalSettings
+
+
+globalSettings : Decoder GlobalSettings
+globalSettings =
+    Decode.succeed
+        GlobalSettings
+        |> required "log_level" string
+        |> required "error_log" string
+        |> required "access_log" string
+        |> required "opentracing_tracer" string
+        |> required "upstream" upstreamDecoder
+
+
+upstreamDecoder : Decoder Upstream
+upstreamDecoder =
+    Decode.succeed Upstream
+        |> required "load_balancer" string
+        |> required "retry" string
+        |> required "retry_times" int

@@ -6,7 +6,8 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode exposing (Decoder, field, map4, string)
+import Json.Decode as Decode exposing (Decoder, field, string)
+import Json.Decode.Pipeline exposing (required)
 import Session exposing (..)
 
 
@@ -116,9 +117,10 @@ getSettings =
 settingsDecoder : Decoder GlobalSettings
 settingsDecoder =
     field "global"
-        (map4 GlobalSettings
-            (field "log_level" string)
-            (field "error_log" string)
-            (field "access_log" string)
-            (field "opentracing_tracer" string)
+        (Decode.succeed
+            GlobalSettings
+            |> required "log_level" string
+            |> required "error_log" string
+            |> required "access_log" string
+            |> required "opentracing_tracer" string
         )

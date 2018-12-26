@@ -2,6 +2,8 @@ module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, settings
 
 import Browser
 import Browser.Navigation as Nav
+import Bulma.Elements as Elements exposing (TitleSize(..), content, title)
+import Bulma.Modifiers exposing (Size(..))
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -66,8 +68,9 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ h2 [] [ text "Settings" ]
+    content Standard
+        []
+        [ Elements.title H2 [] [ text "Settings" ]
         , viewSettings model
         ]
 
@@ -86,8 +89,7 @@ viewSettings model =
 
         Success settings ->
             div []
-                [ h2 [] [ text "Got Settings!" ]
-                , text ("Config Level: " ++ settings.global.logLevel)
+                [ text ("Config Level: " ++ settings.global.logLevel)
                 , text ("Error Log: " ++ settings.global.errorLog)
                 , text ("Access Log: " ++ settings.global.accessLog)
                 , text ("Open Tracing Tracer: " ++ settings.global.opentracingTracer)

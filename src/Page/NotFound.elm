@@ -14,7 +14,7 @@ import Session exposing (..)
 
 
 type alias Model =
-    { session : Session }
+    {}
 
 
 type Msg

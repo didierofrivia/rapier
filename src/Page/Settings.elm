@@ -24,8 +24,7 @@ type Status
 
 
 type alias Model =
-    { session : Session
-    , status : Status
+    { status : Status
     }
 
 

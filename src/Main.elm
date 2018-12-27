@@ -33,7 +33,13 @@ main =
 -- MODEL
 
 
-type Model
+type alias Model =
+    { page : Page
+    , session : Session
+    }
+
+
+type Page
     = Dashboard Dashboard.Model
     | Settings Settings.Model
     | NotFound NotFound.Model
@@ -41,7 +47,7 @@ type Model
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    loadPage (Router.fromUrl url) (Dashboard { session = Session key })
+    loadPage (Router.fromUrl url) { page = Dashboard {}, session = Session key }
 
 
 
@@ -62,7 +68,7 @@ update msg model =
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    ( model, Nav.pushUrl (getSession model).key (Url.toString url) )
+                    ( model, Nav.pushUrl model.session.key (Url.toString url) )
 
                 Browser.External href ->
                     ( model, Nav.load href )
@@ -74,7 +80,7 @@ update msg model =
             ( model, Cmd.none )
 
         GotSettingsMsg subMsg ->
-            case model of
+            case model.page of
                 Settings modelSettings ->
                     Settings.update subMsg modelSettings
                         |> updateWith Settings GotSettingsMsg model
@@ -90,36 +96,24 @@ update msg model =
 -- This aims to craft the right Model, Msg and Cmd from submodules
 
 
-updateWith : (subModel -> Model) -> (subMsg -> Msg) -> Model -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
+updateWith : (subModel -> Page) -> (subMsg -> Msg) -> Model -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
 updateWith toModel toMsg model ( subModel, subCmd ) =
-    ( toModel subModel
+    ( { model | page = toModel subModel }
     , Cmd.map toMsg subCmd
     )
-
-
-getSession model =
-    case model of
-        Dashboard submodel ->
-            submodel.session
-
-        Settings submodel ->
-            submodel.session
-
-        NotFound submodel ->
-            submodel.session
 
 
 loadPage : Route -> Model -> ( Model, Cmd Msg )
 loadPage route model =
     case route of
         Router.NotFound ->
-            ( NotFound { session = getSession model }, Cmd.none )
+            ( { model | page = NotFound {} }, Cmd.none )
 
         Router.Dashboard ->
-            ( Dashboard { session = getSession model }, Cmd.none )
+            ( { model | page = Dashboard {} }, Cmd.none )
 
         Router.Settings ->
-            updateWith Settings GotSettingsMsg model ( { status = Settings.Loading, session = getSession model }, Settings.getSettings )
+            updateWith Settings GotSettingsMsg model ( { status = Settings.Loading }, Settings.getSettings )
 
 
 
@@ -149,9 +143,9 @@ view model =
             , body = List.map (Html.map toMsg) body
             }
     in
-    case model of
+    case model.page of
         Dashboard submodule ->
-            viewPage GotDashboardMsg (Dashboard.view { session = getSession model })
+            viewPage GotDashboardMsg (Dashboard.view submodule)
 
         Settings submodule ->
             viewPage GotSettingsMsg (Settings.view submodule)

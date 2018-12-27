@@ -150,7 +150,7 @@ view model =
         viewPage toMsg page =
             let
                 { title, body } =
-                    Page.view page
+                    Page.view page model.session.route
             in
             { title = title
             , body = List.map (Html.map toMsg) body

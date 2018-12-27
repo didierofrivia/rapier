@@ -11,6 +11,7 @@ import Bulma.Modifiers exposing (..)
 import Bulma.Modifiers.Typography exposing (textCentered)
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Router exposing (Route(..))
 
 
 
@@ -18,16 +19,21 @@ import Html.Attributes exposing (..)
 --view : Html msg -> Document msg
 
 
-view page =
+view page route =
     { title = "Rapier"
     , body =
         template
             page
+            route
     }
 
 
-headerNavbar : Html msg
-headerNavbar =
+headerNavbar : Route -> Html msg
+headerNavbar route =
+    let
+        isLinkSelectedWithRoute =
+            isLinkSelected route
+    in
     fixedNavbar Top
         navbarModifiers
         []
@@ -46,11 +52,16 @@ headerNavbar =
         , navbarMenu False
             []
             [ navbarStart []
-                [ navbarItemLink False [ href "/" ] [ text "Dashboard" ]
-                , navbarItemLink False [ href "/settings" ] [ text "Settings" ]
+                [ navbarItemLink (isLinkSelectedWithRoute Dashboard) [ href "/" ] [ text "Dashboard" ]
+                , navbarItemLink (isLinkSelectedWithRoute Settings) [ href "/settings" ] [ text "Settings" ]
                 ]
             ]
         ]
+
+
+isLinkSelected : Route -> Route -> Bool
+isLinkSelected route linkRoute =
+    route == linkRoute
 
 
 navbarModifiers =
@@ -74,10 +85,10 @@ footer =
         ]
 
 
-template : Html msg -> List (Html msg)
-template content =
+template : Html msg -> Route -> List (Html msg)
+template content route =
     [ stylesheet
-    , headerNavbar
+    , headerNavbar route
     , content
     , footer
     ]

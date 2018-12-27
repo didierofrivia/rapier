@@ -42,5 +42,5 @@ view model =
 myHeroModifiers =
     { bold = True
     , size = Standard
-    , color = Light
+    , color = Dark
     }

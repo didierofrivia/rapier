@@ -2,8 +2,12 @@ module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, settings
 
 import Browser
 import Browser.Navigation as Nav
-import Bulma.Elements as Elements exposing (TitleSize(..), content, title)
-import Bulma.Modifiers exposing (Size(..))
+import Bulma.Columns exposing (..)
+import Bulma.Components as Components exposing (..)
+import Bulma.Elements as Elements exposing (content, title)
+import Bulma.Form as Form exposing (controlInput, controlInputModifiers, controlModifiers, controlText, field, help, label)
+import Bulma.Layout as Layout exposing (..)
+import Bulma.Modifiers exposing (Color(..), Size(..), Width(..))
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -67,11 +71,9 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    content Standard
+    content Large
         []
-        [ Elements.title H2 [] [ text "Settings" ]
-        , viewSettings model
-        ]
+        [ container [] [ viewSettings model ] ]
 
 
 viewSettings : Model -> Html Msg
@@ -87,12 +89,64 @@ viewSettings model =
             text "Loading..."
 
         Success settings ->
-            div []
-                [ text ("Config Level: " ++ settings.global.logLevel)
-                , text ("Error Log: " ++ settings.global.errorLog)
-                , text ("Access Log: " ++ settings.global.accessLog)
-                , text ("Open Tracing Tracer: " ++ settings.global.opentracingTracer)
+            columns columnsModifiers
+                []
+                [ column settingsMenuColumnModifier
+                    []
+                    [ settingsMenu ]
+                , column columnModifiers
+                    []
+                    [ globalSettingsView settings.global
+                    ]
                 ]
+
+
+settingsMenuColumnModifier =
+    { columnModifiers
+        | widths =
+            { mobile = Just Auto
+            , tablet = Just Width3
+            , desktop = Just Width3
+            , widescreen = Just Width3
+            , fullHD = Just Width3
+            }
+    }
+
+
+settingsMenu : Html msg
+settingsMenu =
+    Components.menu []
+        [ menuLabel [] [ text "Settings" ]
+        , menuList []
+            [ menuListItemLink True [] [ text "Global" ]
+            , menuListItemLink False [] [ text "Servers" ]
+            , menuListItemLink False [] [ text "Routes" ]
+            ]
+        ]
+
+
+globalSettingsView : GlobalSettings -> Html msg
+globalSettingsView settings =
+    Form.field []
+        [ Form.label [] [ text "Config Level" ]
+        , controlText myControlInputModifiers [] [ value settings.logLevel ] []
+        , Form.controlHelp Default [] []
+        , Form.label [] [ text "Error Log" ]
+        , controlText myControlInputModifiers [] [ value settings.errorLog ] []
+        , Form.controlHelp Default [] []
+        , Form.label [] [ text "Access Log" ]
+        , controlText myControlInputModifiers [] [ value settings.accessLog ] []
+        , Form.controlHelp Default [] []
+        , Form.label [] [ text "Open Tracing Tracer" ]
+        , controlText myControlInputModifiers [] [ value settings.opentracingTracer ] []
+        , Form.controlHelp Default [] []
+        ]
+
+
+myControlInputModifiers =
+    { controlInputModifiers
+        | disabled = True
+    }
 
 
 

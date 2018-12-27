@@ -47,7 +47,11 @@ type Page
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    loadPage (Router.fromUrl url) { page = Dashboard {}, session = Session key }
+    let
+        route =
+            Router.fromUrl url
+    in
+    loadPage route { page = Dashboard {}, session = Session key route }
 
 
 
@@ -83,7 +87,7 @@ update msg model =
             case model.page of
                 Settings modelSettings ->
                     Settings.update subMsg modelSettings
-                        |> updateWith Settings GotSettingsMsg model
+                        |> updatePageWith Settings GotSettingsMsg model
 
                 _ ->
                     ( model, Cmd.none )
@@ -96,8 +100,8 @@ update msg model =
 -- This aims to craft the right Model, Msg and Cmd from submodules
 
 
-updateWith : (subModel -> Page) -> (subMsg -> Msg) -> Model -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
-updateWith toModel toMsg model ( subModel, subCmd ) =
+updatePageWith : (subModel -> Page) -> (subMsg -> Msg) -> Model -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
+updatePageWith toModel toMsg model ( subModel, subCmd ) =
     ( { model | page = toModel subModel }
     , Cmd.map toMsg subCmd
     )
@@ -105,15 +109,24 @@ updateWith toModel toMsg model ( subModel, subCmd ) =
 
 loadPage : Route -> Model -> ( Model, Cmd Msg )
 loadPage route model =
+    let
+        updateSessionRoute =
+            updateRoute model.session
+    in
     case route of
         Router.NotFound ->
-            ( { model | page = NotFound {} }, Cmd.none )
+            ( { model | page = NotFound {}, session = updateSessionRoute route }, Cmd.none )
 
         Router.Dashboard ->
-            ( { model | page = Dashboard {} }, Cmd.none )
+            ( { model | page = Dashboard {}, session = updateSessionRoute route }, Cmd.none )
 
         Router.Settings ->
-            updateWith Settings GotSettingsMsg model ( { status = Settings.Loading }, Settings.getSettings )
+            ( { status = Settings.Loading }, Settings.getSettings )
+                |> updatePageWith Settings GotSettingsMsg { model | session = updateSessionRoute route }
+
+
+updateRoute session route =
+    { session | route = route }
 
 
 

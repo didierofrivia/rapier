@@ -67,7 +67,7 @@ footer =
                 [ textCentered ]
                 [ p []
                     [ a [ href "https://github.com/didierofrivia/rapier" ] [ text "o-_)=rapier>" ]
-                    , text " is an Open Source project, crafted with <3 "
+                    , text " is an Open Source project, crafted with loads of <3 and c[_]"
                     ]
                 ]
             ]

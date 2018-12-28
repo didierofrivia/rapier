@@ -27,7 +27,7 @@ view model =
         []
         [ heroBody []
             [ container []
-                [ Elements.title H1 [] [ text "o-∫)=rapier>" ]
+                [ Elements.title H1 [] [ text "o-∫)= r a p i e r >" ]
                 , Elements.title H2
                     []
                     [ text "An "

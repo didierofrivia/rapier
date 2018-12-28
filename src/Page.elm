@@ -20,7 +20,7 @@ import Router exposing (Route(..))
 
 
 view page route =
-    { title = "o-∫)=rapier>"
+    { title = "o-∫)––––––"
     , body =
         template
             page
@@ -47,7 +47,7 @@ headerNavbar route =
             )
             [ navbarItemLink False
                 [ href "/" ]
-                [ text "o-∫)=rapier>" ]
+                [ text "o-∫)––––––" ]
             ]
         , navbarMenu False
             []

@@ -116,8 +116,7 @@ settingsMenuColumnModifier =
 settingsMenu : Html msg
 settingsMenu =
     Components.menu []
-        [ menuLabel [] [ text "Settings" ]
-        , menuList []
+        [ menuList []
             [ menuListItemLink True [] [ text "Global" ]
             , menuListItemLink False [] [ text "Servers" ]
             , menuListItemLink False [] [ text "Routes" ]
@@ -127,19 +126,49 @@ settingsMenu =
 
 globalSettingsView : GlobalSettings -> Html msg
 globalSettingsView settings =
-    Form.field []
-        [ Form.label [] [ text "Config Level" ]
-        , controlText myControlInputModifiers [] [ value settings.logLevel ] []
-        , Form.controlHelp Default [] []
-        , Form.label [] [ text "Error Log" ]
-        , controlText myControlInputModifiers [] [ value settings.errorLog ] []
-        , Form.controlHelp Default [] []
-        , Form.label [] [ text "Access Log" ]
-        , controlText myControlInputModifiers [] [ value settings.accessLog ] []
-        , Form.controlHelp Default [] []
-        , Form.label [] [ text "Open Tracing Tracer" ]
-        , controlText myControlInputModifiers [] [ value settings.opentracingTracer ] []
-        , Form.controlHelp Default [] []
+    Html.form [ style "margin-top" "0.5em" ]
+        [ div
+            []
+            [ h4 [] [ text "Global" ]
+            , Form.field []
+                [ Form.label [] [ text "Config Level" ]
+                , controlText myControlInputModifiers [] [ value settings.logLevel ] []
+                , Form.controlHelp Default [] []
+                ]
+            , Form.field []
+                [ Form.label [] [ text "Error Log" ]
+                , controlText myControlInputModifiers [] [ value settings.errorLog ] []
+                , Form.controlHelp Default [] []
+                ]
+            , Form.field []
+                [ Form.label [] [ text "Access Log" ]
+                , controlText myControlInputModifiers [] [ value settings.accessLog ] []
+                , Form.controlHelp Default [] []
+                ]
+            , Form.field []
+                [ Form.label [] [ text "Open Tracing Tracer" ]
+                , controlText myControlInputModifiers [] [ value settings.opentracingTracer ] []
+                , Form.controlHelp Default [] []
+                ]
+            ]
+        , div []
+            [ h5 [] [ text "Upstream" ]
+            , Form.field []
+                [ Form.label [] [ text "Load Balancer" ]
+                , controlText myControlInputModifiers [] [ value settings.upstream.loadBalancer ] []
+                , Form.controlHelp Default [] []
+                ]
+            , Form.field []
+                [ Form.label [] [ text "Retry" ]
+                , controlText myControlInputModifiers [] [ value settings.upstream.retry ] []
+                , Form.controlHelp Default [] []
+                ]
+            , Form.field []
+                [ Form.label [] [ text "Retry Times" ]
+                , controlText myControlInputModifiers [] [ value (String.fromInt settings.upstream.retryTimes) ] []
+                , Form.controlHelp Default [] []
+                ]
+            ]
         ]
 
 
@@ -170,7 +199,7 @@ type alias GlobalSettings =
 type alias Upstream =
     { loadBalancer : String
     , retry : String
-    , retry_times : Int
+    , retryTimes : Int
     }
 
 

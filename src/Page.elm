@@ -20,7 +20,7 @@ import Router exposing (Route(..))
 
 
 view page route =
-    { title = "Rapier"
+    { title = "o-∫)=rapier>"
     , body =
         template
             page
@@ -47,7 +47,7 @@ headerNavbar route =
             )
             [ navbarItemLink False
                 [ href "/" ]
-                [ text "o-_)=rapier>" ]
+                [ text "o-∫)=rapier>" ]
             ]
         , navbarMenu False
             []
@@ -77,7 +77,7 @@ footer =
             [ content Small
                 [ textCentered ]
                 [ p []
-                    [ a [ href "https://github.com/didierofrivia/rapier" ] [ text "o-_)=rapier>" ]
+                    [ a [ href "https://github.com/didierofrivia/rapier" ] [ text "o-∫)=rapier>" ]
                     , text " is an Open Source project, crafted with loads of <3 and c[_]"
                     ]
                 ]

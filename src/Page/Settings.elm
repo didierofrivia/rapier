@@ -1,4 +1,4 @@
-module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, settingsDecoder, subscriptions, update, view)
+port module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, subscriptions, update, view)
 
 import Browser
 import Browser.Navigation as Nav
@@ -8,12 +8,14 @@ import Bulma.Elements as Elements exposing (content, title)
 import Bulma.Form as Form exposing (controlInput, controlInputModifiers, controlModifiers, controlText, field, help, label)
 import Bulma.Layout as Layout exposing (..)
 import Bulma.Modifiers exposing (Color(..), Size(..), Width(..))
+import Debug exposing (log, toString)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode as Decode exposing (Decoder, field, int, string)
+import Json.Decode as Decode exposing (Decoder, decodeValue, field, int, string)
 import Json.Decode.Pipeline exposing (required)
+import Json.Encode as E
 import Session exposing (..)
 
 
@@ -50,10 +52,10 @@ update msg model =
         GotSettings result ->
             case result of
                 Ok payload ->
-                    ( { model | status = Success payload }, Cmd.none )
+                    ( { model | status = Success payload }, renderForm (E.int 42) )
 
-                Err _ ->
-                    ( { model | status = Failure }, Cmd.none )
+                Err error ->
+                    ( { model | status = Failure }, logThisShit (toString error) )
 
 
 
@@ -63,6 +65,16 @@ update msg model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
+
+
+
+-- PORTS
+
+
+port renderForm : E.Value -> Cmd msg
+
+
+port logThisShit : String -> Cmd msg
 
 
 
@@ -96,7 +108,7 @@ viewSettings model =
                     [ settingsMenu ]
                 , column columnModifiers
                     []
-                    [ globalSettingsView settings.global
+                    [ globalSettingsView settings.configuration
                     ]
                 ]
 
@@ -124,52 +136,9 @@ settingsMenu =
         ]
 
 
-globalSettingsView : GlobalSettings -> Html msg
+globalSettingsView : String -> Html msg
 globalSettingsView settings =
-    Html.form [ style "margin-top" "0.5em" ]
-        [ div
-            []
-            [ h4 [] [ text "Global" ]
-            , Form.field []
-                [ Form.label [] [ text "Config Level" ]
-                , controlText myControlInputModifiers [] [ value settings.logLevel ] []
-                , Form.controlHelp Default [] []
-                ]
-            , Form.field []
-                [ Form.label [] [ text "Error Log" ]
-                , controlText myControlInputModifiers [] [ value settings.errorLog ] []
-                , Form.controlHelp Default [] []
-                ]
-            , Form.field []
-                [ Form.label [] [ text "Access Log" ]
-                , controlText myControlInputModifiers [] [ value settings.accessLog ] []
-                , Form.controlHelp Default [] []
-                ]
-            , Form.field []
-                [ Form.label [] [ text "Open Tracing Tracer" ]
-                , controlText myControlInputModifiers [] [ value settings.opentracingTracer ] []
-                , Form.controlHelp Default [] []
-                ]
-            ]
-        , div []
-            [ h5 [] [ text "Upstream" ]
-            , Form.field []
-                [ Form.label [] [ text "Load Balancer" ]
-                , controlText myControlInputModifiers [] [ value settings.upstream.loadBalancer ] []
-                , Form.controlHelp Default [] []
-                ]
-            , Form.field []
-                [ Form.label [] [ text "Retry" ]
-                , controlText myControlInputModifiers [] [ value settings.upstream.retry ] []
-                , Form.controlHelp Default [] []
-                ]
-            , Form.field []
-                [ Form.label [] [ text "Retry Times" ]
-                , controlText myControlInputModifiers [] [ value (String.fromInt settings.upstream.retryTimes) ] []
-                , Form.controlHelp Default [] []
-                ]
-            ]
-        ]
+    Html.form [ style "margin-top" "0.5em" ] [ div [] [] ]
 
 
 myControlInputModifiers =
@@ -183,53 +152,20 @@ myControlInputModifiers =
 
 
 type alias Settings =
-    { global : GlobalSettings
-    }
-
-
-type alias GlobalSettings =
-    { logLevel : String
-    , errorLog : String
-    , accessLog : String
-    , opentracingTracer : String
-    , upstream : Upstream
-    }
-
-
-type alias Upstream =
-    { loadBalancer : String
-    , retry : String
-    , retryTimes : Int
+    { configuration : String
     }
 
 
 getSettings : Cmd Msg
 getSettings =
     Http.get
-        { url = "https://gist.githubusercontent.com/didierofrivia/de9701158b2cfddca938fd0d9c29bc91/raw/e8198ddd4e870b59a72f61eaf2b187fc0f219de5/apicast.json"
-        , expect = Http.expectJson GotSettings settingsDecoder
+        { -- url = "https://gist.githubusercontent.com/didierofrivia/de9701158b2cfddca938fd0d9c29bc91/raw/e8198ddd4e870b59a72f61eaf2b187fc0f219de5/apicast.json"
+          url = "https://raw.githubusercontent.com/3scale/APIcast/master/gateway/src/apicast/policy/echo/apicast-policy.json"
+        , expect = Http.expectJson GotSettings configurationDecoder
         }
 
 
-settingsDecoder : Decoder Settings
-settingsDecoder =
-    Decode.succeed Settings |> required "global" globalSettings
-
-
-globalSettings : Decoder GlobalSettings
-globalSettings =
-    Decode.succeed
-        GlobalSettings
-        |> required "log_level" string
-        |> required "error_log" string
-        |> required "access_log" string
-        |> required "opentracing_tracer" string
-        |> required "upstream" upstreamDecoder
-
-
-upstreamDecoder : Decoder Upstream
-upstreamDecoder =
-    Decode.succeed Upstream
-        |> required "load_balancer" string
-        |> required "retry" string
-        |> required "retry_times" int
+configurationDecoder =
+    -- Decode.succeed Settings |> required "configuration" decodeValue
+    -- field "configuration" string
+    Decode.succeed Settings |> required "configuration" string

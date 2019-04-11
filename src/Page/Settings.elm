@@ -13,8 +13,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode as Decode exposing (Decoder, decodeValue, field, int, string)
-import Json.Decode.Pipeline exposing (required)
+import Json.Decode as Decode exposing (Decoder, Value, decodeValue, field, int, string)
 import Json.Encode as E
 import Session exposing (..)
 
@@ -52,7 +51,7 @@ update msg model =
         GotSettings result ->
             case result of
                 Ok payload ->
-                    ( { model | status = Success payload }, renderForm (E.int 42) )
+                    ( { model | status = Success payload }, renderForm payload.configuration )
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
@@ -85,7 +84,22 @@ view : Model -> Html Msg
 view model =
     content Large
         []
-        [ container [] [ viewSettings model ] ]
+        [ container []
+            [ columns columnsModifiers
+                []
+                [ column columnModifiers
+                    []
+                    [ viewSettings model
+                    , viewFormContainer
+                    ]
+                ]
+            ]
+        ]
+
+
+viewFormContainer : Html Msg
+viewFormContainer =
+    div [ id "form" ] []
 
 
 viewSettings : Model -> Html Msg
@@ -101,16 +115,7 @@ viewSettings model =
             text "Loading..."
 
         Success settings ->
-            columns columnsModifiers
-                []
-                [ column settingsMenuColumnModifier
-                    []
-                    [ settingsMenu ]
-                , column columnModifiers
-                    []
-                    [ globalSettingsView settings.configuration
-                    ]
-                ]
+            globalSettingsView settings.configuration
 
 
 settingsMenuColumnModifier =
@@ -125,20 +130,9 @@ settingsMenuColumnModifier =
     }
 
 
-settingsMenu : Html msg
-settingsMenu =
-    Components.menu []
-        [ menuList []
-            [ menuListItemLink True [] [ text "Global" ]
-            , menuListItemLink False [] [ text "Servers" ]
-            , menuListItemLink False [] [ text "Routes" ]
-            ]
-        ]
-
-
-globalSettingsView : String -> Html msg
+globalSettingsView : Value -> Html msg
 globalSettingsView settings =
-    Html.form [ style "margin-top" "0.5em" ] [ div [] [] ]
+    div [ style "margin-top" "0.5em" ] [ div [] [ text (toString settings) ] ]
 
 
 myControlInputModifiers =
@@ -152,7 +146,7 @@ myControlInputModifiers =
 
 
 type alias Settings =
-    { configuration : String
+    { configuration : Value
     }
 
 
@@ -160,12 +154,10 @@ getSettings : Cmd Msg
 getSettings =
     Http.get
         { -- url = "https://gist.githubusercontent.com/didierofrivia/de9701158b2cfddca938fd0d9c29bc91/raw/e8198ddd4e870b59a72f61eaf2b187fc0f219de5/apicast.json"
-          url = "https://raw.githubusercontent.com/3scale/APIcast/master/gateway/src/apicast/policy/echo/apicast-policy.json"
+          url = "https://raw.githubusercontent.com/3scale/APIcast/master/gateway/src/apicast/policy/headers/apicast-policy.json"
         , expect = Http.expectJson GotSettings configurationDecoder
         }
 
 
 configurationDecoder =
-    -- Decode.succeed Settings |> required "configuration" decodeValue
-    -- field "configuration" string
-    Decode.succeed Settings |> required "configuration" string
+    Decode.map Settings (field "configuration" Decode.value)

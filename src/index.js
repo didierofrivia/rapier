@@ -18,7 +18,6 @@ app.ports.renderForm.subscribe(function(schema) {
           onSubmit={log("submitted")}
           onError={log("errors")} />
   ), document.getElementById("form"))
-
 })
 
 app.ports.logThisShit.subscribe(function(shit) {

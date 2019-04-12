@@ -1,9 +1,10 @@
-import './main.css'
+import './css/main.css'
 import { Elm } from './Main.elm'
 import React, { Component } from "react"
 import { render } from "react-dom"
 import Form from "react-jsonschema-form"
 import registerServiceWorker from './registerServiceWorker'
+import './css/form.css'
 
 const app = Elm.Main.init({
   node: document.getElementById('root')
@@ -17,7 +18,7 @@ app.ports.renderForm.subscribe(function(schema) {
           onChange={log("changed")}
           onSubmit={log("submitted")}
           onError={log("errors")} />
-  ), document.getElementById("form"))
+  ), document.getElementById("SettingsForm"))
 })
 
 app.ports.logThisShit.subscribe(function(shit) {

@@ -1,0 +1,5702 @@
+/*!
+ * bootswatch v3.4.1
+ * Homepage: http://bootswatch.com
+ * Copyright 2012-2019 Thomas Park
+ * Licensed under MIT
+ * Based on Bootstrap
+*/
+#SettingsForm {
+  @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+  /*!
+ * Bootstrap v3.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+}
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url("../fonts/glyphicons-halflings-regular.eot");
+  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+}
+#SettingsForm .glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#SettingsForm .glyphicon-asterisk:before {
+  content: "\002a";
+}
+#SettingsForm .glyphicon-plus:before {
+  content: "\002b";
+}
+#SettingsForm .glyphicon-euro:before,
+#SettingsForm .glyphicon-eur:before {
+  content: "\20ac";
+}
+#SettingsForm .glyphicon-minus:before {
+  content: "\2212";
+}
+#SettingsForm .glyphicon-cloud:before {
+  content: "\2601";
+}
+#SettingsForm .glyphicon-envelope:before {
+  content: "\2709";
+}
+#SettingsForm .glyphicon-pencil:before {
+  content: "\270f";
+}
+#SettingsForm .glyphicon-glass:before {
+  content: "\e001";
+}
+#SettingsForm .glyphicon-music:before {
+  content: "\e002";
+}
+#SettingsForm .glyphicon-search:before {
+  content: "\e003";
+}
+#SettingsForm .glyphicon-heart:before {
+  content: "\e005";
+}
+#SettingsForm .glyphicon-star:before {
+  content: "\e006";
+}
+#SettingsForm .glyphicon-star-empty:before {
+  content: "\e007";
+}
+#SettingsForm .glyphicon-user:before {
+  content: "\e008";
+}
+#SettingsForm .glyphicon-film:before {
+  content: "\e009";
+}
+#SettingsForm .glyphicon-th-large:before {
+  content: "\e010";
+}
+#SettingsForm .glyphicon-th:before {
+  content: "\e011";
+}
+#SettingsForm .glyphicon-th-list:before {
+  content: "\e012";
+}
+#SettingsForm .glyphicon-ok:before {
+  content: "\e013";
+}
+#SettingsForm .glyphicon-remove:before {
+  content: "\e014";
+}
+#SettingsForm .glyphicon-zoom-in:before {
+  content: "\e015";
+}
+#SettingsForm .glyphicon-zoom-out:before {
+  content: "\e016";
+}
+#SettingsForm .glyphicon-off:before {
+  content: "\e017";
+}
+#SettingsForm .glyphicon-signal:before {
+  content: "\e018";
+}
+#SettingsForm .glyphicon-cog:before {
+  content: "\e019";
+}
+#SettingsForm .glyphicon-trash:before {
+  content: "\e020";
+}
+#SettingsForm .glyphicon-home:before {
+  content: "\e021";
+}
+#SettingsForm .glyphicon-file:before {
+  content: "\e022";
+}
+#SettingsForm .glyphicon-time:before {
+  content: "\e023";
+}
+#SettingsForm .glyphicon-road:before {
+  content: "\e024";
+}
+#SettingsForm .glyphicon-download-alt:before {
+  content: "\e025";
+}
+#SettingsForm .glyphicon-download:before {
+  content: "\e026";
+}
+#SettingsForm .glyphicon-upload:before {
+  content: "\e027";
+}
+#SettingsForm .glyphicon-inbox:before {
+  content: "\e028";
+}
+#SettingsForm .glyphicon-play-circle:before {
+  content: "\e029";
+}
+#SettingsForm .glyphicon-repeat:before {
+  content: "\e030";
+}
+#SettingsForm .glyphicon-refresh:before {
+  content: "\e031";
+}
+#SettingsForm .glyphicon-list-alt:before {
+  content: "\e032";
+}
+#SettingsForm .glyphicon-lock:before {
+  content: "\e033";
+}
+#SettingsForm .glyphicon-flag:before {
+  content: "\e034";
+}
+#SettingsForm .glyphicon-headphones:before {
+  content: "\e035";
+}
+#SettingsForm .glyphicon-volume-off:before {
+  content: "\e036";
+}
+#SettingsForm .glyphicon-volume-down:before {
+  content: "\e037";
+}
+#SettingsForm .glyphicon-volume-up:before {
+  content: "\e038";
+}
+#SettingsForm .glyphicon-qrcode:before {
+  content: "\e039";
+}
+#SettingsForm .glyphicon-barcode:before {
+  content: "\e040";
+}
+#SettingsForm .glyphicon-tag:before {
+  content: "\e041";
+}
+#SettingsForm .glyphicon-tags:before {
+  content: "\e042";
+}
+#SettingsForm .glyphicon-book:before {
+  content: "\e043";
+}
+#SettingsForm .glyphicon-bookmark:before {
+  content: "\e044";
+}
+#SettingsForm .glyphicon-print:before {
+  content: "\e045";
+}
+#SettingsForm .glyphicon-camera:before {
+  content: "\e046";
+}
+#SettingsForm .glyphicon-font:before {
+  content: "\e047";
+}
+#SettingsForm .glyphicon-bold:before {
+  content: "\e048";
+}
+#SettingsForm .glyphicon-italic:before {
+  content: "\e049";
+}
+#SettingsForm .glyphicon-text-height:before {
+  content: "\e050";
+}
+#SettingsForm .glyphicon-text-width:before {
+  content: "\e051";
+}
+#SettingsForm .glyphicon-align-left:before {
+  content: "\e052";
+}
+#SettingsForm .glyphicon-align-center:before {
+  content: "\e053";
+}
+#SettingsForm .glyphicon-align-right:before {
+  content: "\e054";
+}
+#SettingsForm .glyphicon-align-justify:before {
+  content: "\e055";
+}
+#SettingsForm .glyphicon-list:before {
+  content: "\e056";
+}
+#SettingsForm .glyphicon-indent-left:before {
+  content: "\e057";
+}
+#SettingsForm .glyphicon-indent-right:before {
+  content: "\e058";
+}
+#SettingsForm .glyphicon-facetime-video:before {
+  content: "\e059";
+}
+#SettingsForm .glyphicon-picture:before {
+  content: "\e060";
+}
+#SettingsForm .glyphicon-map-marker:before {
+  content: "\e062";
+}
+#SettingsForm .glyphicon-adjust:before {
+  content: "\e063";
+}
+#SettingsForm .glyphicon-tint:before {
+  content: "\e064";
+}
+#SettingsForm .glyphicon-edit:before {
+  content: "\e065";
+}
+#SettingsForm .glyphicon-share:before {
+  content: "\e066";
+}
+#SettingsForm .glyphicon-check:before {
+  content: "\e067";
+}
+#SettingsForm .glyphicon-move:before {
+  content: "\e068";
+}
+#SettingsForm .glyphicon-step-backward:before {
+  content: "\e069";
+}
+#SettingsForm .glyphicon-fast-backward:before {
+  content: "\e070";
+}
+#SettingsForm .glyphicon-backward:before {
+  content: "\e071";
+}
+#SettingsForm .glyphicon-play:before {
+  content: "\e072";
+}
+#SettingsForm .glyphicon-pause:before {
+  content: "\e073";
+}
+#SettingsForm .glyphicon-stop:before {
+  content: "\e074";
+}
+#SettingsForm .glyphicon-forward:before {
+  content: "\e075";
+}
+#SettingsForm .glyphicon-fast-forward:before {
+  content: "\e076";
+}
+#SettingsForm .glyphicon-step-forward:before {
+  content: "\e077";
+}
+#SettingsForm .glyphicon-eject:before {
+  content: "\e078";
+}
+#SettingsForm .glyphicon-chevron-left:before {
+  content: "\e079";
+}
+#SettingsForm .glyphicon-chevron-right:before {
+  content: "\e080";
+}
+#SettingsForm .glyphicon-plus-sign:before {
+  content: "\e081";
+}
+#SettingsForm .glyphicon-minus-sign:before {
+  content: "\e082";
+}
+#SettingsForm .glyphicon-remove-sign:before {
+  content: "\e083";
+}
+#SettingsForm .glyphicon-ok-sign:before {
+  content: "\e084";
+}
+#SettingsForm .glyphicon-question-sign:before {
+  content: "\e085";
+}
+#SettingsForm .glyphicon-info-sign:before {
+  content: "\e086";
+}
+#SettingsForm .glyphicon-screenshot:before {
+  content: "\e087";
+}
+#SettingsForm .glyphicon-remove-circle:before {
+  content: "\e088";
+}
+#SettingsForm .glyphicon-ok-circle:before {
+  content: "\e089";
+}
+#SettingsForm .glyphicon-ban-circle:before {
+  content: "\e090";
+}
+#SettingsForm .glyphicon-arrow-left:before {
+  content: "\e091";
+}
+#SettingsForm .glyphicon-arrow-right:before {
+  content: "\e092";
+}
+#SettingsForm .glyphicon-arrow-up:before {
+  content: "\e093";
+}
+#SettingsForm .glyphicon-arrow-down:before {
+  content: "\e094";
+}
+#SettingsForm .glyphicon-share-alt:before {
+  content: "\e095";
+}
+#SettingsForm .glyphicon-resize-full:before {
+  content: "\e096";
+}
+#SettingsForm .glyphicon-resize-small:before {
+  content: "\e097";
+}
+#SettingsForm .glyphicon-exclamation-sign:before {
+  content: "\e101";
+}
+#SettingsForm .glyphicon-gift:before {
+  content: "\e102";
+}
+#SettingsForm .glyphicon-leaf:before {
+  content: "\e103";
+}
+#SettingsForm .glyphicon-fire:before {
+  content: "\e104";
+}
+#SettingsForm .glyphicon-eye-open:before {
+  content: "\e105";
+}
+#SettingsForm .glyphicon-eye-close:before {
+  content: "\e106";
+}
+#SettingsForm .glyphicon-warning-sign:before {
+  content: "\e107";
+}
+#SettingsForm .glyphicon-plane:before {
+  content: "\e108";
+}
+#SettingsForm .glyphicon-calendar:before {
+  content: "\e109";
+}
+#SettingsForm .glyphicon-random:before {
+  content: "\e110";
+}
+#SettingsForm .glyphicon-comment:before {
+  content: "\e111";
+}
+#SettingsForm .glyphicon-magnet:before {
+  content: "\e112";
+}
+#SettingsForm .glyphicon-chevron-up:before {
+  content: "\e113";
+}
+#SettingsForm .glyphicon-chevron-down:before {
+  content: "\e114";
+}
+#SettingsForm .glyphicon-retweet:before {
+  content: "\e115";
+}
+#SettingsForm .glyphicon-shopping-cart:before {
+  content: "\e116";
+}
+#SettingsForm .glyphicon-folder-close:before {
+  content: "\e117";
+}
+#SettingsForm .glyphicon-folder-open:before {
+  content: "\e118";
+}
+#SettingsForm .glyphicon-resize-vertical:before {
+  content: "\e119";
+}
+#SettingsForm .glyphicon-resize-horizontal:before {
+  content: "\e120";
+}
+#SettingsForm .glyphicon-hdd:before {
+  content: "\e121";
+}
+#SettingsForm .glyphicon-bullhorn:before {
+  content: "\e122";
+}
+#SettingsForm .glyphicon-bell:before {
+  content: "\e123";
+}
+#SettingsForm .glyphicon-certificate:before {
+  content: "\e124";
+}
+#SettingsForm .glyphicon-thumbs-up:before {
+  content: "\e125";
+}
+#SettingsForm .glyphicon-thumbs-down:before {
+  content: "\e126";
+}
+#SettingsForm .glyphicon-hand-right:before {
+  content: "\e127";
+}
+#SettingsForm .glyphicon-hand-left:before {
+  content: "\e128";
+}
+#SettingsForm .glyphicon-hand-up:before {
+  content: "\e129";
+}
+#SettingsForm .glyphicon-hand-down:before {
+  content: "\e130";
+}
+#SettingsForm .glyphicon-circle-arrow-right:before {
+  content: "\e131";
+}
+#SettingsForm .glyphicon-circle-arrow-left:before {
+  content: "\e132";
+}
+#SettingsForm .glyphicon-circle-arrow-up:before {
+  content: "\e133";
+}
+#SettingsForm .glyphicon-circle-arrow-down:before {
+  content: "\e134";
+}
+#SettingsForm .glyphicon-globe:before {
+  content: "\e135";
+}
+#SettingsForm .glyphicon-wrench:before {
+  content: "\e136";
+}
+#SettingsForm .glyphicon-tasks:before {
+  content: "\e137";
+}
+#SettingsForm .glyphicon-filter:before {
+  content: "\e138";
+}
+#SettingsForm .glyphicon-briefcase:before {
+  content: "\e139";
+}
+#SettingsForm .glyphicon-fullscreen:before {
+  content: "\e140";
+}
+#SettingsForm .glyphicon-dashboard:before {
+  content: "\e141";
+}
+#SettingsForm .glyphicon-paperclip:before {
+  content: "\e142";
+}
+#SettingsForm .glyphicon-heart-empty:before {
+  content: "\e143";
+}
+#SettingsForm .glyphicon-link:before {
+  content: "\e144";
+}
+#SettingsForm .glyphicon-phone:before {
+  content: "\e145";
+}
+#SettingsForm .glyphicon-pushpin:before {
+  content: "\e146";
+}
+#SettingsForm .glyphicon-usd:before {
+  content: "\e148";
+}
+#SettingsForm .glyphicon-gbp:before {
+  content: "\e149";
+}
+#SettingsForm .glyphicon-sort:before {
+  content: "\e150";
+}
+#SettingsForm .glyphicon-sort-by-alphabet:before {
+  content: "\e151";
+}
+#SettingsForm .glyphicon-sort-by-alphabet-alt:before {
+  content: "\e152";
+}
+#SettingsForm .glyphicon-sort-by-order:before {
+  content: "\e153";
+}
+#SettingsForm .glyphicon-sort-by-order-alt:before {
+  content: "\e154";
+}
+#SettingsForm .glyphicon-sort-by-attributes:before {
+  content: "\e155";
+}
+#SettingsForm .glyphicon-sort-by-attributes-alt:before {
+  content: "\e156";
+}
+#SettingsForm .glyphicon-unchecked:before {
+  content: "\e157";
+}
+#SettingsForm .glyphicon-expand:before {
+  content: "\e158";
+}
+#SettingsForm .glyphicon-collapse-down:before {
+  content: "\e159";
+}
+#SettingsForm .glyphicon-collapse-up:before {
+  content: "\e160";
+}
+#SettingsForm .glyphicon-log-in:before {
+  content: "\e161";
+}
+#SettingsForm .glyphicon-flash:before {
+  content: "\e162";
+}
+#SettingsForm .glyphicon-log-out:before {
+  content: "\e163";
+}
+#SettingsForm .glyphicon-new-window:before {
+  content: "\e164";
+}
+#SettingsForm .glyphicon-record:before {
+  content: "\e165";
+}
+#SettingsForm .glyphicon-save:before {
+  content: "\e166";
+}
+#SettingsForm .glyphicon-open:before {
+  content: "\e167";
+}
+#SettingsForm .glyphicon-saved:before {
+  content: "\e168";
+}
+#SettingsForm .glyphicon-import:before {
+  content: "\e169";
+}
+#SettingsForm .glyphicon-export:before {
+  content: "\e170";
+}
+#SettingsForm .glyphicon-send:before {
+  content: "\e171";
+}
+#SettingsForm .glyphicon-floppy-disk:before {
+  content: "\e172";
+}
+#SettingsForm .glyphicon-floppy-saved:before {
+  content: "\e173";
+}
+#SettingsForm .glyphicon-floppy-remove:before {
+  content: "\e174";
+}
+#SettingsForm .glyphicon-floppy-save:before {
+  content: "\e175";
+}
+#SettingsForm .glyphicon-floppy-open:before {
+  content: "\e176";
+}
+#SettingsForm .glyphicon-credit-card:before {
+  content: "\e177";
+}
+#SettingsForm .glyphicon-transfer:before {
+  content: "\e178";
+}
+#SettingsForm .glyphicon-cutlery:before {
+  content: "\e179";
+}
+#SettingsForm .glyphicon-header:before {
+  content: "\e180";
+}
+#SettingsForm .glyphicon-compressed:before {
+  content: "\e181";
+}
+#SettingsForm .glyphicon-earphone:before {
+  content: "\e182";
+}
+#SettingsForm .glyphicon-phone-alt:before {
+  content: "\e183";
+}
+#SettingsForm .glyphicon-tower:before {
+  content: "\e184";
+}
+#SettingsForm .glyphicon-stats:before {
+  content: "\e185";
+}
+#SettingsForm .glyphicon-sd-video:before {
+  content: "\e186";
+}
+#SettingsForm .glyphicon-hd-video:before {
+  content: "\e187";
+}
+#SettingsForm .glyphicon-subtitles:before {
+  content: "\e188";
+}
+#SettingsForm .glyphicon-sound-stereo:before {
+  content: "\e189";
+}
+#SettingsForm .glyphicon-sound-dolby:before {
+  content: "\e190";
+}
+#SettingsForm .glyphicon-sound-5-1:before {
+  content: "\e191";
+}
+#SettingsForm .glyphicon-sound-6-1:before {
+  content: "\e192";
+}
+#SettingsForm .glyphicon-sound-7-1:before {
+  content: "\e193";
+}
+#SettingsForm .glyphicon-copyright-mark:before {
+  content: "\e194";
+}
+#SettingsForm .glyphicon-registration-mark:before {
+  content: "\e195";
+}
+#SettingsForm .glyphicon-cloud-download:before {
+  content: "\e197";
+}
+#SettingsForm .glyphicon-cloud-upload:before {
+  content: "\e198";
+}
+#SettingsForm .glyphicon-tree-conifer:before {
+  content: "\e199";
+}
+#SettingsForm .glyphicon-tree-deciduous:before {
+  content: "\e200";
+}
+#SettingsForm .glyphicon-cd:before {
+  content: "\e201";
+}
+#SettingsForm .glyphicon-save-file:before {
+  content: "\e202";
+}
+#SettingsForm .glyphicon-open-file:before {
+  content: "\e203";
+}
+#SettingsForm .glyphicon-level-up:before {
+  content: "\e204";
+}
+#SettingsForm .glyphicon-copy:before {
+  content: "\e205";
+}
+#SettingsForm .glyphicon-paste:before {
+  content: "\e206";
+}
+#SettingsForm .glyphicon-alert:before {
+  content: "\e209";
+}
+#SettingsForm .glyphicon-equalizer:before {
+  content: "\e210";
+}
+#SettingsForm .glyphicon-king:before {
+  content: "\e211";
+}
+#SettingsForm .glyphicon-queen:before {
+  content: "\e212";
+}
+#SettingsForm .glyphicon-pawn:before {
+  content: "\e213";
+}
+#SettingsForm .glyphicon-bishop:before {
+  content: "\e214";
+}
+#SettingsForm .glyphicon-knight:before {
+  content: "\e215";
+}
+#SettingsForm .glyphicon-baby-formula:before {
+  content: "\e216";
+}
+#SettingsForm .glyphicon-tent:before {
+  content: "\26fa";
+}
+#SettingsForm .glyphicon-blackboard:before {
+  content: "\e218";
+}
+#SettingsForm .glyphicon-bed:before {
+  content: "\e219";
+}
+#SettingsForm .glyphicon-apple:before {
+  content: "\f8ff";
+}
+#SettingsForm .glyphicon-erase:before {
+  content: "\e221";
+}
+#SettingsForm .glyphicon-hourglass:before {
+  content: "\231b";
+}
+#SettingsForm .glyphicon-lamp:before {
+  content: "\e223";
+}
+#SettingsForm .glyphicon-duplicate:before {
+  content: "\e224";
+}
+#SettingsForm .glyphicon-piggy-bank:before {
+  content: "\e225";
+}
+#SettingsForm .glyphicon-scissors:before {
+  content: "\e226";
+}
+#SettingsForm .glyphicon-bitcoin:before {
+  content: "\e227";
+}
+#SettingsForm .glyphicon-btc:before {
+  content: "\e227";
+}
+#SettingsForm .glyphicon-xbt:before {
+  content: "\e227";
+}
+#SettingsForm .glyphicon-yen:before {
+  content: "\00a5";
+}
+#SettingsForm .glyphicon-jpy:before {
+  content: "\00a5";
+}
+#SettingsForm .glyphicon-ruble:before {
+  content: "\20bd";
+}
+#SettingsForm .glyphicon-rub:before {
+  content: "\20bd";
+}
+#SettingsForm .glyphicon-scale:before {
+  content: "\e230";
+}
+#SettingsForm .glyphicon-ice-lolly:before {
+  content: "\e231";
+}
+#SettingsForm .glyphicon-ice-lolly-tasted:before {
+  content: "\e232";
+}
+#SettingsForm .glyphicon-education:before {
+  content: "\e233";
+}
+#SettingsForm .glyphicon-option-horizontal:before {
+  content: "\e234";
+}
+#SettingsForm .glyphicon-option-vertical:before {
+  content: "\e235";
+}
+#SettingsForm .glyphicon-menu-hamburger:before {
+  content: "\e236";
+}
+#SettingsForm .glyphicon-modal-window:before {
+  content: "\e237";
+}
+#SettingsForm .glyphicon-oil:before {
+  content: "\e238";
+}
+#SettingsForm .glyphicon-grain:before {
+  content: "\e239";
+}
+#SettingsForm .glyphicon-sunglasses:before {
+  content: "\e240";
+}
+#SettingsForm .glyphicon-text-size:before {
+  content: "\e241";
+}
+#SettingsForm .glyphicon-text-color:before {
+  content: "\e242";
+}
+#SettingsForm .glyphicon-text-background:before {
+  content: "\e243";
+}
+#SettingsForm .glyphicon-object-align-top:before {
+  content: "\e244";
+}
+#SettingsForm .glyphicon-object-align-bottom:before {
+  content: "\e245";
+}
+#SettingsForm .glyphicon-object-align-horizontal:before {
+  content: "\e246";
+}
+#SettingsForm .glyphicon-object-align-left:before {
+  content: "\e247";
+}
+#SettingsForm .glyphicon-object-align-vertical:before {
+  content: "\e248";
+}
+#SettingsForm .glyphicon-object-align-right:before {
+  content: "\e249";
+}
+#SettingsForm .glyphicon-triangle-right:before {
+  content: "\e250";
+}
+#SettingsForm .glyphicon-triangle-left:before {
+  content: "\e251";
+}
+#SettingsForm .glyphicon-triangle-bottom:before {
+  content: "\e252";
+}
+#SettingsForm .glyphicon-triangle-top:before {
+  content: "\e253";
+}
+#SettingsForm .glyphicon-console:before {
+  content: "\e254";
+}
+#SettingsForm .glyphicon-superscript:before {
+  content: "\e255";
+}
+#SettingsForm .glyphicon-subscript:before {
+  content: "\e256";
+}
+#SettingsForm .glyphicon-menu-left:before {
+  content: "\e257";
+}
+#SettingsForm .glyphicon-menu-right:before {
+  content: "\e258";
+}
+#SettingsForm .glyphicon-menu-down:before {
+  content: "\e259";
+}
+#SettingsForm .glyphicon-menu-up:before {
+  content: "\e260";
+}
+#SettingsForm * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#SettingsForm *:before,
+#SettingsForm *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#SettingsForm html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+#SettingsForm body {
+  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+}
+#SettingsForm input,
+#SettingsForm button,
+#SettingsForm select,
+#SettingsForm textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+#SettingsForm a {
+  color: #2780e3;
+  text-decoration: none;
+}
+#SettingsForm a:hover,
+#SettingsForm a:focus {
+  color: #165ba8;
+  text-decoration: underline;
+}
+#SettingsForm a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#SettingsForm figure {
+  margin: 0;
+}
+#SettingsForm img {
+  vertical-align: middle;
+}
+#SettingsForm .img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+#SettingsForm .img-rounded {
+  border-radius: 0;
+}
+#SettingsForm .img-thumbnail {
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+#SettingsForm .img-circle {
+  border-radius: 50%;
+}
+#SettingsForm hr {
+  margin-top: 21px;
+  margin-bottom: 21px;
+  border: 0;
+  border-top: 1px solid #e6e6e6;
+}
+#SettingsForm .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+#SettingsForm .sr-only-focusable:active,
+#SettingsForm .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+#SettingsForm [role="button"] {
+  cursor: pointer;
+}
+#SettingsForm h1,
+#SettingsForm h2,
+#SettingsForm h3,
+#SettingsForm h4,
+#SettingsForm h5,
+#SettingsForm h6,
+#SettingsForm .h1,
+#SettingsForm .h2,
+#SettingsForm .h3,
+#SettingsForm .h4,
+#SettingsForm .h5,
+#SettingsForm .h6 {
+  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
+}
+#SettingsForm h1 small,
+#SettingsForm h2 small,
+#SettingsForm h3 small,
+#SettingsForm h4 small,
+#SettingsForm h5 small,
+#SettingsForm h6 small,
+#SettingsForm .h1 small,
+#SettingsForm .h2 small,
+#SettingsForm .h3 small,
+#SettingsForm .h4 small,
+#SettingsForm .h5 small,
+#SettingsForm .h6 small,
+#SettingsForm h1 .small,
+#SettingsForm h2 .small,
+#SettingsForm h3 .small,
+#SettingsForm h4 .small,
+#SettingsForm h5 .small,
+#SettingsForm h6 .small,
+#SettingsForm .h1 .small,
+#SettingsForm .h2 .small,
+#SettingsForm .h3 .small,
+#SettingsForm .h4 .small,
+#SettingsForm .h5 .small,
+#SettingsForm .h6 .small {
+  font-weight: 400;
+  line-height: 1;
+  color: #999999;
+}
+#SettingsForm h1,
+#SettingsForm .h1,
+#SettingsForm h2,
+#SettingsForm .h2,
+#SettingsForm h3,
+#SettingsForm .h3 {
+  margin-top: 21px;
+  margin-bottom: 10.5px;
+}
+#SettingsForm h1 small,
+#SettingsForm .h1 small,
+#SettingsForm h2 small,
+#SettingsForm .h2 small,
+#SettingsForm h3 small,
+#SettingsForm .h3 small,
+#SettingsForm h1 .small,
+#SettingsForm .h1 .small,
+#SettingsForm h2 .small,
+#SettingsForm .h2 .small,
+#SettingsForm h3 .small,
+#SettingsForm .h3 .small {
+  font-size: 65%;
+}
+#SettingsForm h4,
+#SettingsForm .h4,
+#SettingsForm h5,
+#SettingsForm .h5,
+#SettingsForm h6,
+#SettingsForm .h6 {
+  margin-top: 10.5px;
+  margin-bottom: 10.5px;
+}
+#SettingsForm h4 small,
+#SettingsForm .h4 small,
+#SettingsForm h5 small,
+#SettingsForm .h5 small,
+#SettingsForm h6 small,
+#SettingsForm .h6 small,
+#SettingsForm h4 .small,
+#SettingsForm .h4 .small,
+#SettingsForm h5 .small,
+#SettingsForm .h5 .small,
+#SettingsForm h6 .small,
+#SettingsForm .h6 .small {
+  font-size: 75%;
+}
+#SettingsForm h1,
+#SettingsForm .h1 {
+  font-size: 39px;
+}
+#SettingsForm h2,
+#SettingsForm .h2 {
+  font-size: 32px;
+}
+#SettingsForm h3,
+#SettingsForm .h3 {
+  font-size: 26px;
+}
+#SettingsForm h4,
+#SettingsForm .h4 {
+  font-size: 19px;
+}
+#SettingsForm h5,
+#SettingsForm .h5 {
+  font-size: 15px;
+}
+#SettingsForm h6,
+#SettingsForm .h6 {
+  font-size: 13px;
+}
+#SettingsForm p {
+  margin: 0 0 10.5px;
+}
+#SettingsForm .lead {
+  margin-bottom: 21px;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  #SettingsForm .lead {
+    font-size: 22.5px;
+  }
+}
+#SettingsForm small,
+#SettingsForm .small {
+  font-size: 86%;
+}
+#SettingsForm mark,
+#SettingsForm .mark {
+  padding: .2em;
+  background-color: #ff7518;
+}
+#SettingsForm .text-left {
+  text-align: left;
+}
+#SettingsForm .text-right {
+  text-align: right;
+}
+#SettingsForm .text-center {
+  text-align: center;
+}
+#SettingsForm .text-justify {
+  text-align: justify;
+}
+#SettingsForm .text-nowrap {
+  white-space: nowrap;
+}
+#SettingsForm .text-lowercase {
+  text-transform: lowercase;
+}
+#SettingsForm .text-uppercase {
+  text-transform: uppercase;
+}
+#SettingsForm .text-capitalize {
+  text-transform: capitalize;
+}
+#SettingsForm .text-muted {
+  color: #999999;
+}
+#SettingsForm .text-primary {
+  color: #2780e3;
+}
+#SettingsForm a.text-primary:hover,
+#SettingsForm a.text-primary:focus {
+  color: #1967be;
+}
+#SettingsForm .text-success {
+  color: #ffffff;
+}
+#SettingsForm a.text-success:hover,
+#SettingsForm a.text-success:focus {
+  color: #e6e6e6;
+}
+#SettingsForm .text-info {
+  color: #ffffff;
+}
+#SettingsForm a.text-info:hover,
+#SettingsForm a.text-info:focus {
+  color: #e6e6e6;
+}
+#SettingsForm .text-warning {
+  color: #ffffff;
+}
+#SettingsForm a.text-warning:hover,
+#SettingsForm a.text-warning:focus {
+  color: #e6e6e6;
+}
+#SettingsForm .text-danger {
+  color: #ffffff;
+}
+#SettingsForm a.text-danger:hover,
+#SettingsForm a.text-danger:focus {
+  color: #e6e6e6;
+}
+#SettingsForm .bg-primary {
+  color: #fff;
+  background-color: #2780e3;
+}
+#SettingsForm a.bg-primary:hover,
+#SettingsForm a.bg-primary:focus {
+  background-color: #1967be;
+}
+#SettingsForm .bg-success {
+  background-color: #3fb618;
+}
+#SettingsForm a.bg-success:hover,
+#SettingsForm a.bg-success:focus {
+  background-color: #2f8912;
+}
+#SettingsForm .bg-info {
+  background-color: #064e9f;
+}
+#SettingsForm a.bg-info:hover,
+#SettingsForm a.bg-info:focus {
+  background-color: #04366e;
+}
+#SettingsForm .bg-warning {
+  background-color: #ff7518;
+}
+#SettingsForm a.bg-warning:hover,
+#SettingsForm a.bg-warning:focus {
+  background-color: #e45c00;
+}
+#SettingsForm .bg-danger {
+  background-color: #ff0039;
+}
+#SettingsForm a.bg-danger:hover,
+#SettingsForm a.bg-danger:focus {
+  background-color: #cc002e;
+}
+#SettingsForm .page-header {
+  padding-bottom: 9.5px;
+  margin: 42px 0 21px;
+  border-bottom: 1px solid #e6e6e6;
+}
+#SettingsForm ul,
+#SettingsForm ol {
+  margin-top: 0;
+  margin-bottom: 10.5px;
+}
+#SettingsForm ul ul,
+#SettingsForm ol ul,
+#SettingsForm ul ol,
+#SettingsForm ol ol {
+  margin-bottom: 0;
+}
+#SettingsForm .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+#SettingsForm .list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
+#SettingsForm .list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+#SettingsForm dl {
+  margin-top: 0;
+  margin-bottom: 21px;
+}
+#SettingsForm dt,
+#SettingsForm dd {
+  line-height: 1.42857143;
+}
+#SettingsForm dt {
+  font-weight: 700;
+}
+#SettingsForm dd {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  #SettingsForm .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #SettingsForm .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+#SettingsForm abbr[title],
+#SettingsForm abbr[data-original-title] {
+  cursor: help;
+}
+#SettingsForm .initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+#SettingsForm blockquote {
+  padding: 10.5px 21px;
+  margin: 0 0 21px;
+  font-size: 18.75px;
+  border-left: 5px solid #e6e6e6;
+}
+#SettingsForm blockquote p:last-child,
+#SettingsForm blockquote ul:last-child,
+#SettingsForm blockquote ol:last-child {
+  margin-bottom: 0;
+}
+#SettingsForm blockquote footer,
+#SettingsForm blockquote small,
+#SettingsForm blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: #999999;
+}
+#SettingsForm blockquote footer:before,
+#SettingsForm blockquote small:before,
+#SettingsForm blockquote .small:before {
+  content: "\2014 \00A0";
+}
+#SettingsForm .blockquote-reverse,
+#SettingsForm blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  text-align: right;
+  border-right: 5px solid #e6e6e6;
+  border-left: 0;
+}
+#SettingsForm .blockquote-reverse footer:before,
+#SettingsForm blockquote.pull-right footer:before,
+#SettingsForm .blockquote-reverse small:before,
+#SettingsForm blockquote.pull-right small:before,
+#SettingsForm .blockquote-reverse .small:before,
+#SettingsForm blockquote.pull-right .small:before {
+  content: "";
+}
+#SettingsForm .blockquote-reverse footer:after,
+#SettingsForm blockquote.pull-right footer:after,
+#SettingsForm .blockquote-reverse small:after,
+#SettingsForm blockquote.pull-right small:after,
+#SettingsForm .blockquote-reverse .small:after,
+#SettingsForm blockquote.pull-right .small:after {
+  content: "\00A0 \2014";
+}
+#SettingsForm address {
+  margin-bottom: 21px;
+  font-style: normal;
+  line-height: 1.42857143;
+}
+#SettingsForm code,
+#SettingsForm kbd,
+#SettingsForm pre,
+#SettingsForm samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+#SettingsForm code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 0;
+}
+#SettingsForm kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #ffffff;
+  background-color: #333333;
+  border-radius: 0;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+#SettingsForm kbd kbd {
+  padding: 0;
+  font-size: 100%;
+  font-weight: 700;
+  box-shadow: none;
+}
+#SettingsForm pre {
+  display: block;
+  padding: 10px;
+  margin: 0 0 10.5px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+}
+#SettingsForm pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+#SettingsForm .pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+#SettingsForm .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  #SettingsForm .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #SettingsForm .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  #SettingsForm .container {
+    width: 1170px;
+  }
+}
+#SettingsForm .container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#SettingsForm .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+#SettingsForm .row-no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+#SettingsForm .row-no-gutters [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+#SettingsForm .col-xs-1,
+#SettingsForm .col-sm-1,
+#SettingsForm .col-md-1,
+#SettingsForm .col-lg-1,
+#SettingsForm .col-xs-2,
+#SettingsForm .col-sm-2,
+#SettingsForm .col-md-2,
+#SettingsForm .col-lg-2,
+#SettingsForm .col-xs-3,
+#SettingsForm .col-sm-3,
+#SettingsForm .col-md-3,
+#SettingsForm .col-lg-3,
+#SettingsForm .col-xs-4,
+#SettingsForm .col-sm-4,
+#SettingsForm .col-md-4,
+#SettingsForm .col-lg-4,
+#SettingsForm .col-xs-5,
+#SettingsForm .col-sm-5,
+#SettingsForm .col-md-5,
+#SettingsForm .col-lg-5,
+#SettingsForm .col-xs-6,
+#SettingsForm .col-sm-6,
+#SettingsForm .col-md-6,
+#SettingsForm .col-lg-6,
+#SettingsForm .col-xs-7,
+#SettingsForm .col-sm-7,
+#SettingsForm .col-md-7,
+#SettingsForm .col-lg-7,
+#SettingsForm .col-xs-8,
+#SettingsForm .col-sm-8,
+#SettingsForm .col-md-8,
+#SettingsForm .col-lg-8,
+#SettingsForm .col-xs-9,
+#SettingsForm .col-sm-9,
+#SettingsForm .col-md-9,
+#SettingsForm .col-lg-9,
+#SettingsForm .col-xs-10,
+#SettingsForm .col-sm-10,
+#SettingsForm .col-md-10,
+#SettingsForm .col-lg-10,
+#SettingsForm .col-xs-11,
+#SettingsForm .col-sm-11,
+#SettingsForm .col-md-11,
+#SettingsForm .col-lg-11,
+#SettingsForm .col-xs-12,
+#SettingsForm .col-sm-12,
+#SettingsForm .col-md-12,
+#SettingsForm .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#SettingsForm .col-xs-1,
+#SettingsForm .col-xs-2,
+#SettingsForm .col-xs-3,
+#SettingsForm .col-xs-4,
+#SettingsForm .col-xs-5,
+#SettingsForm .col-xs-6,
+#SettingsForm .col-xs-7,
+#SettingsForm .col-xs-8,
+#SettingsForm .col-xs-9,
+#SettingsForm .col-xs-10,
+#SettingsForm .col-xs-11,
+#SettingsForm .col-xs-12 {
+  float: left;
+}
+#SettingsForm .col-xs-12 {
+  width: 100%;
+}
+#SettingsForm .col-xs-11 {
+  width: 91.66666667%;
+}
+#SettingsForm .col-xs-10 {
+  width: 83.33333333%;
+}
+#SettingsForm .col-xs-9 {
+  width: 75%;
+}
+#SettingsForm .col-xs-8 {
+  width: 66.66666667%;
+}
+#SettingsForm .col-xs-7 {
+  width: 58.33333333%;
+}
+#SettingsForm .col-xs-6 {
+  width: 50%;
+}
+#SettingsForm .col-xs-5 {
+  width: 41.66666667%;
+}
+#SettingsForm .col-xs-4 {
+  width: 33.33333333%;
+}
+#SettingsForm .col-xs-3 {
+  width: 25%;
+}
+#SettingsForm .col-xs-2 {
+  width: 16.66666667%;
+}
+#SettingsForm .col-xs-1 {
+  width: 8.33333333%;
+}
+#SettingsForm .col-xs-pull-12 {
+  right: 100%;
+}
+#SettingsForm .col-xs-pull-11 {
+  right: 91.66666667%;
+}
+#SettingsForm .col-xs-pull-10 {
+  right: 83.33333333%;
+}
+#SettingsForm .col-xs-pull-9 {
+  right: 75%;
+}
+#SettingsForm .col-xs-pull-8 {
+  right: 66.66666667%;
+}
+#SettingsForm .col-xs-pull-7 {
+  right: 58.33333333%;
+}
+#SettingsForm .col-xs-pull-6 {
+  right: 50%;
+}
+#SettingsForm .col-xs-pull-5 {
+  right: 41.66666667%;
+}
+#SettingsForm .col-xs-pull-4 {
+  right: 33.33333333%;
+}
+#SettingsForm .col-xs-pull-3 {
+  right: 25%;
+}
+#SettingsForm .col-xs-pull-2 {
+  right: 16.66666667%;
+}
+#SettingsForm .col-xs-pull-1 {
+  right: 8.33333333%;
+}
+#SettingsForm .col-xs-pull-0 {
+  right: auto;
+}
+#SettingsForm .col-xs-push-12 {
+  left: 100%;
+}
+#SettingsForm .col-xs-push-11 {
+  left: 91.66666667%;
+}
+#SettingsForm .col-xs-push-10 {
+  left: 83.33333333%;
+}
+#SettingsForm .col-xs-push-9 {
+  left: 75%;
+}
+#SettingsForm .col-xs-push-8 {
+  left: 66.66666667%;
+}
+#SettingsForm .col-xs-push-7 {
+  left: 58.33333333%;
+}
+#SettingsForm .col-xs-push-6 {
+  left: 50%;
+}
+#SettingsForm .col-xs-push-5 {
+  left: 41.66666667%;
+}
+#SettingsForm .col-xs-push-4 {
+  left: 33.33333333%;
+}
+#SettingsForm .col-xs-push-3 {
+  left: 25%;
+}
+#SettingsForm .col-xs-push-2 {
+  left: 16.66666667%;
+}
+#SettingsForm .col-xs-push-1 {
+  left: 8.33333333%;
+}
+#SettingsForm .col-xs-push-0 {
+  left: auto;
+}
+#SettingsForm .col-xs-offset-12 {
+  margin-left: 100%;
+}
+#SettingsForm .col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+#SettingsForm .col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+#SettingsForm .col-xs-offset-9 {
+  margin-left: 75%;
+}
+#SettingsForm .col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+#SettingsForm .col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+#SettingsForm .col-xs-offset-6 {
+  margin-left: 50%;
+}
+#SettingsForm .col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+#SettingsForm .col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+#SettingsForm .col-xs-offset-3 {
+  margin-left: 25%;
+}
+#SettingsForm .col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+#SettingsForm .col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+#SettingsForm .col-xs-offset-0 {
+  margin-left: 0%;
+}
+@media (min-width: 768px) {
+  #SettingsForm .col-sm-1,
+  #SettingsForm .col-sm-2,
+  #SettingsForm .col-sm-3,
+  #SettingsForm .col-sm-4,
+  #SettingsForm .col-sm-5,
+  #SettingsForm .col-sm-6,
+  #SettingsForm .col-sm-7,
+  #SettingsForm .col-sm-8,
+  #SettingsForm .col-sm-9,
+  #SettingsForm .col-sm-10,
+  #SettingsForm .col-sm-11,
+  #SettingsForm .col-sm-12 {
+    float: left;
+  }
+  #SettingsForm .col-sm-12 {
+    width: 100%;
+  }
+  #SettingsForm .col-sm-11 {
+    width: 91.66666667%;
+  }
+  #SettingsForm .col-sm-10 {
+    width: 83.33333333%;
+  }
+  #SettingsForm .col-sm-9 {
+    width: 75%;
+  }
+  #SettingsForm .col-sm-8 {
+    width: 66.66666667%;
+  }
+  #SettingsForm .col-sm-7 {
+    width: 58.33333333%;
+  }
+  #SettingsForm .col-sm-6 {
+    width: 50%;
+  }
+  #SettingsForm .col-sm-5 {
+    width: 41.66666667%;
+  }
+  #SettingsForm .col-sm-4 {
+    width: 33.33333333%;
+  }
+  #SettingsForm .col-sm-3 {
+    width: 25%;
+  }
+  #SettingsForm .col-sm-2 {
+    width: 16.66666667%;
+  }
+  #SettingsForm .col-sm-1 {
+    width: 8.33333333%;
+  }
+  #SettingsForm .col-sm-pull-12 {
+    right: 100%;
+  }
+  #SettingsForm .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  #SettingsForm .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  #SettingsForm .col-sm-pull-9 {
+    right: 75%;
+  }
+  #SettingsForm .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  #SettingsForm .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  #SettingsForm .col-sm-pull-6 {
+    right: 50%;
+  }
+  #SettingsForm .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  #SettingsForm .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  #SettingsForm .col-sm-pull-3 {
+    right: 25%;
+  }
+  #SettingsForm .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  #SettingsForm .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  #SettingsForm .col-sm-pull-0 {
+    right: auto;
+  }
+  #SettingsForm .col-sm-push-12 {
+    left: 100%;
+  }
+  #SettingsForm .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  #SettingsForm .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  #SettingsForm .col-sm-push-9 {
+    left: 75%;
+  }
+  #SettingsForm .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  #SettingsForm .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  #SettingsForm .col-sm-push-6 {
+    left: 50%;
+  }
+  #SettingsForm .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  #SettingsForm .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  #SettingsForm .col-sm-push-3 {
+    left: 25%;
+  }
+  #SettingsForm .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  #SettingsForm .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  #SettingsForm .col-sm-push-0 {
+    left: auto;
+  }
+  #SettingsForm .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  #SettingsForm .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  #SettingsForm .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  #SettingsForm .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  #SettingsForm .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  #SettingsForm .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  #SettingsForm .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  #SettingsForm .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  #SettingsForm .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  #SettingsForm .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  #SettingsForm .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  #SettingsForm .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  #SettingsForm .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+}
+@media (min-width: 992px) {
+  #SettingsForm .col-md-1,
+  #SettingsForm .col-md-2,
+  #SettingsForm .col-md-3,
+  #SettingsForm .col-md-4,
+  #SettingsForm .col-md-5,
+  #SettingsForm .col-md-6,
+  #SettingsForm .col-md-7,
+  #SettingsForm .col-md-8,
+  #SettingsForm .col-md-9,
+  #SettingsForm .col-md-10,
+  #SettingsForm .col-md-11,
+  #SettingsForm .col-md-12 {
+    float: left;
+  }
+  #SettingsForm .col-md-12 {
+    width: 100%;
+  }
+  #SettingsForm .col-md-11 {
+    width: 91.66666667%;
+  }
+  #SettingsForm .col-md-10 {
+    width: 83.33333333%;
+  }
+  #SettingsForm .col-md-9 {
+    width: 75%;
+  }
+  #SettingsForm .col-md-8 {
+    width: 66.66666667%;
+  }
+  #SettingsForm .col-md-7 {
+    width: 58.33333333%;
+  }
+  #SettingsForm .col-md-6 {
+    width: 50%;
+  }
+  #SettingsForm .col-md-5 {
+    width: 41.66666667%;
+  }
+  #SettingsForm .col-md-4 {
+    width: 33.33333333%;
+  }
+  #SettingsForm .col-md-3 {
+    width: 25%;
+  }
+  #SettingsForm .col-md-2 {
+    width: 16.66666667%;
+  }
+  #SettingsForm .col-md-1 {
+    width: 8.33333333%;
+  }
+  #SettingsForm .col-md-pull-12 {
+    right: 100%;
+  }
+  #SettingsForm .col-md-pull-11 {
+    right: 91.66666667%;
+  }
+  #SettingsForm .col-md-pull-10 {
+    right: 83.33333333%;
+  }
+  #SettingsForm .col-md-pull-9 {
+    right: 75%;
+  }
+  #SettingsForm .col-md-pull-8 {
+    right: 66.66666667%;
+  }
+  #SettingsForm .col-md-pull-7 {
+    right: 58.33333333%;
+  }
+  #SettingsForm .col-md-pull-6 {
+    right: 50%;
+  }
+  #SettingsForm .col-md-pull-5 {
+    right: 41.66666667%;
+  }
+  #SettingsForm .col-md-pull-4 {
+    right: 33.33333333%;
+  }
+  #SettingsForm .col-md-pull-3 {
+    right: 25%;
+  }
+  #SettingsForm .col-md-pull-2 {
+    right: 16.66666667%;
+  }
+  #SettingsForm .col-md-pull-1 {
+    right: 8.33333333%;
+  }
+  #SettingsForm .col-md-pull-0 {
+    right: auto;
+  }
+  #SettingsForm .col-md-push-12 {
+    left: 100%;
+  }
+  #SettingsForm .col-md-push-11 {
+    left: 91.66666667%;
+  }
+  #SettingsForm .col-md-push-10 {
+    left: 83.33333333%;
+  }
+  #SettingsForm .col-md-push-9 {
+    left: 75%;
+  }
+  #SettingsForm .col-md-push-8 {
+    left: 66.66666667%;
+  }
+  #SettingsForm .col-md-push-7 {
+    left: 58.33333333%;
+  }
+  #SettingsForm .col-md-push-6 {
+    left: 50%;
+  }
+  #SettingsForm .col-md-push-5 {
+    left: 41.66666667%;
+  }
+  #SettingsForm .col-md-push-4 {
+    left: 33.33333333%;
+  }
+  #SettingsForm .col-md-push-3 {
+    left: 25%;
+  }
+  #SettingsForm .col-md-push-2 {
+    left: 16.66666667%;
+  }
+  #SettingsForm .col-md-push-1 {
+    left: 8.33333333%;
+  }
+  #SettingsForm .col-md-push-0 {
+    left: auto;
+  }
+  #SettingsForm .col-md-offset-12 {
+    margin-left: 100%;
+  }
+  #SettingsForm .col-md-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  #SettingsForm .col-md-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  #SettingsForm .col-md-offset-9 {
+    margin-left: 75%;
+  }
+  #SettingsForm .col-md-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  #SettingsForm .col-md-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  #SettingsForm .col-md-offset-6 {
+    margin-left: 50%;
+  }
+  #SettingsForm .col-md-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  #SettingsForm .col-md-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  #SettingsForm .col-md-offset-3 {
+    margin-left: 25%;
+  }
+  #SettingsForm .col-md-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  #SettingsForm .col-md-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  #SettingsForm .col-md-offset-0 {
+    margin-left: 0%;
+  }
+}
+@media (min-width: 1200px) {
+  #SettingsForm .col-lg-1,
+  #SettingsForm .col-lg-2,
+  #SettingsForm .col-lg-3,
+  #SettingsForm .col-lg-4,
+  #SettingsForm .col-lg-5,
+  #SettingsForm .col-lg-6,
+  #SettingsForm .col-lg-7,
+  #SettingsForm .col-lg-8,
+  #SettingsForm .col-lg-9,
+  #SettingsForm .col-lg-10,
+  #SettingsForm .col-lg-11,
+  #SettingsForm .col-lg-12 {
+    float: left;
+  }
+  #SettingsForm .col-lg-12 {
+    width: 100%;
+  }
+  #SettingsForm .col-lg-11 {
+    width: 91.66666667%;
+  }
+  #SettingsForm .col-lg-10 {
+    width: 83.33333333%;
+  }
+  #SettingsForm .col-lg-9 {
+    width: 75%;
+  }
+  #SettingsForm .col-lg-8 {
+    width: 66.66666667%;
+  }
+  #SettingsForm .col-lg-7 {
+    width: 58.33333333%;
+  }
+  #SettingsForm .col-lg-6 {
+    width: 50%;
+  }
+  #SettingsForm .col-lg-5 {
+    width: 41.66666667%;
+  }
+  #SettingsForm .col-lg-4 {
+    width: 33.33333333%;
+  }
+  #SettingsForm .col-lg-3 {
+    width: 25%;
+  }
+  #SettingsForm .col-lg-2 {
+    width: 16.66666667%;
+  }
+  #SettingsForm .col-lg-1 {
+    width: 8.33333333%;
+  }
+  #SettingsForm .col-lg-pull-12 {
+    right: 100%;
+  }
+  #SettingsForm .col-lg-pull-11 {
+    right: 91.66666667%;
+  }
+  #SettingsForm .col-lg-pull-10 {
+    right: 83.33333333%;
+  }
+  #SettingsForm .col-lg-pull-9 {
+    right: 75%;
+  }
+  #SettingsForm .col-lg-pull-8 {
+    right: 66.66666667%;
+  }
+  #SettingsForm .col-lg-pull-7 {
+    right: 58.33333333%;
+  }
+  #SettingsForm .col-lg-pull-6 {
+    right: 50%;
+  }
+  #SettingsForm .col-lg-pull-5 {
+    right: 41.66666667%;
+  }
+  #SettingsForm .col-lg-pull-4 {
+    right: 33.33333333%;
+  }
+  #SettingsForm .col-lg-pull-3 {
+    right: 25%;
+  }
+  #SettingsForm .col-lg-pull-2 {
+    right: 16.66666667%;
+  }
+  #SettingsForm .col-lg-pull-1 {
+    right: 8.33333333%;
+  }
+  #SettingsForm .col-lg-pull-0 {
+    right: auto;
+  }
+  #SettingsForm .col-lg-push-12 {
+    left: 100%;
+  }
+  #SettingsForm .col-lg-push-11 {
+    left: 91.66666667%;
+  }
+  #SettingsForm .col-lg-push-10 {
+    left: 83.33333333%;
+  }
+  #SettingsForm .col-lg-push-9 {
+    left: 75%;
+  }
+  #SettingsForm .col-lg-push-8 {
+    left: 66.66666667%;
+  }
+  #SettingsForm .col-lg-push-7 {
+    left: 58.33333333%;
+  }
+  #SettingsForm .col-lg-push-6 {
+    left: 50%;
+  }
+  #SettingsForm .col-lg-push-5 {
+    left: 41.66666667%;
+  }
+  #SettingsForm .col-lg-push-4 {
+    left: 33.33333333%;
+  }
+  #SettingsForm .col-lg-push-3 {
+    left: 25%;
+  }
+  #SettingsForm .col-lg-push-2 {
+    left: 16.66666667%;
+  }
+  #SettingsForm .col-lg-push-1 {
+    left: 8.33333333%;
+  }
+  #SettingsForm .col-lg-push-0 {
+    left: auto;
+  }
+  #SettingsForm .col-lg-offset-12 {
+    margin-left: 100%;
+  }
+  #SettingsForm .col-lg-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  #SettingsForm .col-lg-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  #SettingsForm .col-lg-offset-9 {
+    margin-left: 75%;
+  }
+  #SettingsForm .col-lg-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  #SettingsForm .col-lg-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  #SettingsForm .col-lg-offset-6 {
+    margin-left: 50%;
+  }
+  #SettingsForm .col-lg-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  #SettingsForm .col-lg-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  #SettingsForm .col-lg-offset-3 {
+    margin-left: 25%;
+  }
+  #SettingsForm .col-lg-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  #SettingsForm .col-lg-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  #SettingsForm .col-lg-offset-0 {
+    margin-left: 0%;
+  }
+}
+#SettingsForm table {
+  background-color: transparent;
+}
+#SettingsForm table col[class*="col-"] {
+  position: static;
+  display: table-column;
+  float: none;
+}
+#SettingsForm table td[class*="col-"],
+#SettingsForm table th[class*="col-"] {
+  position: static;
+  display: table-cell;
+  float: none;
+}
+#SettingsForm caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #999999;
+  text-align: left;
+}
+#SettingsForm th {
+  text-align: left;
+}
+#SettingsForm .table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 21px;
+}
+#SettingsForm .table > thead > tr > th,
+#SettingsForm .table > tbody > tr > th,
+#SettingsForm .table > tfoot > tr > th,
+#SettingsForm .table > thead > tr > td,
+#SettingsForm .table > tbody > tr > td,
+#SettingsForm .table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+#SettingsForm .table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dddddd;
+}
+#SettingsForm .table > caption + thead > tr:first-child > th,
+#SettingsForm .table > colgroup + thead > tr:first-child > th,
+#SettingsForm .table > thead:first-child > tr:first-child > th,
+#SettingsForm .table > caption + thead > tr:first-child > td,
+#SettingsForm .table > colgroup + thead > tr:first-child > td,
+#SettingsForm .table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+#SettingsForm .table > tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+#SettingsForm .table .table {
+  background-color: #ffffff;
+}
+#SettingsForm .table-condensed > thead > tr > th,
+#SettingsForm .table-condensed > tbody > tr > th,
+#SettingsForm .table-condensed > tfoot > tr > th,
+#SettingsForm .table-condensed > thead > tr > td,
+#SettingsForm .table-condensed > tbody > tr > td,
+#SettingsForm .table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+#SettingsForm .table-bordered {
+  border: 1px solid #dddddd;
+}
+#SettingsForm .table-bordered > thead > tr > th,
+#SettingsForm .table-bordered > tbody > tr > th,
+#SettingsForm .table-bordered > tfoot > tr > th,
+#SettingsForm .table-bordered > thead > tr > td,
+#SettingsForm .table-bordered > tbody > tr > td,
+#SettingsForm .table-bordered > tfoot > tr > td {
+  border: 1px solid #dddddd;
+}
+#SettingsForm .table-bordered > thead > tr > th,
+#SettingsForm .table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+#SettingsForm .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+#SettingsForm .table-hover > tbody > tr:hover {
+  background-color: #f5f5f5;
+}
+#SettingsForm .table > thead > tr > td.active,
+#SettingsForm .table > tbody > tr > td.active,
+#SettingsForm .table > tfoot > tr > td.active,
+#SettingsForm .table > thead > tr > th.active,
+#SettingsForm .table > tbody > tr > th.active,
+#SettingsForm .table > tfoot > tr > th.active,
+#SettingsForm .table > thead > tr.active > td,
+#SettingsForm .table > tbody > tr.active > td,
+#SettingsForm .table > tfoot > tr.active > td,
+#SettingsForm .table > thead > tr.active > th,
+#SettingsForm .table > tbody > tr.active > th,
+#SettingsForm .table > tfoot > tr.active > th {
+  background-color: #f5f5f5;
+}
+#SettingsForm .table-hover > tbody > tr > td.active:hover,
+#SettingsForm .table-hover > tbody > tr > th.active:hover,
+#SettingsForm .table-hover > tbody > tr.active:hover > td,
+#SettingsForm .table-hover > tbody > tr:hover > .active,
+#SettingsForm .table-hover > tbody > tr.active:hover > th {
+  background-color: #e8e8e8;
+}
+#SettingsForm .table > thead > tr > td.success,
+#SettingsForm .table > tbody > tr > td.success,
+#SettingsForm .table > tfoot > tr > td.success,
+#SettingsForm .table > thead > tr > th.success,
+#SettingsForm .table > tbody > tr > th.success,
+#SettingsForm .table > tfoot > tr > th.success,
+#SettingsForm .table > thead > tr.success > td,
+#SettingsForm .table > tbody > tr.success > td,
+#SettingsForm .table > tfoot > tr.success > td,
+#SettingsForm .table > thead > tr.success > th,
+#SettingsForm .table > tbody > tr.success > th,
+#SettingsForm .table > tfoot > tr.success > th {
+  background-color: #3fb618;
+}
+#SettingsForm .table-hover > tbody > tr > td.success:hover,
+#SettingsForm .table-hover > tbody > tr > th.success:hover,
+#SettingsForm .table-hover > tbody > tr.success:hover > td,
+#SettingsForm .table-hover > tbody > tr:hover > .success,
+#SettingsForm .table-hover > tbody > tr.success:hover > th {
+  background-color: #379f15;
+}
+#SettingsForm .table > thead > tr > td.info,
+#SettingsForm .table > tbody > tr > td.info,
+#SettingsForm .table > tfoot > tr > td.info,
+#SettingsForm .table > thead > tr > th.info,
+#SettingsForm .table > tbody > tr > th.info,
+#SettingsForm .table > tfoot > tr > th.info,
+#SettingsForm .table > thead > tr.info > td,
+#SettingsForm .table > tbody > tr.info > td,
+#SettingsForm .table > tfoot > tr.info > td,
+#SettingsForm .table > thead > tr.info > th,
+#SettingsForm .table > tbody > tr.info > th,
+#SettingsForm .table > tfoot > tr.info > th {
+  background-color: #064e9f;
+}
+#SettingsForm .table-hover > tbody > tr > td.info:hover,
+#SettingsForm .table-hover > tbody > tr > th.info:hover,
+#SettingsForm .table-hover > tbody > tr.info:hover > td,
+#SettingsForm .table-hover > tbody > tr:hover > .info,
+#SettingsForm .table-hover > tbody > tr.info:hover > th {
+  background-color: #054286;
+}
+#SettingsForm .table > thead > tr > td.warning,
+#SettingsForm .table > tbody > tr > td.warning,
+#SettingsForm .table > tfoot > tr > td.warning,
+#SettingsForm .table > thead > tr > th.warning,
+#SettingsForm .table > tbody > tr > th.warning,
+#SettingsForm .table > tfoot > tr > th.warning,
+#SettingsForm .table > thead > tr.warning > td,
+#SettingsForm .table > tbody > tr.warning > td,
+#SettingsForm .table > tfoot > tr.warning > td,
+#SettingsForm .table > thead > tr.warning > th,
+#SettingsForm .table > tbody > tr.warning > th,
+#SettingsForm .table > tfoot > tr.warning > th {
+  background-color: #ff7518;
+}
+#SettingsForm .table-hover > tbody > tr > td.warning:hover,
+#SettingsForm .table-hover > tbody > tr > th.warning:hover,
+#SettingsForm .table-hover > tbody > tr.warning:hover > td,
+#SettingsForm .table-hover > tbody > tr:hover > .warning,
+#SettingsForm .table-hover > tbody > tr.warning:hover > th {
+  background-color: #fe6600;
+}
+#SettingsForm .table > thead > tr > td.danger,
+#SettingsForm .table > tbody > tr > td.danger,
+#SettingsForm .table > tfoot > tr > td.danger,
+#SettingsForm .table > thead > tr > th.danger,
+#SettingsForm .table > tbody > tr > th.danger,
+#SettingsForm .table > tfoot > tr > th.danger,
+#SettingsForm .table > thead > tr.danger > td,
+#SettingsForm .table > tbody > tr.danger > td,
+#SettingsForm .table > tfoot > tr.danger > td,
+#SettingsForm .table > thead > tr.danger > th,
+#SettingsForm .table > tbody > tr.danger > th,
+#SettingsForm .table > tfoot > tr.danger > th {
+  background-color: #ff0039;
+}
+#SettingsForm .table-hover > tbody > tr > td.danger:hover,
+#SettingsForm .table-hover > tbody > tr > th.danger:hover,
+#SettingsForm .table-hover > tbody > tr.danger:hover > td,
+#SettingsForm .table-hover > tbody > tr:hover > .danger,
+#SettingsForm .table-hover > tbody > tr.danger:hover > th {
+  background-color: #e60033;
+}
+#SettingsForm .table-responsive {
+  min-height: .01%;
+  overflow-x: auto;
+}
+@media screen and (max-width: 767px) {
+  #SettingsForm .table-responsive {
+    width: 100%;
+    margin-bottom: 15.75px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #dddddd;
+  }
+  #SettingsForm .table-responsive > .table {
+    margin-bottom: 0;
+  }
+  #SettingsForm .table-responsive > .table > thead > tr > th,
+  #SettingsForm .table-responsive > .table > tbody > tr > th,
+  #SettingsForm .table-responsive > .table > tfoot > tr > th,
+  #SettingsForm .table-responsive > .table > thead > tr > td,
+  #SettingsForm .table-responsive > .table > tbody > tr > td,
+  #SettingsForm .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+  #SettingsForm .table-responsive > .table-bordered {
+    border: 0;
+  }
+  #SettingsForm .table-responsive > .table-bordered > thead > tr > th:first-child,
+  #SettingsForm .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  #SettingsForm .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  #SettingsForm .table-responsive > .table-bordered > thead > tr > td:first-child,
+  #SettingsForm .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  #SettingsForm .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+  #SettingsForm .table-responsive > .table-bordered > thead > tr > th:last-child,
+  #SettingsForm .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  #SettingsForm .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  #SettingsForm .table-responsive > .table-bordered > thead > tr > td:last-child,
+  #SettingsForm .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  #SettingsForm .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+  #SettingsForm .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  #SettingsForm .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  #SettingsForm .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  #SettingsForm .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+#SettingsForm fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+#SettingsForm legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 21px;
+  font-size: 22.5px;
+  line-height: inherit;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+#SettingsForm label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+#SettingsForm input[type="search"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#SettingsForm input[type="radio"],
+#SettingsForm input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+#SettingsForm input[type="radio"][disabled],
+#SettingsForm input[type="checkbox"][disabled],
+#SettingsForm input[type="radio"].disabled,
+#SettingsForm input[type="checkbox"].disabled,
+#SettingsForm fieldset[disabled] input[type="radio"],
+#SettingsForm fieldset[disabled] input[type="checkbox"] {
+  cursor: not-allowed;
+}
+#SettingsForm input[type="file"] {
+  display: block;
+}
+#SettingsForm input[type="range"] {
+  display: block;
+  width: 100%;
+}
+#SettingsForm select[multiple],
+#SettingsForm select[size] {
+  height: auto;
+}
+#SettingsForm input[type="file"]:focus,
+#SettingsForm input[type="radio"]:focus,
+#SettingsForm input[type="checkbox"]:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#SettingsForm output {
+  display: block;
+  padding-top: 11px;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #333333;
+}
+#SettingsForm .form-control {
+  display: block;
+  width: 100%;
+  height: 43px;
+  padding: 10px 18px;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+#SettingsForm .form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+#SettingsForm .form-control::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+#SettingsForm .form-control:-ms-input-placeholder {
+  color: #999999;
+}
+#SettingsForm .form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+#SettingsForm .form-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+#SettingsForm .form-control[disabled],
+#SettingsForm .form-control[readonly],
+#SettingsForm fieldset[disabled] .form-control {
+  background-color: #e6e6e6;
+  opacity: 1;
+}
+#SettingsForm .form-control[disabled],
+#SettingsForm fieldset[disabled] .form-control {
+  cursor: not-allowed;
+}
+#SettingsForm textarea.form-control {
+  height: auto;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  #SettingsForm input[type="date"].form-control,
+  #SettingsForm input[type="time"].form-control,
+  #SettingsForm input[type="datetime-local"].form-control,
+  #SettingsForm input[type="month"].form-control {
+    line-height: 43px;
+  }
+  #SettingsForm input[type="date"].input-sm,
+  #SettingsForm input[type="time"].input-sm,
+  #SettingsForm input[type="datetime-local"].input-sm,
+  #SettingsForm input[type="month"].input-sm,
+  #SettingsForm .input-group-sm input[type="date"],
+  #SettingsForm .input-group-sm input[type="time"],
+  #SettingsForm .input-group-sm input[type="datetime-local"],
+  #SettingsForm .input-group-sm input[type="month"] {
+    line-height: 31px;
+  }
+  #SettingsForm input[type="date"].input-lg,
+  #SettingsForm input[type="time"].input-lg,
+  #SettingsForm input[type="datetime-local"].input-lg,
+  #SettingsForm input[type="month"].input-lg,
+  #SettingsForm .input-group-lg input[type="date"],
+  #SettingsForm .input-group-lg input[type="time"],
+  #SettingsForm .input-group-lg input[type="datetime-local"],
+  #SettingsForm .input-group-lg input[type="month"] {
+    line-height: 64px;
+  }
+}
+#SettingsForm .form-group {
+  margin-bottom: 15px;
+}
+#SettingsForm .radio,
+#SettingsForm .checkbox {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#SettingsForm .radio.disabled label,
+#SettingsForm .checkbox.disabled label,
+#SettingsForm fieldset[disabled] .radio label,
+#SettingsForm fieldset[disabled] .checkbox label {
+  cursor: not-allowed;
+}
+#SettingsForm .radio label,
+#SettingsForm .checkbox label {
+  min-height: 21px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+#SettingsForm .radio input[type="radio"],
+#SettingsForm .radio-inline input[type="radio"],
+#SettingsForm .checkbox input[type="checkbox"],
+#SettingsForm .checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-top: 4px \9;
+  margin-left: -20px;
+}
+#SettingsForm .radio + .radio,
+#SettingsForm .checkbox + .checkbox {
+  margin-top: -5px;
+}
+#SettingsForm .radio-inline,
+#SettingsForm .checkbox-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  cursor: pointer;
+}
+#SettingsForm .radio-inline.disabled,
+#SettingsForm .checkbox-inline.disabled,
+#SettingsForm fieldset[disabled] .radio-inline,
+#SettingsForm fieldset[disabled] .checkbox-inline {
+  cursor: not-allowed;
+}
+#SettingsForm .radio-inline + .radio-inline,
+#SettingsForm .checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+#SettingsForm .form-control-static {
+  min-height: 36px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  margin-bottom: 0;
+}
+#SettingsForm .form-control-static.input-lg,
+#SettingsForm .form-control-static.input-sm {
+  padding-right: 0;
+  padding-left: 0;
+}
+#SettingsForm .input-sm {
+  height: 31px;
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+#SettingsForm select.input-sm {
+  height: 31px;
+  line-height: 31px;
+}
+#SettingsForm textarea.input-sm,
+#SettingsForm select[multiple].input-sm {
+  height: auto;
+}
+#SettingsForm .form-group-sm .form-control {
+  height: 31px;
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+#SettingsForm .form-group-sm select.form-control {
+  height: 31px;
+  line-height: 31px;
+}
+#SettingsForm .form-group-sm textarea.form-control,
+#SettingsForm .form-group-sm select[multiple].form-control {
+  height: auto;
+}
+#SettingsForm .form-group-sm .form-control-static {
+  height: 31px;
+  min-height: 34px;
+  padding: 6px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+#SettingsForm .input-lg {
+  height: 64px;
+  padding: 18px 30px;
+  font-size: 19px;
+  line-height: 1.3333333;
+  border-radius: 0;
+}
+#SettingsForm select.input-lg {
+  height: 64px;
+  line-height: 64px;
+}
+#SettingsForm textarea.input-lg,
+#SettingsForm select[multiple].input-lg {
+  height: auto;
+}
+#SettingsForm .form-group-lg .form-control {
+  height: 64px;
+  padding: 18px 30px;
+  font-size: 19px;
+  line-height: 1.3333333;
+  border-radius: 0;
+}
+#SettingsForm .form-group-lg select.form-control {
+  height: 64px;
+  line-height: 64px;
+}
+#SettingsForm .form-group-lg textarea.form-control,
+#SettingsForm .form-group-lg select[multiple].form-control {
+  height: auto;
+}
+#SettingsForm .form-group-lg .form-control-static {
+  height: 64px;
+  min-height: 40px;
+  padding: 19px 30px;
+  font-size: 19px;
+  line-height: 1.3333333;
+}
+#SettingsForm .has-feedback {
+  position: relative;
+}
+#SettingsForm .has-feedback .form-control {
+  padding-right: 53.75px;
+}
+#SettingsForm .form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 43px;
+  height: 43px;
+  line-height: 43px;
+  text-align: center;
+  pointer-events: none;
+}
+#SettingsForm .input-lg + .form-control-feedback,
+#SettingsForm .input-group-lg + .form-control-feedback,
+#SettingsForm .form-group-lg .form-control + .form-control-feedback {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+}
+#SettingsForm .input-sm + .form-control-feedback,
+#SettingsForm .input-group-sm + .form-control-feedback,
+#SettingsForm .form-group-sm .form-control + .form-control-feedback {
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+}
+#SettingsForm .has-success .help-block,
+#SettingsForm .has-success .control-label,
+#SettingsForm .has-success .radio,
+#SettingsForm .has-success .checkbox,
+#SettingsForm .has-success .radio-inline,
+#SettingsForm .has-success .checkbox-inline,
+#SettingsForm .has-success.radio label,
+#SettingsForm .has-success.checkbox label,
+#SettingsForm .has-success.radio-inline label,
+#SettingsForm .has-success.checkbox-inline label {
+  color: #ffffff;
+}
+#SettingsForm .has-success .form-control {
+  border-color: #ffffff;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#SettingsForm .has-success .form-control:focus {
+  border-color: #e6e6e6;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+}
+#SettingsForm .has-success .input-group-addon {
+  color: #ffffff;
+  background-color: #3fb618;
+  border-color: #ffffff;
+}
+#SettingsForm .has-success .form-control-feedback {
+  color: #ffffff;
+}
+#SettingsForm .has-warning .help-block,
+#SettingsForm .has-warning .control-label,
+#SettingsForm .has-warning .radio,
+#SettingsForm .has-warning .checkbox,
+#SettingsForm .has-warning .radio-inline,
+#SettingsForm .has-warning .checkbox-inline,
+#SettingsForm .has-warning.radio label,
+#SettingsForm .has-warning.checkbox label,
+#SettingsForm .has-warning.radio-inline label,
+#SettingsForm .has-warning.checkbox-inline label {
+  color: #ffffff;
+}
+#SettingsForm .has-warning .form-control {
+  border-color: #ffffff;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#SettingsForm .has-warning .form-control:focus {
+  border-color: #e6e6e6;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+}
+#SettingsForm .has-warning .input-group-addon {
+  color: #ffffff;
+  background-color: #ff7518;
+  border-color: #ffffff;
+}
+#SettingsForm .has-warning .form-control-feedback {
+  color: #ffffff;
+}
+#SettingsForm .has-error .help-block,
+#SettingsForm .has-error .control-label,
+#SettingsForm .has-error .radio,
+#SettingsForm .has-error .checkbox,
+#SettingsForm .has-error .radio-inline,
+#SettingsForm .has-error .checkbox-inline,
+#SettingsForm .has-error.radio label,
+#SettingsForm .has-error.checkbox label,
+#SettingsForm .has-error.radio-inline label,
+#SettingsForm .has-error.checkbox-inline label {
+  color: #ffffff;
+}
+#SettingsForm .has-error .form-control {
+  border-color: #ffffff;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#SettingsForm .has-error .form-control:focus {
+  border-color: #e6e6e6;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+}
+#SettingsForm .has-error .input-group-addon {
+  color: #ffffff;
+  background-color: #ff0039;
+  border-color: #ffffff;
+}
+#SettingsForm .has-error .form-control-feedback {
+  color: #ffffff;
+}
+#SettingsForm .has-feedback label ~ .form-control-feedback {
+  top: 26px;
+}
+#SettingsForm .has-feedback label.sr-only ~ .form-control-feedback {
+  top: 0;
+}
+#SettingsForm .help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+@media (min-width: 768px) {
+  #SettingsForm .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  #SettingsForm .form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+  #SettingsForm .form-inline .form-control-static {
+    display: inline-block;
+  }
+  #SettingsForm .form-inline .input-group {
+    display: inline-table;
+    vertical-align: middle;
+  }
+  #SettingsForm .form-inline .input-group .input-group-addon,
+  #SettingsForm .form-inline .input-group .input-group-btn,
+  #SettingsForm .form-inline .input-group .form-control {
+    width: auto;
+  }
+  #SettingsForm .form-inline .input-group > .form-control {
+    width: 100%;
+  }
+  #SettingsForm .form-inline .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  #SettingsForm .form-inline .radio,
+  #SettingsForm .form-inline .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  #SettingsForm .form-inline .radio label,
+  #SettingsForm .form-inline .checkbox label {
+    padding-left: 0;
+  }
+  #SettingsForm .form-inline .radio input[type="radio"],
+  #SettingsForm .form-inline .checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 0;
+  }
+  #SettingsForm .form-inline .has-feedback .form-control-feedback {
+    top: 0;
+  }
+}
+#SettingsForm .form-horizontal .radio,
+#SettingsForm .form-horizontal .checkbox,
+#SettingsForm .form-horizontal .radio-inline,
+#SettingsForm .form-horizontal .checkbox-inline {
+  padding-top: 11px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#SettingsForm .form-horizontal .radio,
+#SettingsForm .form-horizontal .checkbox {
+  min-height: 32px;
+}
+#SettingsForm .form-horizontal .form-group {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media (min-width: 768px) {
+  #SettingsForm .form-horizontal .control-label {
+    padding-top: 11px;
+    margin-bottom: 0;
+    text-align: right;
+  }
+}
+#SettingsForm .form-horizontal .has-feedback .form-control-feedback {
+  right: 15px;
+}
+@media (min-width: 768px) {
+  #SettingsForm .form-horizontal .form-group-lg .control-label {
+    padding-top: 19px;
+    font-size: 19px;
+  }
+}
+@media (min-width: 768px) {
+  #SettingsForm .form-horizontal .form-group-sm .control-label {
+    padding-top: 6px;
+    font-size: 13px;
+  }
+}
+#SettingsForm .btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 10px 18px;
+  font-size: 15px;
+  line-height: 1.42857143;
+  border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#SettingsForm .btn:focus,
+#SettingsForm .btn:active:focus,
+#SettingsForm .btn.active:focus,
+#SettingsForm .btn.focus,
+#SettingsForm .btn:active.focus,
+#SettingsForm .btn.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#SettingsForm .btn:hover,
+#SettingsForm .btn:focus,
+#SettingsForm .btn.focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+#SettingsForm .btn:active,
+#SettingsForm .btn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#SettingsForm .btn.disabled,
+#SettingsForm .btn[disabled],
+#SettingsForm fieldset[disabled] .btn {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  opacity: 0.65;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#SettingsForm a.btn.disabled,
+#SettingsForm fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+#SettingsForm .btn-default {
+  color: #ffffff;
+  background-color: #222222;
+  border-color: #222222;
+}
+#SettingsForm .btn-default:focus,
+#SettingsForm .btn-default.focus {
+  color: #ffffff;
+  background-color: #090909;
+  border-color: #000000;
+}
+#SettingsForm .btn-default:hover {
+  color: #ffffff;
+  background-color: #090909;
+  border-color: #040404;
+}
+#SettingsForm .btn-default:active,
+#SettingsForm .btn-default.active,
+#SettingsForm .open > .dropdown-toggle.btn-default {
+  color: #ffffff;
+  background-color: #090909;
+  background-image: none;
+  border-color: #040404;
+}
+#SettingsForm .btn-default:active:hover,
+#SettingsForm .btn-default.active:hover,
+#SettingsForm .open > .dropdown-toggle.btn-default:hover,
+#SettingsForm .btn-default:active:focus,
+#SettingsForm .btn-default.active:focus,
+#SettingsForm .open > .dropdown-toggle.btn-default:focus,
+#SettingsForm .btn-default:active.focus,
+#SettingsForm .btn-default.active.focus,
+#SettingsForm .open > .dropdown-toggle.btn-default.focus {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
+}
+#SettingsForm .btn-default.disabled:hover,
+#SettingsForm .btn-default[disabled]:hover,
+#SettingsForm fieldset[disabled] .btn-default:hover,
+#SettingsForm .btn-default.disabled:focus,
+#SettingsForm .btn-default[disabled]:focus,
+#SettingsForm fieldset[disabled] .btn-default:focus,
+#SettingsForm .btn-default.disabled.focus,
+#SettingsForm .btn-default[disabled].focus,
+#SettingsForm fieldset[disabled] .btn-default.focus {
+  background-color: #222222;
+  border-color: #222222;
+}
+#SettingsForm .btn-default .badge {
+  color: #222222;
+  background-color: #ffffff;
+}
+#SettingsForm .btn-primary {
+  color: #ffffff;
+  background-color: #2780e3;
+  border-color: #2780e3;
+}
+#SettingsForm .btn-primary:focus,
+#SettingsForm .btn-primary.focus {
+  color: #ffffff;
+  background-color: #1967be;
+  border-color: #10427b;
+}
+#SettingsForm .btn-primary:hover {
+  color: #ffffff;
+  background-color: #1967be;
+  border-color: #1862b5;
+}
+#SettingsForm .btn-primary:active,
+#SettingsForm .btn-primary.active,
+#SettingsForm .open > .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #1967be;
+  background-image: none;
+  border-color: #1862b5;
+}
+#SettingsForm .btn-primary:active:hover,
+#SettingsForm .btn-primary.active:hover,
+#SettingsForm .open > .dropdown-toggle.btn-primary:hover,
+#SettingsForm .btn-primary:active:focus,
+#SettingsForm .btn-primary.active:focus,
+#SettingsForm .open > .dropdown-toggle.btn-primary:focus,
+#SettingsForm .btn-primary:active.focus,
+#SettingsForm .btn-primary.active.focus,
+#SettingsForm .open > .dropdown-toggle.btn-primary.focus {
+  color: #ffffff;
+  background-color: #15569f;
+  border-color: #10427b;
+}
+#SettingsForm .btn-primary.disabled:hover,
+#SettingsForm .btn-primary[disabled]:hover,
+#SettingsForm fieldset[disabled] .btn-primary:hover,
+#SettingsForm .btn-primary.disabled:focus,
+#SettingsForm .btn-primary[disabled]:focus,
+#SettingsForm fieldset[disabled] .btn-primary:focus,
+#SettingsForm .btn-primary.disabled.focus,
+#SettingsForm .btn-primary[disabled].focus,
+#SettingsForm fieldset[disabled] .btn-primary.focus {
+  background-color: #2780e3;
+  border-color: #2780e3;
+}
+#SettingsForm .btn-primary .badge {
+  color: #2780e3;
+  background-color: #ffffff;
+}
+#SettingsForm .btn-success {
+  color: #ffffff;
+  background-color: #3fb618;
+  border-color: #3fb618;
+}
+#SettingsForm .btn-success:focus,
+#SettingsForm .btn-success.focus {
+  color: #ffffff;
+  background-color: #2f8912;
+  border-color: #184509;
+}
+#SettingsForm .btn-success:hover {
+  color: #ffffff;
+  background-color: #2f8912;
+  border-color: #2c8011;
+}
+#SettingsForm .btn-success:active,
+#SettingsForm .btn-success.active,
+#SettingsForm .open > .dropdown-toggle.btn-success {
+  color: #ffffff;
+  background-color: #2f8912;
+  background-image: none;
+  border-color: #2c8011;
+}
+#SettingsForm .btn-success:active:hover,
+#SettingsForm .btn-success.active:hover,
+#SettingsForm .open > .dropdown-toggle.btn-success:hover,
+#SettingsForm .btn-success:active:focus,
+#SettingsForm .btn-success.active:focus,
+#SettingsForm .open > .dropdown-toggle.btn-success:focus,
+#SettingsForm .btn-success:active.focus,
+#SettingsForm .btn-success.active.focus,
+#SettingsForm .open > .dropdown-toggle.btn-success.focus {
+  color: #ffffff;
+  background-color: #24690e;
+  border-color: #184509;
+}
+#SettingsForm .btn-success.disabled:hover,
+#SettingsForm .btn-success[disabled]:hover,
+#SettingsForm fieldset[disabled] .btn-success:hover,
+#SettingsForm .btn-success.disabled:focus,
+#SettingsForm .btn-success[disabled]:focus,
+#SettingsForm fieldset[disabled] .btn-success:focus,
+#SettingsForm .btn-success.disabled.focus,
+#SettingsForm .btn-success[disabled].focus,
+#SettingsForm fieldset[disabled] .btn-success.focus {
+  background-color: #3fb618;
+  border-color: #3fb618;
+}
+#SettingsForm .btn-success .badge {
+  color: #3fb618;
+  background-color: #ffffff;
+}
+#SettingsForm .btn-info {
+  color: #ffffff;
+  background-color: #064e9f;
+  border-color: #064e9f;
+}
+#SettingsForm .btn-info:focus,
+#SettingsForm .btn-info.focus {
+  color: #ffffff;
+  background-color: #04366e;
+  border-color: #011224;
+}
+#SettingsForm .btn-info:hover {
+  color: #ffffff;
+  background-color: #04366e;
+  border-color: #043164;
+}
+#SettingsForm .btn-info:active,
+#SettingsForm .btn-info.active,
+#SettingsForm .open > .dropdown-toggle.btn-info {
+  color: #ffffff;
+  background-color: #04366e;
+  background-image: none;
+  border-color: #043164;
+}
+#SettingsForm .btn-info:active:hover,
+#SettingsForm .btn-info.active:hover,
+#SettingsForm .open > .dropdown-toggle.btn-info:hover,
+#SettingsForm .btn-info:active:focus,
+#SettingsForm .btn-info.active:focus,
+#SettingsForm .open > .dropdown-toggle.btn-info:focus,
+#SettingsForm .btn-info:active.focus,
+#SettingsForm .btn-info.active.focus,
+#SettingsForm .open > .dropdown-toggle.btn-info.focus {
+  color: #ffffff;
+  background-color: #03254b;
+  border-color: #011224;
+}
+#SettingsForm .btn-info.disabled:hover,
+#SettingsForm .btn-info[disabled]:hover,
+#SettingsForm fieldset[disabled] .btn-info:hover,
+#SettingsForm .btn-info.disabled:focus,
+#SettingsForm .btn-info[disabled]:focus,
+#SettingsForm fieldset[disabled] .btn-info:focus,
+#SettingsForm .btn-info.disabled.focus,
+#SettingsForm .btn-info[disabled].focus,
+#SettingsForm fieldset[disabled] .btn-info.focus {
+  background-color: #064e9f;
+  border-color: #064e9f;
+}
+#SettingsForm .btn-info .badge {
+  color: #064e9f;
+  background-color: #ffffff;
+}
+#SettingsForm .btn-warning {
+  color: #ffffff;
+  background-color: #ff7518;
+  border-color: #ff7518;
+}
+#SettingsForm .btn-warning:focus,
+#SettingsForm .btn-warning.focus {
+  color: #ffffff;
+  background-color: #e45c00;
+  border-color: #983d00;
+}
+#SettingsForm .btn-warning:hover {
+  color: #ffffff;
+  background-color: #e45c00;
+  border-color: #da5800;
+}
+#SettingsForm .btn-warning:active,
+#SettingsForm .btn-warning.active,
+#SettingsForm .open > .dropdown-toggle.btn-warning {
+  color: #ffffff;
+  background-color: #e45c00;
+  background-image: none;
+  border-color: #da5800;
+}
+#SettingsForm .btn-warning:active:hover,
+#SettingsForm .btn-warning.active:hover,
+#SettingsForm .open > .dropdown-toggle.btn-warning:hover,
+#SettingsForm .btn-warning:active:focus,
+#SettingsForm .btn-warning.active:focus,
+#SettingsForm .open > .dropdown-toggle.btn-warning:focus,
+#SettingsForm .btn-warning:active.focus,
+#SettingsForm .btn-warning.active.focus,
+#SettingsForm .open > .dropdown-toggle.btn-warning.focus {
+  color: #ffffff;
+  background-color: #c04d00;
+  border-color: #983d00;
+}
+#SettingsForm .btn-warning.disabled:hover,
+#SettingsForm .btn-warning[disabled]:hover,
+#SettingsForm fieldset[disabled] .btn-warning:hover,
+#SettingsForm .btn-warning.disabled:focus,
+#SettingsForm .btn-warning[disabled]:focus,
+#SettingsForm fieldset[disabled] .btn-warning:focus,
+#SettingsForm .btn-warning.disabled.focus,
+#SettingsForm .btn-warning[disabled].focus,
+#SettingsForm fieldset[disabled] .btn-warning.focus {
+  background-color: #ff7518;
+  border-color: #ff7518;
+}
+#SettingsForm .btn-warning .badge {
+  color: #ff7518;
+  background-color: #ffffff;
+}
+#SettingsForm .btn-danger {
+  color: #ffffff;
+  background-color: #ff0039;
+  border-color: #ff0039;
+}
+#SettingsForm .btn-danger:focus,
+#SettingsForm .btn-danger.focus {
+  color: #ffffff;
+  background-color: #cc002e;
+  border-color: #80001c;
+}
+#SettingsForm .btn-danger:hover {
+  color: #ffffff;
+  background-color: #cc002e;
+  border-color: #c2002b;
+}
+#SettingsForm .btn-danger:active,
+#SettingsForm .btn-danger.active,
+#SettingsForm .open > .dropdown-toggle.btn-danger {
+  color: #ffffff;
+  background-color: #cc002e;
+  background-image: none;
+  border-color: #c2002b;
+}
+#SettingsForm .btn-danger:active:hover,
+#SettingsForm .btn-danger.active:hover,
+#SettingsForm .open > .dropdown-toggle.btn-danger:hover,
+#SettingsForm .btn-danger:active:focus,
+#SettingsForm .btn-danger.active:focus,
+#SettingsForm .open > .dropdown-toggle.btn-danger:focus,
+#SettingsForm .btn-danger:active.focus,
+#SettingsForm .btn-danger.active.focus,
+#SettingsForm .open > .dropdown-toggle.btn-danger.focus {
+  color: #ffffff;
+  background-color: #a80026;
+  border-color: #80001c;
+}
+#SettingsForm .btn-danger.disabled:hover,
+#SettingsForm .btn-danger[disabled]:hover,
+#SettingsForm fieldset[disabled] .btn-danger:hover,
+#SettingsForm .btn-danger.disabled:focus,
+#SettingsForm .btn-danger[disabled]:focus,
+#SettingsForm fieldset[disabled] .btn-danger:focus,
+#SettingsForm .btn-danger.disabled.focus,
+#SettingsForm .btn-danger[disabled].focus,
+#SettingsForm fieldset[disabled] .btn-danger.focus {
+  background-color: #ff0039;
+  border-color: #ff0039;
+}
+#SettingsForm .btn-danger .badge {
+  color: #ff0039;
+  background-color: #ffffff;
+}
+#SettingsForm .btn-link {
+  font-weight: 400;
+  color: #2780e3;
+  border-radius: 0;
+}
+#SettingsForm .btn-link,
+#SettingsForm .btn-link:active,
+#SettingsForm .btn-link.active,
+#SettingsForm .btn-link[disabled],
+#SettingsForm fieldset[disabled] .btn-link {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#SettingsForm .btn-link,
+#SettingsForm .btn-link:hover,
+#SettingsForm .btn-link:focus,
+#SettingsForm .btn-link:active {
+  border-color: transparent;
+}
+#SettingsForm .btn-link:hover,
+#SettingsForm .btn-link:focus {
+  color: #165ba8;
+  text-decoration: underline;
+  background-color: transparent;
+}
+#SettingsForm .btn-link[disabled]:hover,
+#SettingsForm fieldset[disabled] .btn-link:hover,
+#SettingsForm .btn-link[disabled]:focus,
+#SettingsForm fieldset[disabled] .btn-link:focus {
+  color: #999999;
+  text-decoration: none;
+}
+#SettingsForm .btn-lg,
+#SettingsForm .btn-group-lg > .btn {
+  padding: 18px 30px;
+  font-size: 19px;
+  line-height: 1.3333333;
+  border-radius: 0;
+}
+#SettingsForm .btn-sm,
+#SettingsForm .btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+#SettingsForm .btn-xs,
+#SettingsForm .btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+#SettingsForm .btn-block {
+  display: block;
+  width: 100%;
+}
+#SettingsForm .btn-block + .btn-block {
+  margin-top: 5px;
+}
+#SettingsForm input[type="submit"].btn-block,
+#SettingsForm input[type="reset"].btn-block,
+#SettingsForm input[type="button"].btn-block {
+  width: 100%;
+}
+#SettingsForm .fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+#SettingsForm .fade.in {
+  opacity: 1;
+}
+#SettingsForm .collapse {
+  display: none;
+}
+#SettingsForm .collapse.in {
+  display: block;
+}
+#SettingsForm tr.collapse.in {
+  display: table-row;
+}
+#SettingsForm tbody.collapse.in {
+  display: table-row-group;
+}
+#SettingsForm .collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+#SettingsForm .caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+#SettingsForm .dropup,
+#SettingsForm .dropdown {
+  position: relative;
+}
+#SettingsForm .dropdown-toggle:focus {
+  outline: 0;
+}
+#SettingsForm .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 15px;
+  text-align: left;
+  list-style: none;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+#SettingsForm .dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+#SettingsForm .dropdown-menu .divider {
+  height: 1px;
+  margin: 9.5px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+#SettingsForm .dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+}
+#SettingsForm .dropdown-menu > li > a:hover,
+#SettingsForm .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #2780e3;
+}
+#SettingsForm .dropdown-menu > .active > a,
+#SettingsForm .dropdown-menu > .active > a:hover,
+#SettingsForm .dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #2780e3;
+  outline: 0;
+}
+#SettingsForm .dropdown-menu > .disabled > a,
+#SettingsForm .dropdown-menu > .disabled > a:hover,
+#SettingsForm .dropdown-menu > .disabled > a:focus {
+  color: #999999;
+}
+#SettingsForm .dropdown-menu > .disabled > a:hover,
+#SettingsForm .dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+#SettingsForm .open > .dropdown-menu {
+  display: block;
+}
+#SettingsForm .open > a {
+  outline: 0;
+}
+#SettingsForm .dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+#SettingsForm .dropdown-menu-left {
+  right: auto;
+  left: 0;
+}
+#SettingsForm .dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #999999;
+  white-space: nowrap;
+}
+#SettingsForm .dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 990;
+}
+#SettingsForm .pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+#SettingsForm .dropup .caret,
+#SettingsForm .navbar-fixed-bottom .dropdown .caret {
+  content: "";
+  border-top: 0;
+  border-bottom: 4px dashed;
+  border-bottom: 4px solid \9;
+}
+#SettingsForm .dropup .dropdown-menu,
+#SettingsForm .navbar-fixed-bottom .dropdown .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 2px;
+}
+@media (min-width: 768px) {
+  #SettingsForm .navbar-right .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+  #SettingsForm .navbar-right .dropdown-menu-left {
+    right: auto;
+    left: 0;
+  }
+}
+#SettingsForm .btn-group,
+#SettingsForm .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+#SettingsForm .btn-group > .btn,
+#SettingsForm .btn-group-vertical > .btn {
+  position: relative;
+  float: left;
+}
+#SettingsForm .btn-group > .btn:hover,
+#SettingsForm .btn-group-vertical > .btn:hover,
+#SettingsForm .btn-group > .btn:focus,
+#SettingsForm .btn-group-vertical > .btn:focus,
+#SettingsForm .btn-group > .btn:active,
+#SettingsForm .btn-group-vertical > .btn:active,
+#SettingsForm .btn-group > .btn.active,
+#SettingsForm .btn-group-vertical > .btn.active {
+  z-index: 2;
+}
+#SettingsForm .btn-group .btn + .btn,
+#SettingsForm .btn-group .btn + .btn-group,
+#SettingsForm .btn-group .btn-group + .btn,
+#SettingsForm .btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+#SettingsForm .btn-toolbar {
+  margin-left: -5px;
+}
+#SettingsForm .btn-toolbar .btn,
+#SettingsForm .btn-toolbar .btn-group,
+#SettingsForm .btn-toolbar .input-group {
+  float: left;
+}
+#SettingsForm .btn-toolbar > .btn,
+#SettingsForm .btn-toolbar > .btn-group,
+#SettingsForm .btn-toolbar > .input-group {
+  margin-left: 5px;
+}
+#SettingsForm .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+#SettingsForm .btn-group > .btn:first-child {
+  margin-left: 0;
+}
+#SettingsForm .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#SettingsForm .btn-group > .btn:last-child:not(:first-child),
+#SettingsForm .btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#SettingsForm .btn-group > .btn-group {
+  float: left;
+}
+#SettingsForm .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+#SettingsForm .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
+#SettingsForm .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#SettingsForm .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#SettingsForm .btn-group .dropdown-toggle:active,
+#SettingsForm .btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+#SettingsForm .btn-group > .btn + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+#SettingsForm .btn-group > .btn-lg + .dropdown-toggle {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+#SettingsForm .btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#SettingsForm .btn-group.open .dropdown-toggle.btn-link {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#SettingsForm .btn .caret {
+  margin-left: 0;
+}
+#SettingsForm .btn-lg .caret {
+  border-width: 5px 5px 0;
+  border-bottom-width: 0;
+}
+#SettingsForm .dropup .btn-lg .caret {
+  border-width: 0 5px 5px;
+}
+#SettingsForm .btn-group-vertical > .btn,
+#SettingsForm .btn-group-vertical > .btn-group,
+#SettingsForm .btn-group-vertical > .btn-group > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+}
+#SettingsForm .btn-group-vertical > .btn-group > .btn {
+  float: none;
+}
+#SettingsForm .btn-group-vertical > .btn + .btn,
+#SettingsForm .btn-group-vertical > .btn + .btn-group,
+#SettingsForm .btn-group-vertical > .btn-group + .btn,
+#SettingsForm .btn-group-vertical > .btn-group + .btn-group {
+  margin-top: -1px;
+  margin-left: 0;
+}
+#SettingsForm .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+#SettingsForm .btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#SettingsForm .btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#SettingsForm .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+#SettingsForm .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
+#SettingsForm .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#SettingsForm .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#SettingsForm .btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+#SettingsForm .btn-group-justified > .btn,
+#SettingsForm .btn-group-justified > .btn-group {
+  display: table-cell;
+  float: none;
+  width: 1%;
+}
+#SettingsForm .btn-group-justified > .btn-group .btn {
+  width: 100%;
+}
+#SettingsForm .btn-group-justified > .btn-group .dropdown-menu {
+  left: auto;
+}
+#SettingsForm [data-toggle="buttons"] > .btn input[type="radio"],
+#SettingsForm [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
+#SettingsForm [data-toggle="buttons"] > .btn input[type="checkbox"],
+#SettingsForm [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+#SettingsForm .input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+#SettingsForm .input-group[class*="col-"] {
+  float: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+#SettingsForm .input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+#SettingsForm .input-group .form-control:focus {
+  z-index: 3;
+}
+#SettingsForm .input-group-lg > .form-control,
+#SettingsForm .input-group-lg > .input-group-addon,
+#SettingsForm .input-group-lg > .input-group-btn > .btn {
+  height: 64px;
+  padding: 18px 30px;
+  font-size: 19px;
+  line-height: 1.3333333;
+  border-radius: 0;
+}
+#SettingsForm select.input-group-lg > .form-control,
+#SettingsForm select.input-group-lg > .input-group-addon,
+#SettingsForm select.input-group-lg > .input-group-btn > .btn {
+  height: 64px;
+  line-height: 64px;
+}
+#SettingsForm textarea.input-group-lg > .form-control,
+#SettingsForm textarea.input-group-lg > .input-group-addon,
+#SettingsForm textarea.input-group-lg > .input-group-btn > .btn,
+#SettingsForm select[multiple].input-group-lg > .form-control,
+#SettingsForm select[multiple].input-group-lg > .input-group-addon,
+#SettingsForm select[multiple].input-group-lg > .input-group-btn > .btn {
+  height: auto;
+}
+#SettingsForm .input-group-sm > .form-control,
+#SettingsForm .input-group-sm > .input-group-addon,
+#SettingsForm .input-group-sm > .input-group-btn > .btn {
+  height: 31px;
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+#SettingsForm select.input-group-sm > .form-control,
+#SettingsForm select.input-group-sm > .input-group-addon,
+#SettingsForm select.input-group-sm > .input-group-btn > .btn {
+  height: 31px;
+  line-height: 31px;
+}
+#SettingsForm textarea.input-group-sm > .form-control,
+#SettingsForm textarea.input-group-sm > .input-group-addon,
+#SettingsForm textarea.input-group-sm > .input-group-btn > .btn,
+#SettingsForm select[multiple].input-group-sm > .form-control,
+#SettingsForm select[multiple].input-group-sm > .input-group-addon,
+#SettingsForm select[multiple].input-group-sm > .input-group-btn > .btn {
+  height: auto;
+}
+#SettingsForm .input-group-addon,
+#SettingsForm .input-group-btn,
+#SettingsForm .input-group .form-control {
+  display: table-cell;
+}
+#SettingsForm .input-group-addon:not(:first-child):not(:last-child),
+#SettingsForm .input-group-btn:not(:first-child):not(:last-child),
+#SettingsForm .input-group .form-control:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+#SettingsForm .input-group-addon,
+#SettingsForm .input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+#SettingsForm .input-group-addon {
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  color: #333333;
+  text-align: center;
+  background-color: #e6e6e6;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+}
+#SettingsForm .input-group-addon.input-sm {
+  padding: 5px 10px;
+  font-size: 13px;
+  border-radius: 0;
+}
+#SettingsForm .input-group-addon.input-lg {
+  padding: 18px 30px;
+  font-size: 19px;
+  border-radius: 0;
+}
+#SettingsForm .input-group-addon input[type="radio"],
+#SettingsForm .input-group-addon input[type="checkbox"] {
+  margin-top: 0;
+}
+#SettingsForm .input-group .form-control:first-child,
+#SettingsForm .input-group-addon:first-child,
+#SettingsForm .input-group-btn:first-child > .btn,
+#SettingsForm .input-group-btn:first-child > .btn-group > .btn,
+#SettingsForm .input-group-btn:first-child > .dropdown-toggle,
+#SettingsForm .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+#SettingsForm .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#SettingsForm .input-group-addon:first-child {
+  border-right: 0;
+}
+#SettingsForm .input-group .form-control:last-child,
+#SettingsForm .input-group-addon:last-child,
+#SettingsForm .input-group-btn:last-child > .btn,
+#SettingsForm .input-group-btn:last-child > .btn-group > .btn,
+#SettingsForm .input-group-btn:last-child > .dropdown-toggle,
+#SettingsForm .input-group-btn:first-child > .btn:not(:first-child),
+#SettingsForm .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#SettingsForm .input-group-addon:last-child {
+  border-left: 0;
+}
+#SettingsForm .input-group-btn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+}
+#SettingsForm .input-group-btn > .btn {
+  position: relative;
+}
+#SettingsForm .input-group-btn > .btn + .btn {
+  margin-left: -1px;
+}
+#SettingsForm .input-group-btn > .btn:hover,
+#SettingsForm .input-group-btn > .btn:focus,
+#SettingsForm .input-group-btn > .btn:active {
+  z-index: 2;
+}
+#SettingsForm .input-group-btn:first-child > .btn,
+#SettingsForm .input-group-btn:first-child > .btn-group {
+  margin-right: -1px;
+}
+#SettingsForm .input-group-btn:last-child > .btn,
+#SettingsForm .input-group-btn:last-child > .btn-group {
+  z-index: 2;
+  margin-left: -1px;
+}
+#SettingsForm .nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+#SettingsForm .nav > li {
+  position: relative;
+  display: block;
+}
+#SettingsForm .nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+#SettingsForm .nav > li > a:hover,
+#SettingsForm .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #e6e6e6;
+}
+#SettingsForm .nav > li.disabled > a {
+  color: #999999;
+}
+#SettingsForm .nav > li.disabled > a:hover,
+#SettingsForm .nav > li.disabled > a:focus {
+  color: #999999;
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+#SettingsForm .nav .open > a,
+#SettingsForm .nav .open > a:hover,
+#SettingsForm .nav .open > a:focus {
+  background-color: #e6e6e6;
+  border-color: #2780e3;
+}
+#SettingsForm .nav .nav-divider {
+  height: 1px;
+  margin: 9.5px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+#SettingsForm .nav > li > a > img {
+  max-width: none;
+}
+#SettingsForm .nav-tabs {
+  border-bottom: 1px solid #dddddd;
+}
+#SettingsForm .nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+#SettingsForm .nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 0 0 0 0;
+}
+#SettingsForm .nav-tabs > li > a:hover {
+  border-color: #e6e6e6 #e6e6e6 #dddddd;
+}
+#SettingsForm .nav-tabs > li.active > a,
+#SettingsForm .nav-tabs > li.active > a:hover,
+#SettingsForm .nav-tabs > li.active > a:focus {
+  color: #555555;
+  cursor: default;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-bottom-color: transparent;
+}
+#SettingsForm .nav-tabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+#SettingsForm .nav-tabs.nav-justified > li {
+  float: none;
+}
+#SettingsForm .nav-tabs.nav-justified > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+#SettingsForm .nav-tabs.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+@media (min-width: 768px) {
+  #SettingsForm .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  #SettingsForm .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+#SettingsForm .nav-tabs.nav-justified > li > a {
+  margin-right: 0;
+  border-radius: 0;
+}
+#SettingsForm .nav-tabs.nav-justified > .active > a,
+#SettingsForm .nav-tabs.nav-justified > .active > a:hover,
+#SettingsForm .nav-tabs.nav-justified > .active > a:focus {
+  border: 1px solid #dddddd;
+}
+@media (min-width: 768px) {
+  #SettingsForm .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 0 0 0 0;
+  }
+  #SettingsForm .nav-tabs.nav-justified > .active > a,
+  #SettingsForm .nav-tabs.nav-justified > .active > a:hover,
+  #SettingsForm .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+  }
+}
+#SettingsForm .nav-pills > li {
+  float: left;
+}
+#SettingsForm .nav-pills > li > a {
+  border-radius: 0;
+}
+#SettingsForm .nav-pills > li + li {
+  margin-left: 2px;
+}
+#SettingsForm .nav-pills > li.active > a,
+#SettingsForm .nav-pills > li.active > a:hover,
+#SettingsForm .nav-pills > li.active > a:focus {
+  color: #ffffff;
+  background-color: #2780e3;
+}
+#SettingsForm .nav-stacked > li {
+  float: none;
+}
+#SettingsForm .nav-stacked > li + li {
+  margin-top: 2px;
+  margin-left: 0;
+}
+#SettingsForm .nav-justified {
+  width: 100%;
+}
+#SettingsForm .nav-justified > li {
+  float: none;
+}
+#SettingsForm .nav-justified > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+#SettingsForm .nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+@media (min-width: 768px) {
+  #SettingsForm .nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  #SettingsForm .nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+#SettingsForm .nav-tabs-justified {
+  border-bottom: 0;
+}
+#SettingsForm .nav-tabs-justified > li > a {
+  margin-right: 0;
+  border-radius: 0;
+}
+#SettingsForm .nav-tabs-justified > .active > a,
+#SettingsForm .nav-tabs-justified > .active > a:hover,
+#SettingsForm .nav-tabs-justified > .active > a:focus {
+  border: 1px solid #dddddd;
+}
+@media (min-width: 768px) {
+  #SettingsForm .nav-tabs-justified > li > a {
+    border-bottom: 1px solid #dddddd;
+    border-radius: 0 0 0 0;
+  }
+  #SettingsForm .nav-tabs-justified > .active > a,
+  #SettingsForm .nav-tabs-justified > .active > a:hover,
+  #SettingsForm .nav-tabs-justified > .active > a:focus {
+    border-bottom-color: #ffffff;
+  }
+}
+#SettingsForm .tab-content > .tab-pane {
+  display: none;
+}
+#SettingsForm .tab-content > .active {
+  display: block;
+}
+#SettingsForm .nav-tabs .dropdown-menu {
+  margin-top: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#SettingsForm .label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+#SettingsForm a.label:hover,
+#SettingsForm a.label:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+#SettingsForm .label:empty {
+  display: none;
+}
+#SettingsForm .btn .label {
+  position: relative;
+  top: -1px;
+}
+#SettingsForm .label-default {
+  background-color: #222222;
+}
+#SettingsForm .label-default[href]:hover,
+#SettingsForm .label-default[href]:focus {
+  background-color: #090909;
+}
+#SettingsForm .label-primary {
+  background-color: #2780e3;
+}
+#SettingsForm .label-primary[href]:hover,
+#SettingsForm .label-primary[href]:focus {
+  background-color: #1967be;
+}
+#SettingsForm .label-success {
+  background-color: #3fb618;
+}
+#SettingsForm .label-success[href]:hover,
+#SettingsForm .label-success[href]:focus {
+  background-color: #2f8912;
+}
+#SettingsForm .label-info {
+  background-color: #064e9f;
+}
+#SettingsForm .label-info[href]:hover,
+#SettingsForm .label-info[href]:focus {
+  background-color: #04366e;
+}
+#SettingsForm .label-warning {
+  background-color: #ff7518;
+}
+#SettingsForm .label-warning[href]:hover,
+#SettingsForm .label-warning[href]:focus {
+  background-color: #e45c00;
+}
+#SettingsForm .label-danger {
+  background-color: #ff0039;
+}
+#SettingsForm .label-danger[href]:hover,
+#SettingsForm .label-danger[href]:focus {
+  background-color: #cc002e;
+}
+#SettingsForm .badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #2780e3;
+  border-radius: 10px;
+}
+#SettingsForm .badge:empty {
+  display: none;
+}
+#SettingsForm .btn .badge {
+  position: relative;
+  top: -1px;
+}
+#SettingsForm .btn-xs .badge,
+#SettingsForm .btn-group-xs > .btn .badge {
+  top: 0;
+  padding: 1px 5px;
+}
+#SettingsForm a.badge:hover,
+#SettingsForm a.badge:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+#SettingsForm .list-group-item.active > .badge,
+#SettingsForm .nav-pills > .active > a > .badge {
+  color: #2780e3;
+  background-color: #ffffff;
+}
+#SettingsForm .list-group-item > .badge {
+  float: right;
+}
+#SettingsForm .list-group-item > .badge + .badge {
+  margin-right: 5px;
+}
+#SettingsForm .nav-pills > li > a > .badge {
+  margin-left: 3px;
+}
+#SettingsForm .alert {
+  padding: 15px;
+  margin-bottom: 21px;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+#SettingsForm .alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+#SettingsForm .alert .alert-link {
+  font-weight: bold;
+}
+#SettingsForm .alert > p,
+#SettingsForm .alert > ul {
+  margin-bottom: 0;
+}
+#SettingsForm .alert > p + p {
+  margin-top: 5px;
+}
+#SettingsForm .alert-dismissable,
+#SettingsForm .alert-dismissible {
+  padding-right: 35px;
+}
+#SettingsForm .alert-dismissable .close,
+#SettingsForm .alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+#SettingsForm .alert-success {
+  color: #ffffff;
+  background-color: #3fb618;
+  border-color: #4e9f15;
+}
+#SettingsForm .alert-success hr {
+  border-top-color: #438912;
+}
+#SettingsForm .alert-success .alert-link {
+  color: #e6e6e6;
+}
+#SettingsForm .alert-info {
+  color: #ffffff;
+  background-color: #064e9f;
+  border-color: #05517d;
+}
+#SettingsForm .alert-info hr {
+  border-top-color: #044164;
+}
+#SettingsForm .alert-info .alert-link {
+  color: #e6e6e6;
+}
+#SettingsForm .alert-warning {
+  color: #ffffff;
+  background-color: #ff7518;
+  border-color: #ff4309;
+}
+#SettingsForm .alert-warning hr {
+  border-top-color: #ee3800;
+}
+#SettingsForm .alert-warning .alert-link {
+  color: #e6e6e6;
+}
+#SettingsForm .alert-danger {
+  color: #ffffff;
+  background-color: #ff0039;
+  border-color: #f0005e;
+}
+#SettingsForm .alert-danger hr {
+  border-top-color: #d60054;
+}
+#SettingsForm .alert-danger .alert-link {
+  color: #e6e6e6;
+}
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+#SettingsForm .progress {
+  height: 21px;
+  margin-bottom: 21px;
+  overflow: hidden;
+  background-color: #cccccc;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+#SettingsForm .progress-bar {
+  float: left;
+  width: 0%;
+  height: 100%;
+  font-size: 13px;
+  line-height: 21px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #2780e3;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+}
+#SettingsForm .progress-striped .progress-bar,
+#SettingsForm .progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+}
+#SettingsForm .progress.active .progress-bar,
+#SettingsForm .progress-bar.active {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+#SettingsForm .progress-bar-success {
+  background-color: #3fb618;
+}
+#SettingsForm .progress-striped .progress-bar-success {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#SettingsForm .progress-bar-info {
+  background-color: #064e9f;
+}
+#SettingsForm .progress-striped .progress-bar-info {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#SettingsForm .progress-bar-warning {
+  background-color: #ff7518;
+}
+#SettingsForm .progress-striped .progress-bar-warning {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#SettingsForm .progress-bar-danger {
+  background-color: #ff0039;
+}
+#SettingsForm .progress-striped .progress-bar-danger {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#SettingsForm .list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+#SettingsForm .list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+#SettingsForm .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#SettingsForm .list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#SettingsForm .list-group-item.disabled,
+#SettingsForm .list-group-item.disabled:hover,
+#SettingsForm .list-group-item.disabled:focus {
+  color: #999999;
+  cursor: not-allowed;
+  background-color: #e6e6e6;
+}
+#SettingsForm .list-group-item.disabled .list-group-item-heading,
+#SettingsForm .list-group-item.disabled:hover .list-group-item-heading,
+#SettingsForm .list-group-item.disabled:focus .list-group-item-heading {
+  color: inherit;
+}
+#SettingsForm .list-group-item.disabled .list-group-item-text,
+#SettingsForm .list-group-item.disabled:hover .list-group-item-text,
+#SettingsForm .list-group-item.disabled:focus .list-group-item-text {
+  color: #999999;
+}
+#SettingsForm .list-group-item.active,
+#SettingsForm .list-group-item.active:hover,
+#SettingsForm .list-group-item.active:focus {
+  z-index: 2;
+  color: #ffffff;
+  background-color: #2780e3;
+  border-color: #dddddd;
+}
+#SettingsForm .list-group-item.active .list-group-item-heading,
+#SettingsForm .list-group-item.active:hover .list-group-item-heading,
+#SettingsForm .list-group-item.active:focus .list-group-item-heading,
+#SettingsForm .list-group-item.active .list-group-item-heading > small,
+#SettingsForm .list-group-item.active:hover .list-group-item-heading > small,
+#SettingsForm .list-group-item.active:focus .list-group-item-heading > small,
+#SettingsForm .list-group-item.active .list-group-item-heading > .small,
+#SettingsForm .list-group-item.active:hover .list-group-item-heading > .small,
+#SettingsForm .list-group-item.active:focus .list-group-item-heading > .small {
+  color: inherit;
+}
+#SettingsForm .list-group-item.active .list-group-item-text,
+#SettingsForm .list-group-item.active:hover .list-group-item-text,
+#SettingsForm .list-group-item.active:focus .list-group-item-text {
+  color: #dceafa;
+}
+#SettingsForm a.list-group-item,
+#SettingsForm button.list-group-item {
+  color: #555555;
+}
+#SettingsForm a.list-group-item .list-group-item-heading,
+#SettingsForm button.list-group-item .list-group-item-heading {
+  color: #333333;
+}
+#SettingsForm a.list-group-item:hover,
+#SettingsForm button.list-group-item:hover,
+#SettingsForm a.list-group-item:focus,
+#SettingsForm button.list-group-item:focus {
+  color: #555555;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+#SettingsForm button.list-group-item {
+  width: 100%;
+  text-align: left;
+}
+#SettingsForm .list-group-item-success {
+  color: #ffffff;
+  background-color: #3fb618;
+}
+#SettingsForm a.list-group-item-success,
+#SettingsForm button.list-group-item-success {
+  color: #ffffff;
+}
+#SettingsForm a.list-group-item-success .list-group-item-heading,
+#SettingsForm button.list-group-item-success .list-group-item-heading {
+  color: inherit;
+}
+#SettingsForm a.list-group-item-success:hover,
+#SettingsForm button.list-group-item-success:hover,
+#SettingsForm a.list-group-item-success:focus,
+#SettingsForm button.list-group-item-success:focus {
+  color: #ffffff;
+  background-color: #379f15;
+}
+#SettingsForm a.list-group-item-success.active,
+#SettingsForm button.list-group-item-success.active,
+#SettingsForm a.list-group-item-success.active:hover,
+#SettingsForm button.list-group-item-success.active:hover,
+#SettingsForm a.list-group-item-success.active:focus,
+#SettingsForm button.list-group-item-success.active:focus {
+  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+#SettingsForm .list-group-item-info {
+  color: #ffffff;
+  background-color: #064e9f;
+}
+#SettingsForm a.list-group-item-info,
+#SettingsForm button.list-group-item-info {
+  color: #ffffff;
+}
+#SettingsForm a.list-group-item-info .list-group-item-heading,
+#SettingsForm button.list-group-item-info .list-group-item-heading {
+  color: inherit;
+}
+#SettingsForm a.list-group-item-info:hover,
+#SettingsForm button.list-group-item-info:hover,
+#SettingsForm a.list-group-item-info:focus,
+#SettingsForm button.list-group-item-info:focus {
+  color: #ffffff;
+  background-color: #054286;
+}
+#SettingsForm a.list-group-item-info.active,
+#SettingsForm button.list-group-item-info.active,
+#SettingsForm a.list-group-item-info.active:hover,
+#SettingsForm button.list-group-item-info.active:hover,
+#SettingsForm a.list-group-item-info.active:focus,
+#SettingsForm button.list-group-item-info.active:focus {
+  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+#SettingsForm .list-group-item-warning {
+  color: #ffffff;
+  background-color: #ff7518;
+}
+#SettingsForm a.list-group-item-warning,
+#SettingsForm button.list-group-item-warning {
+  color: #ffffff;
+}
+#SettingsForm a.list-group-item-warning .list-group-item-heading,
+#SettingsForm button.list-group-item-warning .list-group-item-heading {
+  color: inherit;
+}
+#SettingsForm a.list-group-item-warning:hover,
+#SettingsForm button.list-group-item-warning:hover,
+#SettingsForm a.list-group-item-warning:focus,
+#SettingsForm button.list-group-item-warning:focus {
+  color: #ffffff;
+  background-color: #fe6600;
+}
+#SettingsForm a.list-group-item-warning.active,
+#SettingsForm button.list-group-item-warning.active,
+#SettingsForm a.list-group-item-warning.active:hover,
+#SettingsForm button.list-group-item-warning.active:hover,
+#SettingsForm a.list-group-item-warning.active:focus,
+#SettingsForm button.list-group-item-warning.active:focus {
+  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+#SettingsForm .list-group-item-danger {
+  color: #ffffff;
+  background-color: #ff0039;
+}
+#SettingsForm a.list-group-item-danger,
+#SettingsForm button.list-group-item-danger {
+  color: #ffffff;
+}
+#SettingsForm a.list-group-item-danger .list-group-item-heading,
+#SettingsForm button.list-group-item-danger .list-group-item-heading {
+  color: inherit;
+}
+#SettingsForm a.list-group-item-danger:hover,
+#SettingsForm button.list-group-item-danger:hover,
+#SettingsForm a.list-group-item-danger:focus,
+#SettingsForm button.list-group-item-danger:focus {
+  color: #ffffff;
+  background-color: #e60033;
+}
+#SettingsForm a.list-group-item-danger.active,
+#SettingsForm button.list-group-item-danger.active,
+#SettingsForm a.list-group-item-danger.active:hover,
+#SettingsForm button.list-group-item-danger.active:hover,
+#SettingsForm a.list-group-item-danger.active:focus,
+#SettingsForm button.list-group-item-danger.active:focus {
+  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+#SettingsForm .list-group-item-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+#SettingsForm .list-group-item-text {
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+#SettingsForm .panel {
+  margin-bottom: 21px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 0;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+#SettingsForm .panel-body {
+  padding: 15px;
+}
+#SettingsForm .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: -1;
+  border-top-right-radius: -1;
+}
+#SettingsForm .panel-heading > .dropdown .dropdown-toggle {
+  color: inherit;
+}
+#SettingsForm .panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 17px;
+  color: inherit;
+}
+#SettingsForm .panel-title > a,
+#SettingsForm .panel-title > small,
+#SettingsForm .panel-title > .small,
+#SettingsForm .panel-title > small > a,
+#SettingsForm .panel-title > .small > a {
+  color: inherit;
+}
+#SettingsForm .panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: -1;
+  border-bottom-left-radius: -1;
+}
+#SettingsForm .panel > .list-group,
+#SettingsForm .panel > .panel-collapse > .list-group {
+  margin-bottom: 0;
+}
+#SettingsForm .panel > .list-group .list-group-item,
+#SettingsForm .panel > .panel-collapse > .list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+#SettingsForm .panel > .list-group:first-child .list-group-item:first-child,
+#SettingsForm .panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
+  border-top: 0;
+  border-top-left-radius: -1;
+  border-top-right-radius: -1;
+}
+#SettingsForm .panel > .list-group:last-child .list-group-item:last-child,
+#SettingsForm .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 0;
+  border-bottom-right-radius: -1;
+  border-bottom-left-radius: -1;
+}
+#SettingsForm .panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#SettingsForm .panel-heading + .list-group .list-group-item:first-child {
+  border-top-width: 0;
+}
+#SettingsForm .list-group + .panel-footer {
+  border-top-width: 0;
+}
+#SettingsForm .panel > .table,
+#SettingsForm .panel > .table-responsive > .table,
+#SettingsForm .panel > .panel-collapse > .table {
+  margin-bottom: 0;
+}
+#SettingsForm .panel > .table caption,
+#SettingsForm .panel > .table-responsive > .table caption,
+#SettingsForm .panel > .panel-collapse > .table caption {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#SettingsForm .panel > .table:first-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child {
+  border-top-left-radius: -1;
+  border-top-right-radius: -1;
+}
+#SettingsForm .panel > .table:first-child > thead:first-child > tr:first-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
+#SettingsForm .panel > .table:first-child > tbody:first-child > tr:first-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child {
+  border-top-left-radius: -1;
+  border-top-right-radius: -1;
+}
+#SettingsForm .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+#SettingsForm .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+#SettingsForm .panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+#SettingsForm .panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-left-radius: -1;
+}
+#SettingsForm .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+#SettingsForm .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+#SettingsForm .panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+#SettingsForm .panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+#SettingsForm .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-right-radius: -1;
+}
+#SettingsForm .panel > .table:last-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: -1;
+  border-bottom-left-radius: -1;
+}
+#SettingsForm .panel > .table:last-child > tbody:last-child > tr:last-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
+#SettingsForm .panel > .table:last-child > tfoot:last-child > tr:last-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child {
+  border-bottom-right-radius: -1;
+  border-bottom-left-radius: -1;
+}
+#SettingsForm .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+#SettingsForm .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+#SettingsForm .panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+#SettingsForm .panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-left-radius: -1;
+}
+#SettingsForm .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+#SettingsForm .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+#SettingsForm .panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+#SettingsForm .panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+#SettingsForm .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-right-radius: -1;
+}
+#SettingsForm .panel > .panel-body + .table,
+#SettingsForm .panel > .panel-body + .table-responsive,
+#SettingsForm .panel > .table + .panel-body,
+#SettingsForm .panel > .table-responsive + .panel-body {
+  border-top: 1px solid #dddddd;
+}
+#SettingsForm .panel > .table > tbody:first-child > tr:first-child th,
+#SettingsForm .panel > .table > tbody:first-child > tr:first-child td {
+  border-top: 0;
+}
+#SettingsForm .panel > .table-bordered,
+#SettingsForm .panel > .table-responsive > .table-bordered {
+  border: 0;
+}
+#SettingsForm .panel > .table-bordered > thead > tr > th:first-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+#SettingsForm .panel > .table-bordered > tbody > tr > th:first-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+#SettingsForm .panel > .table-bordered > tfoot > tr > th:first-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+#SettingsForm .panel > .table-bordered > thead > tr > td:first-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+#SettingsForm .panel > .table-bordered > tbody > tr > td:first-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+#SettingsForm .panel > .table-bordered > tfoot > tr > td:first-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+#SettingsForm .panel > .table-bordered > thead > tr > th:last-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+#SettingsForm .panel > .table-bordered > tbody > tr > th:last-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+#SettingsForm .panel > .table-bordered > tfoot > tr > th:last-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+#SettingsForm .panel > .table-bordered > thead > tr > td:last-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+#SettingsForm .panel > .table-bordered > tbody > tr > td:last-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+#SettingsForm .panel > .table-bordered > tfoot > tr > td:last-child,
+#SettingsForm .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-right: 0;
+}
+#SettingsForm .panel > .table-bordered > thead > tr:first-child > td,
+#SettingsForm .panel > .table-responsive > .table-bordered > thead > tr:first-child > td,
+#SettingsForm .panel > .table-bordered > tbody > tr:first-child > td,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+#SettingsForm .panel > .table-bordered > thead > tr:first-child > th,
+#SettingsForm .panel > .table-responsive > .table-bordered > thead > tr:first-child > th,
+#SettingsForm .panel > .table-bordered > tbody > tr:first-child > th,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr:first-child > th {
+  border-bottom: 0;
+}
+#SettingsForm .panel > .table-bordered > tbody > tr:last-child > td,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+#SettingsForm .panel > .table-bordered > tfoot > tr:last-child > td,
+#SettingsForm .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+#SettingsForm .panel > .table-bordered > tbody > tr:last-child > th,
+#SettingsForm .panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+#SettingsForm .panel > .table-bordered > tfoot > tr:last-child > th,
+#SettingsForm .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
+  border-bottom: 0;
+}
+#SettingsForm .panel > .table-responsive {
+  margin-bottom: 0;
+  border: 0;
+}
+#SettingsForm .panel-group {
+  margin-bottom: 21px;
+}
+#SettingsForm .panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+#SettingsForm .panel-group .panel + .panel {
+  margin-top: 5px;
+}
+#SettingsForm .panel-group .panel-heading {
+  border-bottom: 0;
+}
+#SettingsForm .panel-group .panel-heading + .panel-collapse > .panel-body,
+#SettingsForm .panel-group .panel-heading + .panel-collapse > .list-group {
+  border-top: 1px solid #dddddd;
+}
+#SettingsForm .panel-group .panel-footer {
+  border-top: 0;
+}
+#SettingsForm .panel-group .panel-footer + .panel-collapse .panel-body {
+  border-bottom: 1px solid #dddddd;
+}
+#SettingsForm .panel-default {
+  border-color: #dddddd;
+}
+#SettingsForm .panel-default > .panel-heading {
+  color: #333333;
+  background-color: #f5f5f5;
+  border-color: #dddddd;
+}
+#SettingsForm .panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #dddddd;
+}
+#SettingsForm .panel-default > .panel-heading .badge {
+  color: #f5f5f5;
+  background-color: #333333;
+}
+#SettingsForm .panel-default > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #dddddd;
+}
+#SettingsForm .panel-primary {
+  border-color: #2780e3;
+}
+#SettingsForm .panel-primary > .panel-heading {
+  color: #ffffff;
+  background-color: #2780e3;
+  border-color: #2780e3;
+}
+#SettingsForm .panel-primary > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #2780e3;
+}
+#SettingsForm .panel-primary > .panel-heading .badge {
+  color: #2780e3;
+  background-color: #ffffff;
+}
+#SettingsForm .panel-primary > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #2780e3;
+}
+#SettingsForm .panel-success {
+  border-color: #4e9f15;
+}
+#SettingsForm .panel-success > .panel-heading {
+  color: #ffffff;
+  background-color: #3fb618;
+  border-color: #4e9f15;
+}
+#SettingsForm .panel-success > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #4e9f15;
+}
+#SettingsForm .panel-success > .panel-heading .badge {
+  color: #3fb618;
+  background-color: #ffffff;
+}
+#SettingsForm .panel-success > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #4e9f15;
+}
+#SettingsForm .panel-info {
+  border-color: #05517d;
+}
+#SettingsForm .panel-info > .panel-heading {
+  color: #ffffff;
+  background-color: #064e9f;
+  border-color: #05517d;
+}
+#SettingsForm .panel-info > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #05517d;
+}
+#SettingsForm .panel-info > .panel-heading .badge {
+  color: #064e9f;
+  background-color: #ffffff;
+}
+#SettingsForm .panel-info > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #05517d;
+}
+#SettingsForm .panel-warning {
+  border-color: #ff4309;
+}
+#SettingsForm .panel-warning > .panel-heading {
+  color: #ffffff;
+  background-color: #ff7518;
+  border-color: #ff4309;
+}
+#SettingsForm .panel-warning > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ff4309;
+}
+#SettingsForm .panel-warning > .panel-heading .badge {
+  color: #ff7518;
+  background-color: #ffffff;
+}
+#SettingsForm .panel-warning > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #ff4309;
+}
+#SettingsForm .panel-danger {
+  border-color: #f0005e;
+}
+#SettingsForm .panel-danger > .panel-heading {
+  color: #ffffff;
+  background-color: #ff0039;
+  border-color: #f0005e;
+}
+#SettingsForm .panel-danger > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #f0005e;
+}
+#SettingsForm .panel-danger > .panel-heading .badge {
+  color: #ff0039;
+  background-color: #ffffff;
+}
+#SettingsForm .panel-danger > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #f0005e;
+}
+#SettingsForm .embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#SettingsForm .embed-responsive .embed-responsive-item,
+#SettingsForm .embed-responsive iframe,
+#SettingsForm .embed-responsive embed,
+#SettingsForm .embed-responsive object,
+#SettingsForm .embed-responsive video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+#SettingsForm .embed-responsive-16by9 {
+  padding-bottom: 56.25%;
+}
+#SettingsForm .embed-responsive-4by3 {
+  padding-bottom: 75%;
+}
+#SettingsForm .well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+#SettingsForm .well blockquote {
+  border-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+#SettingsForm .well-lg {
+  padding: 24px;
+  border-radius: 0;
+}
+#SettingsForm .well-sm {
+  padding: 9px;
+  border-radius: 0;
+}
+#SettingsForm .close {
+  float: right;
+  font-size: 22.5px;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 1px 0 #ffffff;
+  filter: alpha(opacity=20);
+  opacity: 0.2;
+}
+#SettingsForm .close:hover,
+#SettingsForm .close:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+#SettingsForm button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#SettingsForm .modal-open {
+  overflow: hidden;
+}
+#SettingsForm .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+#SettingsForm .modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+#SettingsForm .modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#SettingsForm .modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#SettingsForm .modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+#SettingsForm .modal-content {
+  position: relative;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #999999;
+  border: 1px solid transparent;
+  border-radius: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  outline: 0;
+}
+#SettingsForm .modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+#SettingsForm .modal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+#SettingsForm .modal-backdrop.in {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+#SettingsForm .modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+#SettingsForm .modal-header .close {
+  margin-top: -2px;
+}
+#SettingsForm .modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+#SettingsForm .modal-body {
+  position: relative;
+  padding: 20px;
+}
+#SettingsForm .modal-footer {
+  padding: 20px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+#SettingsForm .modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+#SettingsForm .modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+#SettingsForm .modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+#SettingsForm .modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+@media (min-width: 768px) {
+  #SettingsForm .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  #SettingsForm .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  #SettingsForm .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  #SettingsForm .modal-lg {
+    width: 900px;
+  }
+}
+#SettingsForm .tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42857143;
+  line-break: auto;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+  font-size: 13px;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+#SettingsForm .tooltip.in {
+  filter: alpha(opacity=90);
+  opacity: 0.9;
+}
+#SettingsForm .tooltip.top {
+  padding: 5px 0;
+  margin-top: -3px;
+}
+#SettingsForm .tooltip.right {
+  padding: 0 5px;
+  margin-left: 3px;
+}
+#SettingsForm .tooltip.bottom {
+  padding: 5px 0;
+  margin-top: 3px;
+}
+#SettingsForm .tooltip.left {
+  padding: 0 5px;
+  margin-left: -3px;
+}
+#SettingsForm .tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000000;
+}
+#SettingsForm .tooltip.top-left .tooltip-arrow {
+  right: 5px;
+  bottom: 0;
+  margin-bottom: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000000;
+}
+#SettingsForm .tooltip.top-right .tooltip-arrow {
+  bottom: 0;
+  left: 5px;
+  margin-bottom: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000000;
+}
+#SettingsForm .tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: #000000;
+}
+#SettingsForm .tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #000000;
+}
+#SettingsForm .tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000000;
+}
+#SettingsForm .tooltip.bottom-left .tooltip-arrow {
+  top: 0;
+  right: 5px;
+  margin-top: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000000;
+}
+#SettingsForm .tooltip.bottom-right .tooltip-arrow {
+  top: 0;
+  left: 5px;
+  margin-top: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000000;
+}
+#SettingsForm .tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #000000;
+  border-radius: 0;
+}
+#SettingsForm .tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+#SettingsForm .popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  max-width: 276px;
+  padding: 1px;
+  font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42857143;
+  line-break: auto;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+  font-size: 15px;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+#SettingsForm .popover.top {
+  margin-top: -10px;
+}
+#SettingsForm .popover.right {
+  margin-left: 10px;
+}
+#SettingsForm .popover.bottom {
+  margin-top: 10px;
+}
+#SettingsForm .popover.left {
+  margin-left: -10px;
+}
+#SettingsForm .popover > .arrow {
+  border-width: 11px;
+}
+#SettingsForm .popover > .arrow,
+#SettingsForm .popover > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+#SettingsForm .popover > .arrow:after {
+  content: "";
+  border-width: 10px;
+}
+#SettingsForm .popover.top > .arrow {
+  bottom: -11px;
+  left: 50%;
+  margin-left: -11px;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  border-bottom-width: 0;
+}
+#SettingsForm .popover.top > .arrow:after {
+  bottom: 1px;
+  margin-left: -10px;
+  content: " ";
+  border-top-color: #ffffff;
+  border-bottom-width: 0;
+}
+#SettingsForm .popover.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+  border-left-width: 0;
+}
+#SettingsForm .popover.right > .arrow:after {
+  bottom: -10px;
+  left: 1px;
+  content: " ";
+  border-right-color: #ffffff;
+  border-left-width: 0;
+}
+#SettingsForm .popover.bottom > .arrow {
+  top: -11px;
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+}
+#SettingsForm .popover.bottom > .arrow:after {
+  top: 1px;
+  margin-left: -10px;
+  content: " ";
+  border-top-width: 0;
+  border-bottom-color: #ffffff;
+}
+#SettingsForm .popover.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+#SettingsForm .popover.left > .arrow:after {
+  right: 1px;
+  bottom: -10px;
+  content: " ";
+  border-right-width: 0;
+  border-left-color: #ffffff;
+}
+#SettingsForm .popover-title {
+  padding: 8px 14px;
+  margin: 0;
+  font-size: 15px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: -1 -1 0 0;
+}
+#SettingsForm .popover-content {
+  padding: 9px 14px;
+}
+#SettingsForm .clearfix:before,
+#SettingsForm .clearfix:after,
+#SettingsForm .dl-horizontal dd:before,
+#SettingsForm .dl-horizontal dd:after,
+#SettingsForm .container:before,
+#SettingsForm .container:after,
+#SettingsForm .container-fluid:before,
+#SettingsForm .container-fluid:after,
+#SettingsForm .row:before,
+#SettingsForm .row:after,
+#SettingsForm .form-horizontal .form-group:before,
+#SettingsForm .form-horizontal .form-group:after,
+#SettingsForm .btn-toolbar:before,
+#SettingsForm .btn-toolbar:after,
+#SettingsForm .btn-group-vertical > .btn-group:before,
+#SettingsForm .btn-group-vertical > .btn-group:after,
+#SettingsForm .nav:before,
+#SettingsForm .nav:after,
+#SettingsForm .panel-body:before,
+#SettingsForm .panel-body:after,
+#SettingsForm .modal-header:before,
+#SettingsForm .modal-header:after,
+#SettingsForm .modal-footer:before,
+#SettingsForm .modal-footer:after {
+  display: table;
+  content: " ";
+}
+#SettingsForm .clearfix:after,
+#SettingsForm .dl-horizontal dd:after,
+#SettingsForm .container:after,
+#SettingsForm .container-fluid:after,
+#SettingsForm .row:after,
+#SettingsForm .form-horizontal .form-group:after,
+#SettingsForm .btn-toolbar:after,
+#SettingsForm .btn-group-vertical > .btn-group:after,
+#SettingsForm .nav:after,
+#SettingsForm .panel-body:after,
+#SettingsForm .modal-header:after,
+#SettingsForm .modal-footer:after {
+  clear: both;
+}
+#SettingsForm .center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+#SettingsForm .pull-right {
+  float: right !important;
+}
+#SettingsForm .pull-left {
+  float: left !important;
+}
+#SettingsForm .hide {
+  display: none !important;
+}
+#SettingsForm .show {
+  display: block !important;
+}
+#SettingsForm .invisible {
+  visibility: hidden;
+}
+#SettingsForm .text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+#SettingsForm .hidden {
+  display: none !important;
+}
+#SettingsForm .affix {
+  position: fixed;
+}
+@-ms-viewport {
+  width: device-width;
+}
+#SettingsForm .visible-xs,
+#SettingsForm .visible-sm,
+#SettingsForm .visible-md,
+#SettingsForm .visible-lg {
+  display: none !important;
+}
+#SettingsForm .visible-xs-block,
+#SettingsForm .visible-xs-inline,
+#SettingsForm .visible-xs-inline-block,
+#SettingsForm .visible-sm-block,
+#SettingsForm .visible-sm-inline,
+#SettingsForm .visible-sm-inline-block,
+#SettingsForm .visible-md-block,
+#SettingsForm .visible-md-inline,
+#SettingsForm .visible-md-inline-block,
+#SettingsForm .visible-lg-block,
+#SettingsForm .visible-lg-inline,
+#SettingsForm .visible-lg-inline-block {
+  display: none !important;
+}
+@media (max-width: 767px) {
+  #SettingsForm .visible-xs {
+    display: block !important;
+  }
+  #SettingsForm table.visible-xs {
+    display: table !important;
+  }
+  #SettingsForm tr.visible-xs {
+    display: table-row !important;
+  }
+  #SettingsForm th.visible-xs,
+  #SettingsForm td.visible-xs {
+    display: table-cell !important;
+  }
+}
+@media (max-width: 767px) {
+  #SettingsForm .visible-xs-block {
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  #SettingsForm .visible-xs-inline {
+    display: inline !important;
+  }
+}
+@media (max-width: 767px) {
+  #SettingsForm .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #SettingsForm .visible-sm {
+    display: block !important;
+  }
+  #SettingsForm table.visible-sm {
+    display: table !important;
+  }
+  #SettingsForm tr.visible-sm {
+    display: table-row !important;
+  }
+  #SettingsForm th.visible-sm,
+  #SettingsForm td.visible-sm {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #SettingsForm .visible-sm-block {
+    display: block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #SettingsForm .visible-sm-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #SettingsForm .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #SettingsForm .visible-md {
+    display: block !important;
+  }
+  #SettingsForm table.visible-md {
+    display: table !important;
+  }
+  #SettingsForm tr.visible-md {
+    display: table-row !important;
+  }
+  #SettingsForm th.visible-md,
+  #SettingsForm td.visible-md {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #SettingsForm .visible-md-block {
+    display: block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #SettingsForm .visible-md-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #SettingsForm .visible-md-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 1200px) {
+  #SettingsForm .visible-lg {
+    display: block !important;
+  }
+  #SettingsForm table.visible-lg {
+    display: table !important;
+  }
+  #SettingsForm tr.visible-lg {
+    display: table-row !important;
+  }
+  #SettingsForm th.visible-lg,
+  #SettingsForm td.visible-lg {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 1200px) {
+  #SettingsForm .visible-lg-block {
+    display: block !important;
+  }
+}
+@media (min-width: 1200px) {
+  #SettingsForm .visible-lg-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 1200px) {
+  #SettingsForm .visible-lg-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (max-width: 767px) {
+  #SettingsForm .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #SettingsForm .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #SettingsForm .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  #SettingsForm .hidden-lg {
+    display: none !important;
+  }
+}
+#SettingsForm .visible-print {
+  display: none !important;
+}
+@media print {
+  #SettingsForm .visible-print {
+    display: block !important;
+  }
+  #SettingsForm table.visible-print {
+    display: table !important;
+  }
+  #SettingsForm tr.visible-print {
+    display: table-row !important;
+  }
+  #SettingsForm th.visible-print,
+  #SettingsForm td.visible-print {
+    display: table-cell !important;
+  }
+}
+#SettingsForm .visible-print-block {
+  display: none !important;
+}
+@media print {
+  #SettingsForm .visible-print-block {
+    display: block !important;
+  }
+}
+#SettingsForm .visible-print-inline {
+  display: none !important;
+}
+@media print {
+  #SettingsForm .visible-print-inline {
+    display: inline !important;
+  }
+}
+#SettingsForm .visible-print-inline-block {
+  display: none !important;
+}
+@media print {
+  #SettingsForm .visible-print-inline-block {
+    display: inline-block !important;
+  }
+}
+@media print {
+  #SettingsForm .hidden-print {
+    display: none !important;
+  }
+}
+#SettingsForm .navbar-inverse .badge {
+  background-color: #fff;
+  color: #2780e3;
+}
+#SettingsForm body {
+  -webkit-font-smoothing: antialiased;
+}
+#SettingsForm .text-primary,
+#SettingsForm .text-primary:hover {
+  color: #2780e3;
+}
+#SettingsForm .text-success,
+#SettingsForm .text-success:hover {
+  color: #3fb618;
+}
+#SettingsForm .text-danger,
+#SettingsForm .text-danger:hover {
+  color: #ff0039;
+}
+#SettingsForm .text-warning,
+#SettingsForm .text-warning:hover {
+  color: #ff7518;
+}
+#SettingsForm .text-info,
+#SettingsForm .text-info:hover {
+  color: #064e9f;
+}
+#SettingsForm table a:not(.btn),
+#SettingsForm .table a:not(.btn) {
+  text-decoration: underline;
+}
+#SettingsForm table .dropdown-menu a,
+#SettingsForm .table .dropdown-menu a {
+  text-decoration: none;
+}
+#SettingsForm table .success,
+#SettingsForm .table .success,
+#SettingsForm table .warning,
+#SettingsForm .table .warning,
+#SettingsForm table .danger,
+#SettingsForm .table .danger,
+#SettingsForm table .info,
+#SettingsForm .table .info {
+  color: #fff;
+}
+#SettingsForm table .success a,
+#SettingsForm .table .success a,
+#SettingsForm table .warning a,
+#SettingsForm .table .warning a,
+#SettingsForm table .danger a,
+#SettingsForm .table .danger a,
+#SettingsForm table .info a,
+#SettingsForm .table .info a {
+  color: #fff;
+}
+#SettingsForm .has-warning .help-block,
+#SettingsForm .has-warning .control-label,
+#SettingsForm .has-warning .radio,
+#SettingsForm .has-warning .checkbox,
+#SettingsForm .has-warning .radio-inline,
+#SettingsForm .has-warning .checkbox-inline,
+#SettingsForm .has-warning.radio label,
+#SettingsForm .has-warning.checkbox label,
+#SettingsForm .has-warning.radio-inline label,
+#SettingsForm .has-warning.checkbox-inline label,
+#SettingsForm .has-warning .form-control-feedback {
+  color: #ff7518;
+}
+#SettingsForm .has-warning .form-control,
+#SettingsForm .has-warning .form-control:focus,
+#SettingsForm .has-warning .input-group-addon {
+  border: 1px solid #ff7518;
+}
+#SettingsForm .has-error .help-block,
+#SettingsForm .has-error .control-label,
+#SettingsForm .has-error .radio,
+#SettingsForm .has-error .checkbox,
+#SettingsForm .has-error .radio-inline,
+#SettingsForm .has-error .checkbox-inline,
+#SettingsForm .has-error.radio label,
+#SettingsForm .has-error.checkbox label,
+#SettingsForm .has-error.radio-inline label,
+#SettingsForm .has-error.checkbox-inline label,
+#SettingsForm .has-error .form-control-feedback {
+  color: #ff0039;
+}
+#SettingsForm .has-error .form-control,
+#SettingsForm .has-error .form-control:focus,
+#SettingsForm .has-error .input-group-addon {
+  border: 1px solid #ff0039;
+}
+#SettingsForm .has-success .help-block,
+#SettingsForm .has-success .control-label,
+#SettingsForm .has-success .radio,
+#SettingsForm .has-success .checkbox,
+#SettingsForm .has-success .radio-inline,
+#SettingsForm .has-success .checkbox-inline,
+#SettingsForm .has-success.radio label,
+#SettingsForm .has-success.checkbox label,
+#SettingsForm .has-success.radio-inline label,
+#SettingsForm .has-success.checkbox-inline label,
+#SettingsForm .has-success .form-control-feedback {
+  color: #3fb618;
+}
+#SettingsForm .has-success .form-control,
+#SettingsForm .has-success .form-control:focus,
+#SettingsForm .has-success .input-group-addon {
+  border: 1px solid #3fb618;
+}
+#SettingsForm .nav-pills > li > a {
+  border-radius: 0;
+}
+#SettingsForm .dropdown-menu > li > a:hover,
+#SettingsForm .dropdown-menu > li > a:focus {
+  background-image: none;
+}
+#SettingsForm .close {
+  text-decoration: none;
+  text-shadow: none;
+  opacity: 0.4;
+}
+#SettingsForm .close:hover,
+#SettingsForm .close:focus {
+  opacity: 1;
+}
+#SettingsForm .alert {
+  border: none;
+}
+#SettingsForm .alert .alert-link {
+  text-decoration: underline;
+  color: #fff;
+}
+#SettingsForm .label {
+  border-radius: 0;
+}
+#SettingsForm .progress {
+  height: 8px;
+}
+#SettingsForm .progress .progress-bar {
+  font-size: 8px;
+  line-height: 8px;
+}
+#SettingsForm .panel-heading,
+#SettingsForm .panel-footer {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#SettingsForm .panel-default .close {
+  color: #333333;
+}
+#SettingsForm a.list-group-item-success.active {
+  background-color: #3fb618;
+}
+#SettingsForm a.list-group-item-success.active:hover,
+#SettingsForm a.list-group-item-success.active:focus {
+  background-color: #379f15;
+}
+#SettingsForm a.list-group-item-warning.active {
+  background-color: #ff7518;
+}
+#SettingsForm a.list-group-item-warning.active:hover,
+#SettingsForm a.list-group-item-warning.active:focus {
+  background-color: #fe6600;
+}
+#SettingsForm a.list-group-item-danger.active {
+  background-color: #ff0039;
+}
+#SettingsForm a.list-group-item-danger.active:hover,
+#SettingsForm a.list-group-item-danger.active:focus {
+  background-color: #e60033;
+}
+#SettingsForm .modal .close {
+  color: #333333;
+}
+#SettingsForm .popover {
+  color: #333333;
+}

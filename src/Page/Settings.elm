@@ -99,7 +99,7 @@ view model =
 
 viewFormContainer : Html Msg
 viewFormContainer =
-    div [ id "form" ] []
+    div [ id "SettingsForm" ] []
 
 
 viewSettings : Model -> Html Msg

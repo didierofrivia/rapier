@@ -1,0 +1,39 @@
+{
+  "name": "rapier",
+  "version": "1.0.0",
+  "description": "o-∫)=rapier> an APIcast UI MGMT tool ",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-jsonschema-form": "^1.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.4.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didierofrivia/rapier.git"
+  },
+  "keywords": [
+    "elm",
+    "apicast",
+    "api",
+    "proxy",
+    "proxy"
+  ],
+  "author": "dd di cesare",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/didierofrivia/rapier/issues"
+  },
+  "homepage": "https://github.com/didierofrivia/rapier#readme"
+}

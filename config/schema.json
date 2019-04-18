@@ -1,0 +1,72 @@
+{
+  "$id": "http://rapier.io/config-v1/schema#manifest#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "APIcast config",
+  "summary": "Configures the standalone version of APIcast proxy.",
+  "description": "Configures the standalone version of APIcast proxy.",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "global" : {
+      "type": "object",
+      "properties": {
+        "log_level": {
+          "description": "Log level",
+          "type": "string",
+          "oneOf": [
+            {
+              "enum": ["debug"],
+              "title": "Debug log level."
+            },
+            {
+              "enum": ["silent"],
+              "title": "No logging at all."
+            }
+          ]
+        },
+        "error_log": {
+          "description": "Error Log",
+          "type": "string",
+          "oneOf": [
+            {
+              "enum": ["stderr"],
+              "title": "stderr."
+            },
+            {
+              "enum": ["silent"],
+              "title": "No logging at all."
+            }
+          ]
+        },
+        "access_log": {
+          "description": "Access Log",
+          "type": "string",
+          "oneOf": [
+            {
+              "enum": ["stdout"],
+              "title": "stdout."
+            },
+            {
+              "enum": ["silent"],
+              "title": "No logging at all."
+            }
+          ]
+        },
+        "opentracing_tracer": {
+          "description": "Opentracing Tracer",
+          "type": "string",
+          "oneOf": [
+            {
+              "enum": ["jaeger"],
+              "title": "jaeger."
+            },
+            {
+              "enum": ["other"],
+              "title": "Other maybe?."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -15,7 +16,9 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.5",
     "compression-webpack-plugin": "^2.0.0",
@@ -57,8 +60,8 @@
     "prod:analyze": "npm run prod -- --env.presets analyze",
     "prod:compress": "npm run prod -- --env.presets compress",
     "dev:client": "webpack-dashboard --title 'Elm Dev Server' --minimal -- npm run webpack-dev-server -- --env.mode development --config webpack.client.config.js",
-    "dev:server": "nodemon dist/server.prod.js",
-    "dev": "npm run build:server:once && concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:server": "npm run build:server:once && nodemon dist/server.prod.js",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
     "elm-analyse": "elm-analyse -s -o",
     "preprod": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"

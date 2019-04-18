@@ -9,6 +9,8 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = () => ({
   output: {
+    publicPath: './',
+    path: path.resolve(__dirname, '../dist/'),
     filename: '[name].[hash].js'
   },
 
@@ -63,15 +65,15 @@ module.exports = () => ({
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].[hash].css',
+      filename: 'client/css/[name].[hash].css',
     }),
 
     new PurgecssPlugin({
-      paths: glob.sync(path.join(__dirname, '../src/**/*.elm'), { nodir: true }),
+      paths: glob.sync(path.join(__dirname, '../client/**/*.elm'), { nodir: true }),
     }),
 
     new CopyWebpackPlugin([
-      { from: 'src/assets/images', to: 'assets/images' },
+      { from: 'client/assets/images', to: 'assets/images' },
     ]),
 
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),

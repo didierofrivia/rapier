@@ -65,7 +65,7 @@ module.exports = () => ({
   ],
 
   devServer: {
-    contentBase: './src',
+    contentBase: './src/client',
     historyApiFallback: true,
     inline: true,
     stats: 'errors-only',

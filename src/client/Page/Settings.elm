@@ -25,7 +25,7 @@ import Session exposing (..)
 type Status
     = Failure
     | Loading
-    | Success Settings
+    | Success Value
 
 
 type alias Model =
@@ -39,7 +39,7 @@ type alias Model =
 
 type Msg
     = GetSettings
-    | GotSettings (Result Http.Error Settings)
+    | GotSettings (Result Http.Error Value)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -51,7 +51,7 @@ update msg model =
         GotSettings result ->
             case result of
                 Ok payload ->
-                    ( { model | status = Success payload }, renderForm payload.configuration )
+                    ( { model | status = Success payload }, renderForm payload )
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
@@ -115,7 +115,7 @@ viewSettings model =
             text "Loading..."
 
         Success settings ->
-            globalSettingsView settings.configuration
+            globalSettingsView settings
 
 
 settingsMenuColumnModifier =
@@ -145,19 +145,15 @@ myControlInputModifiers =
 -- HTTP
 
 
-type alias Settings =
-    { configuration : Value
-    }
-
-
 getSettings : Cmd Msg
 getSettings =
     Http.get
-        { -- url = "https://gist.githubusercontent.com/didierofrivia/de9701158b2cfddca938fd0d9c29bc91/raw/e8198ddd4e870b59a72f61eaf2b187fc0f219de5/apicast.json"
-          url = "https://raw.githubusercontent.com/3scale/APIcast/master/gateway/src/apicast/policy/headers/apicast-policy.json"
+        { -- get this url from config
+          url = "http://localhost:3000/schema"
         , expect = Http.expectJson GotSettings configurationDecoder
         }
 
 
+configurationDecoder : Decoder Value
 configurationDecoder =
-    Decode.map Settings (field "configuration" Decode.value)
+    Decode.value

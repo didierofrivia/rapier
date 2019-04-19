@@ -14,6 +14,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
 import Json.Decode as Decode exposing (Decoder, Value, decodeValue, field, int, string)
+import Json.Decode.Pipeline exposing (hardcoded, optional, required, requiredAt)
 import Json.Encode as E
 import Session exposing (..)
 
@@ -25,7 +26,7 @@ import Session exposing (..)
 type Status
     = Failure
     | Loading
-    | Success Value
+    | Success Settings
 
 
 type alias Model =
@@ -39,7 +40,7 @@ type alias Model =
 
 type Msg
     = GetSettings
-    | GotSettings (Result Http.Error Value)
+    | GotSettings (Result Http.Error Settings)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -51,7 +52,7 @@ update msg model =
         GotSettings result ->
             case result of
                 Ok payload ->
-                    ( { model | status = Success payload }, renderForm payload )
+                    ( { model | status = Success payload }, renderForm payload.globalSettings )
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
@@ -89,8 +90,17 @@ view model =
                 []
                 [ column columnModifiers
                     []
-                    [ viewSettings model
-                    , viewFormContainer
+                    [ columns columnsModifiers
+                        []
+                        [ column settingsMenuColumnModifier
+                            []
+                            [ settingsMenu ]
+                        , column columnModifiers
+                            []
+                            [ viewFormContainer
+                            ]
+                        ]
+                    , viewSettings model
                     ]
                 ]
             ]
@@ -115,7 +125,7 @@ viewSettings model =
             text "Loading..."
 
         Success settings ->
-            globalSettingsView settings
+            globalSettingsView settings.globalSettings
 
 
 settingsMenuColumnModifier =
@@ -141,8 +151,26 @@ myControlInputModifiers =
     }
 
 
+settingsMenu : Html msg
+settingsMenu =
+    Components.menu []
+        [ menuList []
+            [ menuListItemLink True [] [ text "Global" ]
+            , menuListItemLink False [] [ text "Servers" ]
+            , menuListItemLink False [] [ text "Routes" ]
+            ]
+        ]
+
+
 
 -- HTTP
+
+
+type alias Settings =
+    { name : String
+    , description : String
+    , globalSettings : Value
+    }
 
 
 getSettings : Cmd Msg
@@ -150,10 +178,13 @@ getSettings =
     Http.get
         { -- get this url from config
           url = "http://localhost:3000/schema"
-        , expect = Http.expectJson GotSettings configurationDecoder
+        , expect = Http.expectJson GotSettings settingsDecoder
         }
 
 
-configurationDecoder : Decoder Value
-configurationDecoder =
-    Decode.value
+settingsDecoder : Decoder Settings
+settingsDecoder =
+    Decode.succeed Settings
+        |> required "name" string
+        |> required "description" string
+        |> requiredAt [ "properties", "global" ] Decode.value

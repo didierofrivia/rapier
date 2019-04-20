@@ -1,23 +1,19 @@
 port module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, init, initialModel, subscriptions, update, view)
 
-import Browser
-import Browser.Navigation as Nav
 import Bulma.Columns exposing (..)
 import Bulma.Components as Components exposing (..)
-import Bulma.Elements as Elements exposing (content, title)
-import Bulma.Form as Form exposing (controlInput, controlInputModifiers, controlModifiers, controlText, field, help, label)
-import Bulma.Layout as Layout exposing (..)
+import Bulma.Elements exposing (content)
+import Bulma.Layout exposing (..)
 import Bulma.Modifiers exposing (Color(..), Size(..), Width(..))
-import Debug exposing (log, toString)
+import Debug exposing (toString)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode as Decode exposing (Decoder, Value, decodeValue, field, int, string)
-import Json.Decode.Pipeline exposing (hardcoded, optional, required, requiredAt)
+import Json.Decode as Decode exposing (Decoder, Value, string)
+import Json.Decode.Pipeline exposing (required, requiredAt)
 import Json.Encode as E
 import Router exposing (Section(..))
-import Session exposing (..)
 
 
 

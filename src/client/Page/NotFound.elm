@@ -9,8 +9,6 @@ import Bulma.Modifiers
         )
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (..)
-import Session exposing (..)
 
 
 type alias Model =

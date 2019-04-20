@@ -1,4 +1,4 @@
-port module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, subscriptions, update, view)
+port module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, init, initialModel, subscriptions, update, view)
 
 import Browser
 import Browser.Navigation as Nav
@@ -14,7 +14,9 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
 import Json.Decode as Decode exposing (Decoder, Value, decodeValue, field, int, string)
+import Json.Decode.Pipeline exposing (hardcoded, optional, required, requiredAt)
 import Json.Encode as E
+import Router exposing (Section(..))
 import Session exposing (..)
 
 
@@ -22,15 +24,41 @@ import Session exposing (..)
 -- MODEL
 
 
+type alias Settings =
+    { name : String
+    , description : String
+    , globalSettings : Value
+    , routeSettings : Value
+    }
+
+
 type Status
     = Failure
     | Loading
-    | Success Value
+    | Success
 
 
 type alias Model =
     { status : Status
+    , schema : Maybe Settings
+    , section : Section
     }
+
+
+initialModel =
+    { section = Init, status = Loading, schema = Nothing }
+
+
+init : Section -> Model -> ( Model, Cmd Msg )
+init section model =
+    case section of
+        Init ->
+            ( model
+            , getSettings
+            )
+
+        _ ->
+            ( { model | section = section }, cmdRenderFormWithSettings model.schema section )
 
 
 
@@ -39,7 +67,7 @@ type alias Model =
 
 type Msg
     = GetSettings
-    | GotSettings (Result Http.Error Value)
+    | GotSettings (Result Http.Error Settings)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -50,11 +78,24 @@ update msg model =
 
         GotSettings result ->
             case result of
-                Ok payload ->
-                    ( { model | status = Success payload }, renderForm payload )
+                Ok settings ->
+                    ( { model | status = Success, schema = Just settings }, renderForm settings.globalSettings )
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
+
+
+cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
+cmdRenderFormWithSettings schema section =
+    case ( section, schema ) of
+        ( Global, Just settings ) ->
+            renderForm settings.globalSettings
+
+        ( Routes, Just settings ) ->
+            renderForm settings.routeSettings
+
+        ( _, _ ) ->
+            Cmd.none
 
 
 
@@ -89,8 +130,17 @@ view model =
                 []
                 [ column columnModifiers
                     []
-                    [ viewSettings model
-                    , viewFormContainer
+                    [ columns columnsModifiers
+                        []
+                        [ column settingsMenuColumnModifier
+                            []
+                            [ settingsMenu model.section ]
+                        , column columnModifiers
+                            []
+                            [ viewFormContainer
+                            ]
+                        ]
+                    , viewSettings model
                     ]
                 ]
             ]
@@ -114,8 +164,8 @@ viewSettings model =
         Loading ->
             text "Loading..."
 
-        Success settings ->
-            globalSettingsView settings
+        Success ->
+            globalSettingsView
 
 
 settingsMenuColumnModifier =
@@ -130,15 +180,19 @@ settingsMenuColumnModifier =
     }
 
 
-globalSettingsView : Value -> Html msg
-globalSettingsView settings =
-    div [ style "margin-top" "0.5em" ] [ div [] [ text (toString settings) ] ]
+globalSettingsView : Html msg
+globalSettingsView =
+    div [ style "margin-top" "0.5em" ] [ div [] [] ]
 
 
-myControlInputModifiers =
-    { controlInputModifiers
-        | disabled = True
-    }
+settingsMenu : Section -> Html msg
+settingsMenu section =
+    Components.menu []
+        [ menuList []
+            [ menuListItemLink (section == Global || section == Init) [ href "settings#global" ] [ text "Global" ]
+            , menuListItemLink (section == Routes) [ href "settings#routes" ] [ text "Routes" ]
+            ]
+        ]
 
 
 
@@ -148,12 +202,16 @@ myControlInputModifiers =
 getSettings : Cmd Msg
 getSettings =
     Http.get
-        { -- get this url from config
+        { -- TODO: get this url from config
           url = "http://localhost:3000/schema"
-        , expect = Http.expectJson GotSettings configurationDecoder
+        , expect = Http.expectJson GotSettings settingsDecoder
         }
 
 
-configurationDecoder : Decoder Value
-configurationDecoder =
-    Decode.value
+settingsDecoder : Decoder Settings
+settingsDecoder =
+    Decode.succeed Settings
+        |> required "name" string
+        |> required "description" string
+        |> requiredAt [ "properties", "global" ] Decode.value
+        |> requiredAt [ "properties", "routes" ] Decode.value

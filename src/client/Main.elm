@@ -3,12 +3,11 @@ module Main exposing (Model, Msg(..), init, main, subscriptions, update, view)
 import Browser exposing (..)
 import Browser.Navigation as Nav
 import Html exposing (..)
-import Html.Attributes exposing (..)
 import Page exposing (..)
 import Page.Dashboard as Dashboard exposing (..)
 import Page.NotFound as NotFound exposing (..)
 import Page.Settings as Settings exposing (..)
-import Router exposing (Route(..), fromUrl, parser)
+import Router exposing (Route(..), Section(..), fromUrl)
 import Session exposing (..)
 import Url
 
@@ -33,16 +32,16 @@ main =
 -- MODEL
 
 
-type alias Model =
-    { page : Page
-    , session : Session
-    }
-
-
 type Page
     = Dashboard Dashboard.Model
     | Settings Settings.Model
     | NotFound NotFound.Model
+
+
+type alias Model =
+    { page : Page
+    , session : Session
+    }
 
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
@@ -110,23 +109,31 @@ updatePageWith toModel toMsg model ( subModel, subCmd ) =
 loadPage : Route -> Model -> ( Model, Cmd Msg )
 loadPage route model =
     let
-        updateSessionRoute =
-            updateRoute model.session
+        updateRoute session newRoute =
+            { session | route = newRoute }
+
+        newSession =
+            updateRoute model.session route
     in
     case route of
         Router.NotFound ->
-            ( { model | page = NotFound {}, session = updateSessionRoute route }, Cmd.none )
+            ( { model | page = NotFound {}, session = newSession }, Cmd.none )
 
         Router.Dashboard ->
-            ( { model | page = Dashboard {}, session = updateSessionRoute route }, Cmd.none )
+            ( { model | page = Dashboard {}, session = newSession }, Cmd.none )
 
-        Router.Settings ->
-            ( { status = Settings.Loading }, Settings.getSettings )
-                |> updatePageWith Settings GotSettingsMsg { model | session = updateSessionRoute route }
+        Router.Settings section ->
+            let
+                updateSubModel submodel =
+                    Settings.init section submodel
+                        |> updatePageWith Settings GotSettingsMsg { model | session = newSession }
+            in
+            case model.page of
+                Settings submodel ->
+                    updateSubModel submodel
 
-
-updateRoute session route =
-    { session | route = route }
+                _ ->
+                    updateSubModel Settings.initialModel
 
 
 

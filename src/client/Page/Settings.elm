@@ -1,4 +1,4 @@
-port module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, subscriptions, update, view)
+port module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, init, initialModel, subscriptions, update, view)
 
 import Browser
 import Browser.Navigation as Nav
@@ -16,6 +16,7 @@ import Http
 import Json.Decode as Decode exposing (Decoder, Value, decodeValue, field, int, string)
 import Json.Decode.Pipeline exposing (hardcoded, optional, required, requiredAt)
 import Json.Encode as E
+import Router exposing (Section(..))
 import Session exposing (..)
 
 
@@ -23,15 +24,41 @@ import Session exposing (..)
 -- MODEL
 
 
+type alias Settings =
+    { name : String
+    , description : String
+    , globalSettings : Value
+    , routeSettings : Value
+    }
+
+
 type Status
     = Failure
     | Loading
-    | Success Settings
+    | Success
 
 
 type alias Model =
     { status : Status
+    , schema : Maybe Settings
+    , section : Section
     }
+
+
+initialModel =
+    { section = Init, status = Loading, schema = Nothing }
+
+
+init : Section -> Model -> ( Model, Cmd Msg )
+init section model =
+    case section of
+        Init ->
+            ( model
+            , getSettings
+            )
+
+        _ ->
+            ( model, Cmd.none )
 
 
 
@@ -51,11 +78,31 @@ update msg model =
 
         GotSettings result ->
             case result of
-                Ok payload ->
-                    ( { model | status = Success payload }, renderForm payload.globalSettings )
+                Ok settings ->
+                    ( { model | status = Success, schema = Just settings }, renderForm settings.globalSettings )
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
+
+
+
+{- Navigate menu ->
+   case menu of
+       Global ->
+           ( { model | menu = Global }
+           , cmdRenderFormWithSettings model.schema .globalSettings
+           )
+
+       Routes ->
+           ( { model | menu = Routes }
+           , cmdRenderFormWithSettings model.schema .routeSettings
+           )
+-}
+-- cmdRenderFormWithSettings : Just Settings -> (a -> Settings) -> Cmd Msg
+
+
+cmdRenderFormWithSettings settings section =
+    Maybe.map renderForm (Maybe.map section settings) |> Maybe.withDefault Cmd.none
 
 
 
@@ -94,7 +141,7 @@ view model =
                         []
                         [ column settingsMenuColumnModifier
                             []
-                            [ settingsMenu ]
+                            [ settingsMenu model.section ]
                         , column columnModifiers
                             []
                             [ viewFormContainer
@@ -124,8 +171,8 @@ viewSettings model =
         Loading ->
             text "Loading..."
 
-        Success settings ->
-            globalSettingsView settings.globalSettings
+        Success ->
+            globalSettingsView
 
 
 settingsMenuColumnModifier =
@@ -140,9 +187,9 @@ settingsMenuColumnModifier =
     }
 
 
-globalSettingsView : Value -> Html msg
-globalSettingsView settings =
-    div [ style "margin-top" "0.5em" ] [ div [] [ text (toString settings) ] ]
+globalSettingsView : Html msg
+globalSettingsView =
+    div [ style "margin-top" "0.5em" ] [ div [] [] ]
 
 
 myControlInputModifiers =
@@ -151,26 +198,18 @@ myControlInputModifiers =
     }
 
 
-settingsMenu : Html msg
-settingsMenu =
+settingsMenu : Section -> Html msg
+settingsMenu menu =
     Components.menu []
         [ menuList []
-            [ menuListItemLink True [] [ text "Global" ]
-            , menuListItemLink False [] [ text "Servers" ]
-            , menuListItemLink False [] [ text "Routes" ]
+            [ menuListItemLink (menu == Global) [ href "settings#global" ] [ text "Global" ]
+            , menuListItemLink (menu == Routes) [ href "settings#routes" ] [ text "Routes" ]
             ]
         ]
 
 
 
 -- HTTP
-
-
-type alias Settings =
-    { name : String
-    , description : String
-    , globalSettings : Value
-    }
 
 
 getSettings : Cmd Msg
@@ -188,3 +227,4 @@ settingsDecoder =
         |> required "name" string
         |> required "description" string
         |> requiredAt [ "properties", "global" ] Decode.value
+        |> requiredAt [ "properties", "routes" ] Decode.value

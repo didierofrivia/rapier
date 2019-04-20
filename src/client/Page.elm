@@ -11,7 +11,7 @@ import Bulma.Modifiers exposing (..)
 import Bulma.Modifiers.Typography exposing (textCentered)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Router exposing (Route(..))
+import Router exposing (Route(..), Section(..))
 
 
 
@@ -53,7 +53,7 @@ headerNavbar route =
             []
             [ navbarStart []
                 [ navbarItemLink (isLinkSelectedWithRoute Dashboard) [ href "/" ] [ text "Dashboard" ]
-                , navbarItemLink (isLinkSelectedWithRoute Settings) [ href "/settings" ] [ text "Settings" ]
+                , navbarItemLink (isLinkSelectedWithRoute (Settings Router.Global)) [ href "/settings" ] [ text "Settings" ]
                 ]
             ]
         ]

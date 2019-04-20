@@ -67,6 +67,19 @@
           ]
         }
       }
+    },
+
+    "routes": {
+      "type": "array",
+      "title": "Routes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

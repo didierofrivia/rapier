@@ -1,12 +1,18 @@
-module Router exposing (Route(..), fromUrl, parser)
+module Router exposing (Route(..), Section(..), fromUrl, parser)
 
 import Url
-import Url.Parser exposing ((</>), Parser, map, oneOf, s, top)
+import Url.Parser exposing ((</>), Parser, fragment, map, oneOf, s, string, top)
+
+
+type Section
+    = Init
+    | Global
+    | Routes
 
 
 type Route
     = Dashboard
-    | Settings
+    | Settings Section
     | NotFound
 
 
@@ -14,8 +20,24 @@ parser : Parser (Route -> a) a
 parser =
     oneOf
         [ map Dashboard top
-        , map Settings (s "settings")
+        , map Settings (s "settings" </> map sectionsParser (fragment identity))
         ]
+
+
+sectionsParser : Maybe String -> Section
+sectionsParser fragment =
+    case fragment of
+        Just "global" ->
+            Global
+
+        Just "routes" ->
+            Routes
+
+        Just _ ->
+            Init
+
+        Nothing ->
+            Init
 
 
 fromUrl : Url.Url -> Route

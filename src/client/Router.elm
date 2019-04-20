@@ -1,7 +1,7 @@
 module Router exposing (Route(..), Section(..), fromUrl, parser)
 
 import Url
-import Url.Parser exposing ((</>), Parser, fragment, map, oneOf, s, string, top)
+import Url.Parser exposing ((</>), Parser, fragment, map, oneOf, s, top)
 
 
 type Section

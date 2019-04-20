@@ -1,6 +1,6 @@
 module Page.Dashboard exposing (Model, Msg(..), view)
 
-import Bulma.Elements as Elements exposing (TitleSize(..), title)
+import Bulma.Elements as Elements exposing (TitleSize(..))
 import Bulma.Layout exposing (container, hero, heroBody)
 import Bulma.Modifiers
     exposing
@@ -9,8 +9,6 @@ import Bulma.Modifiers
         )
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (..)
-import Session exposing (..)
 
 
 type alias Model =

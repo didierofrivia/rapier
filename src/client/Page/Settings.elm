@@ -58,7 +58,7 @@ init section model =
             )
 
         _ ->
-            ( model, Cmd.none )
+            ( { model | section = section }, Cmd.none )
 
 
 
@@ -83,22 +83,6 @@ update msg model =
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
-
-
-
-{- Navigate menu ->
-   case menu of
-       Global ->
-           ( { model | menu = Global }
-           , cmdRenderFormWithSettings model.schema .globalSettings
-           )
-
-       Routes ->
-           ( { model | menu = Routes }
-           , cmdRenderFormWithSettings model.schema .routeSettings
-           )
--}
--- cmdRenderFormWithSettings : Just Settings -> (a -> Settings) -> Cmd Msg
 
 
 cmdRenderFormWithSettings settings section =
@@ -192,18 +176,12 @@ globalSettingsView =
     div [ style "margin-top" "0.5em" ] [ div [] [] ]
 
 
-myControlInputModifiers =
-    { controlInputModifiers
-        | disabled = True
-    }
-
-
 settingsMenu : Section -> Html msg
-settingsMenu menu =
+settingsMenu section =
     Components.menu []
         [ menuList []
-            [ menuListItemLink (menu == Global) [ href "settings#global" ] [ text "Global" ]
-            , menuListItemLink (menu == Routes) [ href "settings#routes" ] [ text "Routes" ]
+            [ menuListItemLink (section == Global || section == Init) [ href "settings#global" ] [ text "Global" ]
+            , menuListItemLink (section == Routes) [ href "settings#routes" ] [ text "Routes" ]
             ]
         ]
 
@@ -215,7 +193,7 @@ settingsMenu menu =
 getSettings : Cmd Msg
 getSettings =
     Http.get
-        { -- get this url from config
+        { -- TODO: get this url from config
           url = "http://localhost:3000/schema"
         , expect = Http.expectJson GotSettings settingsDecoder
         }

@@ -53,10 +53,19 @@ headerNavbar route =
             []
             [ navbarStart []
                 [ navbarItemLink (isLinkSelectedWithRoute Dashboard) [ href "/" ] [ text "Dashboard" ]
-                , navbarItemLink (isLinkSelectedWithRoute (Settings Router.Global)) [ href "/settings" ] [ text "Settings" ]
+                , navbarItemLink (isSettingsRoute route) [ href "/settings" ] [ text "Settings" ]
                 ]
             ]
         ]
+
+
+isSettingsRoute route =
+    case route of
+        Settings _ ->
+            True
+
+        _ ->
+            False
 
 
 isLinkSelected : Route -> Route -> Bool

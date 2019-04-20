@@ -58,7 +58,7 @@ init section model =
             )
 
         _ ->
-            ( { model | section = section }, Cmd.none )
+            ( { model | section = section }, cmdRenderFormWithSettings model.schema section )
 
 
 
@@ -85,8 +85,17 @@ update msg model =
                     ( { model | status = Failure }, logThisShit (toString error) )
 
 
-cmdRenderFormWithSettings settings section =
-    Maybe.map renderForm (Maybe.map section settings) |> Maybe.withDefault Cmd.none
+cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
+cmdRenderFormWithSettings schema section =
+    case ( section, schema ) of
+        ( Global, Just settings ) ->
+            renderForm settings.globalSettings
+
+        ( Routes, Just settings ) ->
+            renderForm settings.routeSettings
+
+        ( _, _ ) ->
+            Cmd.none
 
 
 

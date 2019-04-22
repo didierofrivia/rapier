@@ -1,5 +1,7 @@
-port module Page.Settings exposing (Model, Msg(..), Status(..), getSettings, init, initialModel, subscriptions, update, view)
+port module Page.Settings exposing (Model, Msg(..), Status(..), getSchema, init, initialModel, subscriptions, update, view)
 
+import Api
+import Api.Endpoint as Endpoint exposing (Endpoint)
 import Bulma.Columns exposing (..)
 import Bulma.Components as Components exposing (..)
 import Bulma.Elements exposing (content)
@@ -20,7 +22,7 @@ import Router exposing (Section(..))
 -- MODEL
 
 
-type alias Settings =
+type alias Schema =
     { name : String
     , description : String
     , globalSettings : Value
@@ -36,7 +38,7 @@ type Status
 
 type alias Model =
     { status : Status
-    , schema : Maybe Settings
+    , schema : Maybe Schema
     , section : Section
     }
 
@@ -50,7 +52,7 @@ init section model =
     case section of
         Init ->
             ( model
-            , getSettings
+            , getSchema
             )
 
         _ ->
@@ -63,14 +65,14 @@ init section model =
 
 type Msg
     = GetSettings
-    | GotSettings (Result Http.Error Settings)
+    | GotSettings (Result Http.Error Schema)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GetSettings ->
-            ( { model | status = Loading }, getSettings )
+            ( { model | status = Loading }, getSchema )
 
         GotSettings result ->
             case result of
@@ -81,7 +83,7 @@ update msg model =
                     ( { model | status = Failure }, logThisShit (toString error) )
 
 
-cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
+cmdRenderFormWithSettings : Maybe Schema -> Section -> Cmd Msg
 cmdRenderFormWithSettings schema section =
     case ( section, schema ) of
         ( Global, Just settings ) ->
@@ -195,18 +197,14 @@ settingsMenu section =
 -- HTTP
 
 
-getSettings : Cmd Msg
-getSettings =
-    Http.get
-        { -- TODO: get this url from config
-          url = "http://localhost:3000/schema"
-        , expect = Http.expectJson GotSettings settingsDecoder
-        }
+getSchema : Cmd Msg
+getSchema =
+    Api.get Endpoint.schema GotSettings schemaDecoder
 
 
-settingsDecoder : Decoder Settings
-settingsDecoder =
-    Decode.succeed Settings
+schemaDecoder : Decoder Schema
+schemaDecoder =
+    Decode.succeed Schema
         |> required "name" string
         |> required "description" string
         |> requiredAt [ "properties", "global" ] Decode.value

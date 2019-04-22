@@ -1,7 +1,6 @@
 import express from 'express'
 import cors from 'cors'
 import fs from 'fs'
-import path from 'path'
 
 const PORT = process.env.PORT || 3000
 const server = express()
@@ -32,8 +31,8 @@ function getFile (path, res) {
 }
 
 // Routes
-server.get('/config', (req, res) => getFile (dataPath, res))
-server.get('/schema', (req, res) => getFile (schemaPath, res))
+server.get('/api/config', (req, res) => getFile (dataPath, res))
+server.get('/api/schema', (req, res) => getFile (schemaPath, res))
 
 server.listen(PORT, function () {
   console.log('Server listening on', PORT)

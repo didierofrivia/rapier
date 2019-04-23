@@ -2,6 +2,7 @@ module Api.Endpoint exposing (Endpoint, config, request, schema)
 
 import Http
 import Json.Decode exposing (Decoder, Value)
+import Task exposing (Task)
 import Url.Builder exposing (QueryParameter)
 
 
@@ -13,8 +14,8 @@ type Endpoint
     = Endpoint String
 
 
-url : List String -> List QueryParameter -> Endpoint
-url paths queryParams =
+toUrl : List String -> List QueryParameter -> Endpoint
+toUrl paths queryParams =
     -- TODO: get this url from config
     Url.Builder.crossOrigin "http://localhost:3000"
         ("api" :: paths)
@@ -29,24 +30,21 @@ unwrap (Endpoint str) =
 
 request :
     { body : Http.Body
-    , msg : Result Http.Error a -> msg
     , decoder : Decoder a
     , headers : List Http.Header
     , method : String
     , timeout : Maybe Float
     , url : Endpoint
-    , tracker : Maybe String
     }
-    -> Cmd msg
+    -> Task Http.Error a
 request settings =
-    Http.request
+    Http.task
         { body = settings.body
-        , expect = Http.expectJson settings.msg settings.decoder
+        , resolver = Http.stringResolver <| handleJsonResponse <| settings.decoder
         , headers = settings.headers
         , method = settings.method
         , timeout = settings.timeout
         , url = unwrap settings.url
-        , tracker = settings.tracker
         }
 
 
@@ -56,9 +54,37 @@ request settings =
 
 schema : Endpoint
 schema =
-    url [ "schema" ] []
+    toUrl [ "schema" ] []
 
 
 config : Endpoint
 config =
-    url [ "config" ] []
+    toUrl [ "config" ] []
+
+
+
+-- HELPERS
+
+
+handleJsonResponse : Decoder a -> Http.Response String -> Result Http.Error a
+handleJsonResponse decoder response =
+    case response of
+        Http.BadUrl_ url ->
+            Err (Http.BadUrl url)
+
+        Http.Timeout_ ->
+            Err Http.Timeout
+
+        Http.BadStatus_ { statusCode } _ ->
+            Err (Http.BadStatus statusCode)
+
+        Http.NetworkError_ ->
+            Err Http.NetworkError
+
+        Http.GoodStatus_ _ body ->
+            case Json.Decode.decodeString decoder body of
+                Err _ ->
+                    Err (Http.BadBody body)
+
+                Ok result ->
+                    Ok result

@@ -3,63 +3,56 @@ module Api exposing (delete, get, post, put)
 import Api.Endpoint as Endpoint exposing (Endpoint)
 import Http exposing (Body, Expect)
 import Json.Decode exposing (Decoder, Value)
+import Task exposing (Task)
 
 
 
 -- HTTP
 
 
-get : Endpoint -> (Result Http.Error a -> msg) -> Decoder a -> Cmd msg
-get url msg decoder =
+get : Endpoint -> Decoder a -> Task Http.Error a
+get url decoder =
     Endpoint.request
         { method = "GET"
         , url = url
-        , msg = msg
         , decoder = decoder
         , headers = []
         , body = Http.emptyBody
         , timeout = Nothing
-        , tracker = Nothing
         }
 
 
-put : Endpoint -> (Result Http.Error a -> msg) -> Body -> Decoder a -> Cmd msg
-put url msg body decoder =
+put : Endpoint -> Body -> Decoder a -> Task Http.Error a
+put url body decoder =
     Endpoint.request
         { method = "PUT"
         , url = url
-        , msg = msg
         , decoder = decoder
         , headers = []
         , body = body
         , timeout = Nothing
-        , tracker = Nothing
         }
 
 
-post : Endpoint -> (Result Http.Error a -> msg) -> Body -> Decoder a -> Cmd msg
-post url msg body decoder =
+post : Endpoint -> Body -> Decoder a -> Task Http.Error a
+post url body decoder =
     Endpoint.request
         { method = "POST"
         , url = url
-        , msg = msg
         , decoder = decoder
         , headers = []
         , body = body
         , timeout = Nothing
-        , tracker = Nothing
         }
 
 
-delete : Endpoint -> (Result Http.Error a -> msg) -> Body -> Decoder a -> Cmd msg
-delete url msg body decoder =
+delete : Endpoint -> Body -> Decoder a -> Task Http.Error a
+delete url body decoder =
     Endpoint.request
         { method = "DELETE"
         , url = url
-        , msg = msg
         , decoder = decoder
         , headers = []
         , body = body
         , timeout = Nothing
-        , tracker = Nothing
         }

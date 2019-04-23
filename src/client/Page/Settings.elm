@@ -16,6 +16,7 @@ import Json.Decode as Decode exposing (Decoder, Value, string)
 import Json.Decode.Pipeline exposing (required, requiredAt)
 import Json.Encode as E
 import Router exposing (Section(..))
+import Task exposing (Task)
 
 
 
@@ -30,6 +31,18 @@ type alias Schema =
     }
 
 
+type alias Config =
+    { global : Value
+    , routes : Value
+    }
+
+
+type alias Settings =
+    { schema : Schema
+    , config : Config
+    }
+
+
 type Status
     = Failure
     | Loading
@@ -38,13 +51,13 @@ type Status
 
 type alias Model =
     { status : Status
-    , schema : Maybe Schema
+    , settings : Maybe Settings
     , section : Section
     }
 
 
 initialModel =
-    { section = Init, status = Loading, schema = Nothing }
+    { section = Init, status = Loading, settings = Nothing }
 
 
 init : Section -> Model -> ( Model, Cmd Msg )
@@ -52,11 +65,11 @@ init section model =
     case section of
         Init ->
             ( model
-            , getSchema
+            , Task.attempt GotSettings getSettings
             )
 
         _ ->
-            ( { model | section = section }, cmdRenderFormWithSettings model.schema section )
+            ( { model | section = section }, cmdRenderFormWithSettings model.settings section )
 
 
 
@@ -65,32 +78,50 @@ init section model =
 
 type Msg
     = GetSettings
-    | GotSettings (Result Http.Error Schema)
+    | GotSettings (Result Http.Error Settings)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GetSettings ->
-            ( { model | status = Loading }, getSchema )
+            ( { model | status = Loading }
+            , Task.attempt GotSettings getSettings
+            )
 
         GotSettings result ->
             case result of
                 Ok settings ->
-                    ( { model | status = Success, schema = Just settings }, renderForm settings.globalSettings )
+                    ( { model | status = Success, settings = Just settings }, cmdRenderFormWithSettings (Just settings) model.section )
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
 
 
-cmdRenderFormWithSettings : Maybe Schema -> Section -> Cmd Msg
-cmdRenderFormWithSettings schema section =
-    case ( section, schema ) of
+getSettings : Task Http.Error Settings
+getSettings =
+    let
+        settings schema config =
+            { schema = schema, config = config }
+    in
+    getSchema
+        |> Task.andThen
+            (\schema -> Task.succeed (settings schema))
+        |> Task.andThen
+            (\settingsWithSchema -> getConfig |> Task.andThen (\config -> Task.succeed (settingsWithSchema config)))
+
+
+cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
+cmdRenderFormWithSettings maybeSettings section =
+    case ( section, maybeSettings ) of
+        ( Init, Just settings ) ->
+            renderForm ( settings.schema.globalSettings, settings.config.global )
+
         ( Global, Just settings ) ->
-            renderForm settings.globalSettings
+            renderForm ( settings.schema.globalSettings, settings.config.global )
 
         ( Routes, Just settings ) ->
-            renderForm settings.routeSettings
+            renderForm ( settings.schema.routeSettings, settings.config.routes )
 
         ( _, _ ) ->
             Cmd.none
@@ -109,7 +140,7 @@ subscriptions model =
 -- PORTS
 
 
-port renderForm : E.Value -> Cmd msg
+port renderForm : ( E.Value, E.Value ) -> Cmd msg
 
 
 port logThisShit : String -> Cmd msg
@@ -197,9 +228,14 @@ settingsMenu section =
 -- HTTP
 
 
-getSchema : Cmd Msg
+getSchema : Task Http.Error Schema
 getSchema =
-    Api.get Endpoint.schema GotSettings schemaDecoder
+    Api.get Endpoint.schema schemaDecoder
+
+
+getConfig : Task Http.Error Config
+getConfig =
+    Api.get Endpoint.config configDecoder
 
 
 schemaDecoder : Decoder Schema
@@ -209,3 +245,10 @@ schemaDecoder =
         |> required "description" string
         |> requiredAt [ "properties", "global" ] Decode.value
         |> requiredAt [ "properties", "routes" ] Decode.value
+
+
+configDecoder : Decoder Config
+configDecoder =
+    Decode.succeed Config
+        |> required "global" Decode.value
+        |> required "routes" Decode.value

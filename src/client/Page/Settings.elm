@@ -32,7 +32,9 @@ type alias Schema =
 
 
 type alias Config =
-    Value
+    { global : Value
+    , routes : Value
+    }
 
 
 type alias Settings =
@@ -113,13 +115,13 @@ cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
 cmdRenderFormWithSettings maybeSettings section =
     case ( section, maybeSettings ) of
         ( Init, Just settings ) ->
-            renderForm settings.schema.globalSettings
+            renderForm ( settings.schema.globalSettings, settings.config.global )
 
         ( Global, Just settings ) ->
-            renderForm settings.schema.globalSettings
+            renderForm ( settings.schema.globalSettings, settings.config.global )
 
         ( Routes, Just settings ) ->
-            renderForm settings.schema.routeSettings
+            renderForm ( settings.schema.routeSettings, settings.config.routes )
 
         ( _, _ ) ->
             Cmd.none
@@ -138,7 +140,7 @@ subscriptions model =
 -- PORTS
 
 
-port renderForm : E.Value -> Cmd msg
+port renderForm : ( E.Value, E.Value ) -> Cmd msg
 
 
 port logThisShit : String -> Cmd msg
@@ -247,4 +249,6 @@ schemaDecoder =
 
 configDecoder : Decoder Config
 configDecoder =
-    Decode.value
+    Decode.succeed Config
+        |> required "global" Decode.value
+        |> required "routes" Decode.value

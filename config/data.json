@@ -3,6 +3,11 @@
     "log_level": "debug",
     "error_log": "stderr",
     "access_log": "stdout",
-  "opentracing_tracer": "jaeger"
-  }
+    "opentracing_tracer": "jaeger"
+  },
+  "routes": [
+    {
+      "name": "La route"
+    }
+  ]
 }

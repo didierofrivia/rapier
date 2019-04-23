@@ -10,11 +10,12 @@ const app = Elm.Main.init({
   node: document.getElementById('root')
 })
 
-app.ports.renderForm.subscribe(function(schema) {
+app.ports.renderForm.subscribe(function(settings) {
   const log = (type) => console.log.bind(console, type)
+  const [schema, config] = settings
 
   render((
-    <Form schema={schema}
+    <Form schema={schema} formData={config}
           onChange={log("changed")}
           onSubmit={log("submitted")}
           onError={log("errors")} />

@@ -8,6 +8,7 @@ server.use(cors())
 
 const dataPath = `${__dirname}/../config/data.json`
 const schemaPath = `${__dirname}/../config/schema.json`
+const uiSchemaPath = `${__dirname}/../config/ui-schema.json`
 
 
 function asyncFlow(generatorFunction) {
@@ -33,6 +34,7 @@ function getFile (path, res) {
 // Routes
 server.get('/api/config', (req, res) => getFile (dataPath, res))
 server.get('/api/schema', (req, res) => getFile (schemaPath, res))
+server.get('/api/ui-schema', (req, res) => getFile (uiSchemaPath, res))
 
 server.listen(PORT, function () {
   console.log('Server listening on', PORT)

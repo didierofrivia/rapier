@@ -1,4 +1,4 @@
-module Api.Endpoint exposing (Endpoint, config, request, schema)
+module Api.Endpoint exposing (Endpoint, config, request, schema, uiSchema)
 
 import Http
 import Json.Decode exposing (Decoder, Value)
@@ -60,6 +60,11 @@ schema =
 config : Endpoint
 config =
     toUrl [ "config" ] []
+
+
+uiSchema : Endpoint
+uiSchema =
+    toUrl [ "ui-schema" ] []
 
 
 

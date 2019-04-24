@@ -7,7 +7,17 @@
   },
   "routes": [
     {
-      "name": "La route"
+      "name": "La route",
+      "match": {
+        "uri_path": "/metrics",
+        "http_method": "GET"
+      },
+      "destination": {
+        "service": "prometheus"
+      }
     }
+  ],
+  "internal": [
+    {"name": "auth-server"}
   ]
 }

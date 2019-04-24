@@ -1,11 +1,20 @@
 {
-  "$id": "http://rapier.io/config-v1/schema#manifest#",
+  "$id": "http://rapier.io/config-v1/schema#",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "name": "APIcast config",
   "summary": "Configures the standalone version of APIcast proxy.",
   "description": "Configures the standalone version of APIcast proxy.",
   "version": "1.0.0",
   "type": "object",
+  "definitions": {
+    "service": {
+      "$id": "#service",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" }
+      }
+    }
+  },
   "properties": {
     "global" : {
       "type": "object",
@@ -68,7 +77,12 @@
         }
       }
     },
-
+    "internal": {
+      "type": "array",
+      "items": [
+        {"$ref": "#/definitions/service"}
+      ]
+    },
     "routes": {
       "type": "array",
       "title": "Routes",
@@ -77,6 +91,22 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "match": {
+            "type": "object",
+            "properties": {
+              "uri_path": {
+                "type": "string"
+              },
+              "http_method": {
+                "type": "string"
+              }
+            }
+          },
+          "destination": {
+            "oneOf": [
+              { "type": "object", "$ref": "#/definitions/service", "$items": "#/properties/internal" }
+            ]
           }
         }
       }

@@ -8,6 +8,7 @@ type Section
     = Init
     | Global
     | Routes
+    | Internal
 
 
 type Route
@@ -32,6 +33,9 @@ sectionsParser fragment =
 
         Just "routes" ->
             Routes
+
+        Just "internal" ->
+            Internal
 
         Just _ ->
             Init

@@ -12,9 +12,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
-import Json.Decode as Decode exposing (Decoder, Value, string)
-import Json.Decode.Pipeline exposing (required, requiredAt)
-import Json.Encode as E
+import Json.Decode as Decode exposing (Decoder, Value)
 import Router exposing (Section(..))
 import Task exposing (Task)
 
@@ -23,23 +21,10 @@ import Task exposing (Task)
 -- MODEL
 
 
-type alias Schema =
-    { name : String
-    , description : String
-    , globalSettings : Value
-    , routeSettings : Value
-    }
-
-
-type alias Config =
-    { global : Value
-    , routes : Value
-    }
-
-
 type alias Settings =
-    { schema : Schema
-    , config : Config
+    { schema : Value
+    , uiSchema : Value
+    , config : Value
     }
 
 
@@ -101,27 +86,32 @@ update msg model =
 getSettings : Task Http.Error Settings
 getSettings =
     let
-        settings schema config =
-            { schema = schema, config = config }
+        settings schema uiSchema config =
+            { schema = schema, uiSchema = uiSchema, config = config }
     in
     getSchema
         |> Task.andThen
             (\schema -> Task.succeed (settings schema))
         |> Task.andThen
-            (\settingsWithSchema -> getConfig |> Task.andThen (\config -> Task.succeed (settingsWithSchema config)))
+            (\settingsWithSchema -> getUiSchema |> Task.andThen (\uiSchema -> Task.succeed (settingsWithSchema uiSchema)))
+        |> Task.andThen
+            (\settingsWithSchemaAndUi -> getConfig |> Task.andThen (\config -> Task.succeed (settingsWithSchemaAndUi config)))
 
 
 cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
 cmdRenderFormWithSettings maybeSettings section =
     case ( section, maybeSettings ) of
         ( Init, Just settings ) ->
-            renderForm ( settings.schema.globalSettings, settings.config.global )
+            renderForm ( settings, "global" )
 
         ( Global, Just settings ) ->
-            renderForm ( settings.schema.globalSettings, settings.config.global )
+            renderForm ( settings, "global" )
+
+        ( Internal, Just settings ) ->
+            renderForm ( settings, "internal" )
 
         ( Routes, Just settings ) ->
-            renderForm ( settings.schema.routeSettings, settings.config.routes )
+            renderForm ( settings, "routes" )
 
         ( _, _ ) ->
             Cmd.none
@@ -140,7 +130,7 @@ subscriptions model =
 -- PORTS
 
 
-port renderForm : ( E.Value, E.Value ) -> Cmd msg
+port renderForm : ( Settings, String ) -> Cmd msg
 
 
 port logThisShit : String -> Cmd msg
@@ -219,6 +209,7 @@ settingsMenu section =
     Components.menu []
         [ menuList []
             [ menuListItemLink (section == Global || section == Init) [ href "settings#global" ] [ text "Global" ]
+            , menuListItemLink (section == Internal) [ href "settings#internal" ] [ text "Internal" ]
             , menuListItemLink (section == Routes) [ href "settings#routes" ] [ text "Routes" ]
             ]
         ]
@@ -228,27 +219,16 @@ settingsMenu section =
 -- HTTP
 
 
-getSchema : Task Http.Error Schema
+getSchema : Task Http.Error Value
 getSchema =
-    Api.get Endpoint.schema schemaDecoder
+    Api.get Endpoint.schema Decode.value
 
 
-getConfig : Task Http.Error Config
+getConfig : Task Http.Error Value
 getConfig =
-    Api.get Endpoint.config configDecoder
+    Api.get Endpoint.config Decode.value
 
 
-schemaDecoder : Decoder Schema
-schemaDecoder =
-    Decode.succeed Schema
-        |> required "name" string
-        |> required "description" string
-        |> requiredAt [ "properties", "global" ] Decode.value
-        |> requiredAt [ "properties", "routes" ] Decode.value
-
-
-configDecoder : Decoder Config
-configDecoder =
-    Decode.succeed Config
-        |> required "global" Decode.value
-        |> required "routes" Decode.value
+getUiSchema : Task Http.Error Value
+getUiSchema =
+    Api.get Endpoint.uiSchema Decode.value

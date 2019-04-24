@@ -10,15 +10,21 @@ const app = Elm.Main.init({
   node: document.getElementById('root')
 })
 
+const toggleSection = (section, uiSchema) => {
+  const hiddenSections = Object.keys(uiSchema).filter(val => val !== section)
+  return hiddenSections.reduce((o, key) => Object.assign(o, {[key]: {"ui:widget": "hidden",}}), {})
+}
+
 app.ports.renderForm.subscribe(function(settings) {
   const log = (type) => console.log.bind(console, type)
-  const [schema, config] = settings
-
+  const [{schema, uiSchema, config}, section] = settings
   render((
-    <Form schema={schema} formData={config}
+    <Form schema={schema}
+          formData={config}
           onChange={log("changed")}
           onSubmit={log("submitted")}
-          onError={log("errors")} />
+          onError={log("errors")}
+          uiSchema={toggleSection(section, uiSchema)}/>
   ), document.getElementById("SettingsForm"))
 })
 

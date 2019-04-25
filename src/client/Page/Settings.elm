@@ -65,6 +65,8 @@ type Msg
     = GetSettings
     | GotSettings (Result Http.Error Settings)
     | ConfigChanged Value
+    | ConfigSubmitted Value
+    | ConfigUpdated (Result Http.Error Value)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -84,16 +86,32 @@ update msg model =
                     ( { model | status = Failure }, logThisShit (toString error) )
 
         ConfigChanged config ->
-            case model.settings of
-                Just settings ->
-                    let
-                        newSettings newConfig =
-                            { settings | config = newConfig }
-                    in
-                    ( { model | settings = Just (newSettings config) }, Cmd.none )
+            ( updateConfig model config, Cmd.none )
 
-                _ ->
-                    ( model, Cmd.none )
+        ConfigSubmitted config ->
+            ( updateConfig model config, Task.attempt ConfigUpdated (putConfig config) )
+
+        ConfigUpdated result ->
+            case result of
+                Ok response ->
+                    ( model, logThisShit (toString response) )
+
+                Err error ->
+                    ( model, logThisShit (toString error) )
+
+
+updateConfig : Model -> Value -> Model
+updateConfig model config =
+    case model.settings of
+        Just settings ->
+            let
+                newSettings newConfig =
+                    { settings | config = newConfig }
+            in
+            { model | settings = Just (newSettings config) }
+
+        Nothing ->
+            model
 
 
 getSettings : Task Http.Error Settings
@@ -136,7 +154,7 @@ cmdRenderFormWithSettings maybeSettings section =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-    changeConfig ConfigChanged
+    Sub.batch [ changeConfig ConfigChanged, submitConfig ConfigSubmitted ]
 
 
 
@@ -147,6 +165,9 @@ port renderForm : ( Settings, String ) -> Cmd msg
 
 
 port changeConfig : (Value -> msg) -> Sub msg
+
+
+port submitConfig : (Value -> msg) -> Sub msg
 
 
 port logThisShit : String -> Cmd msg
@@ -248,3 +269,12 @@ getConfig =
 getUiSchema : Task Http.Error Value
 getUiSchema =
     Api.get Endpoint.uiSchema Decode.value
+
+
+putConfig : Value -> Task Http.Error Value
+putConfig config =
+    let
+        body =
+            Http.jsonBody config
+    in
+    Api.put Endpoint.config body Decode.value

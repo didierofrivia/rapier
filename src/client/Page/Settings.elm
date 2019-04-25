@@ -64,6 +64,7 @@ init section model =
 type Msg
     = GetSettings
     | GotSettings (Result Http.Error Settings)
+    | ConfigChanged Value
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -81,6 +82,18 @@ update msg model =
 
                 Err error ->
                     ( { model | status = Failure }, logThisShit (toString error) )
+
+        ConfigChanged config ->
+            case model.settings of
+                Just settings ->
+                    let
+                        newSettings newConfig =
+                            { settings | config = newConfig }
+                    in
+                    ( { model | settings = Just (newSettings config) }, Cmd.none )
+
+                _ ->
+                    ( model, Cmd.none )
 
 
 getSettings : Task Http.Error Settings
@@ -122,8 +135,8 @@ cmdRenderFormWithSettings maybeSettings section =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
+subscriptions _ =
+    changeConfig ConfigChanged
 
 
 
@@ -131,6 +144,9 @@ subscriptions model =
 
 
 port renderForm : ( Settings, String ) -> Cmd msg
+
+
+port changeConfig : (Value -> msg) -> Sub msg
 
 
 port logThisShit : String -> Cmd msg

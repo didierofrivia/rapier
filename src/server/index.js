@@ -34,8 +34,13 @@ function getFile (path, res) {
 
 function writeFile (path, data, res) {
   return asyncFlow(function* (callback) {
-    yield fs.writeFile(path, JSON.stringify(data, null, 2), callback)
-    res.end()
+    try {
+      yield fs.writeFile(path, JSON.stringify(data, null, 2), callback)
+      res.json({})
+    }
+    catch (error) {
+      res.status(500).json({error})
+    }
   })
 }
 

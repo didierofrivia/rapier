@@ -12,14 +12,12 @@
         "uri_path": "/metrics",
         "http_method": "GET"
       },
-      "destination": {
-        "service": "prometheus"
-      }
+      "destination": "prometheus"
+
     }
   ],
   "internal": [
-    {
-      "name": "auth-server"
-    }
+    { "name": "prometheus" },
+    { "name": "oauth" }
   ]
 }

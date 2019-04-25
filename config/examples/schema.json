@@ -22,66 +22,71 @@
         "log_level": {
           "description": "Log level",
           "type": "string",
-          "oneOf": [
-            {
-              "enum": ["debug"],
-              "title": "Debug log level."
-            },
-            {
-              "enum": ["silent"],
-              "title": "No logging at all."
-            }
+          "title": "Debug log level.",
+          "enum": [
+            "debug",
+            "silent",
+            "none"
+          ],
+          "enumNames": [
+            "Debug",
+            "Silent",
+            "No logging at all."
           ]
         },
         "error_log": {
           "description": "Error Log",
           "type": "string",
-          "oneOf": [
-            {
-              "enum": ["stderr"],
-              "title": "stderr."
-            },
-            {
-              "enum": ["silent"],
-              "title": "No logging at all."
-            }
+          "title": "Error log level.",
+          "enum": [
+            "stderr",
+            "silent",
+            "none"
+          ],
+          "enumNames": [
+            "stderr",
+            "Silent",
+            "No logging at all."
           ]
         },
         "access_log": {
           "description": "Access Log",
           "type": "string",
-          "oneOf": [
-            {
-              "enum": ["stdout"],
-              "title": "stdout."
-            },
-            {
-              "enum": ["silent"],
-              "title": "No logging at all."
-            }
+          "title": "Access Log",
+          "enum": [
+            "stdout",
+            "silent",
+            "none"
+          ],
+          "enumNames": [
+            "stdout",
+            "Silent",
+            "No logging at all."
           ]
         },
         "opentracing_tracer": {
           "description": "Opentracing Tracer",
           "type": "string",
-          "oneOf": [
-            {
-              "enum": ["jaeger"],
-              "title": "jaeger."
-            },
-            {
-              "enum": ["other"],
-              "title": "Other maybe?."
-            }
+          "title": "Tracer",
+          "enum": [
+            "jaeger",
+            "other",
+            "none"
+          ],
+          "enumNames": [
+            "Jaeger",
+            "Other maybe?",
+            "None"
           ]
         }
       }
     },
     "internal": {
       "type": "array",
-      "items": [
-        {"$ref": "#/definitions/service"}
-      ]
+      "title": "List of Internal Services",
+      "items": {
+        "$ref": "#/definitions/service"
+      }
     },
     "routes": {
       "type": "array",
@@ -104,9 +109,11 @@
             }
           },
           "destination": {
-            "oneOf": [
-              { "type": "object", "$ref": "#/definitions/service", "$items": "#/properties/internal" }
-            ]
+            "type": "string",
+            "title": "Service",
+            "description": "choose a service motherfucker",
+            "$enum": "#/internal/items/name",
+            "enum": ["prometheus"]
           }
         }
       }

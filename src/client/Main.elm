@@ -141,8 +141,16 @@ loadPage route model =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions _ =
-    Sub.none
+subscriptions model =
+    case model.page of
+        NotFound _ ->
+            Sub.none
+
+        Dashboard _ ->
+            Sub.none
+
+        Settings submodel ->
+            Sub.map GotSettingsMsg (Settings.subscriptions submodel)
 
 
 

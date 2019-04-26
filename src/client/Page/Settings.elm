@@ -86,7 +86,11 @@ update msg model =
                     ( { model | status = Failure }, logThisShit (toString error) )
 
         ConfigChanged config ->
-            ( updateConfig model config, Cmd.none )
+            let
+                newModel =
+                    updateConfig model config
+            in
+            ( newModel, cmdRenderFormWithSettings newModel.settings newModel.section )
 
         ConfigSubmitted config ->
             ( updateConfig model config, Task.attempt ConfigUpdated (putConfig config) )

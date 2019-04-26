@@ -8,6 +8,10 @@
   },
 
   "routes": {
-
+    "items": {
+      "destination": {
+        "ui:widget": "customEnumValuesWidget"
+      }
+    }
   }
 }

@@ -48,14 +48,17 @@ initialModel =
 
 init : Section -> Model -> ( Model, Cmd Msg )
 init section model =
-    case ( section, model.status ) of
-        ( Init, Empty ) ->
-            ( model
-            , Task.attempt GotSettings getSettings
-            )
+    let
+        newModel =
+            { model | section = section }
+    in
+    if needsNewSettings model.status then
+        ( newModel
+        , Task.attempt GotSettings getSettings
+        )
 
-        _ ->
-            ( { model | section = section }, cmdRenderFormWithSettings model.settings section )
+    else
+        ( newModel, cmdRenderFormWithSettings model.settings section )
 
 
 
@@ -74,14 +77,8 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GetSettings ->
-            let
-                requestSettings =
-                    ( { model | status = Loading }
-                    , Task.attempt GotSettings getSettings
-                    )
-            in
-            if model.status == Failure || model.status == Empty then
-                requestSettings
+            if needsNewSettings model.status then
+                requestSettings model
 
             else
                 ( model, Cmd.none )
@@ -111,6 +108,18 @@ update msg model =
 
                 Err error ->
                     ( model, logThisShit (toString error) )
+
+
+needsNewSettings : Status -> Bool
+needsNewSettings status =
+    status == Failure || status == Empty
+
+
+requestSettings : Model -> ( Model, Cmd Msg )
+requestSettings model =
+    ( { model | status = Loading }
+    , Task.attempt GotSettings getSettings
+    )
 
 
 updateConfig : Model -> Value -> Model

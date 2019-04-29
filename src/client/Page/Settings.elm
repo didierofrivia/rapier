@@ -32,6 +32,7 @@ type Status
     = Failure
     | Loading
     | Success
+    | Empty
 
 
 type alias Model =
@@ -42,13 +43,13 @@ type alias Model =
 
 
 initialModel =
-    { section = Init, status = Loading, settings = Nothing }
+    { section = Init, status = Empty, settings = Nothing }
 
 
 init : Section -> Model -> ( Model, Cmd Msg )
 init section model =
-    case section of
-        Init ->
+    case ( section, model.status ) of
+        ( Init, Empty ) ->
             ( model
             , Task.attempt GotSettings getSettings
             )
@@ -73,9 +74,17 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GetSettings ->
-            ( { model | status = Loading }
-            , Task.attempt GotSettings getSettings
-            )
+            let
+                requestSettings =
+                    ( { model | status = Loading }
+                    , Task.attempt GotSettings getSettings
+                    )
+            in
+            if model.status == Failure || model.status == Empty then
+                requestSettings
+
+            else
+                ( model, Cmd.none )
 
         GotSettings result ->
             case result of
@@ -215,17 +224,17 @@ viewFormContainer =
 viewSettings : Model -> Html Msg
 viewSettings model =
     case model.status of
-        Failure ->
-            div []
-                [ text "I could not load apicast settings for some reason. "
-                , button [ onClick GetSettings ] [ text "Get Settings!" ]
-                ]
-
         Loading ->
             text "Loading..."
 
         Success ->
             globalSettingsView
+
+        _ ->
+            div []
+                [ text "I could not load apicast settings for some reason. "
+                , button [ onClick GetSettings ] [ text "Get Settings!" ]
+                ]
 
 
 settingsMenuColumnModifier =

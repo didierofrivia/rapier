@@ -44,7 +44,17 @@ function writeFile (path, data, res) {
   })
 }
 
-// Routes
+// ROUTES
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  server.use('/', express.static('dist'))
+
+  server.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/../dist/index.html`)
+  })
+}
+
+// API Routes
 server.get('/api/config', (req, res) => getFile (configPath, res))
 server.get('/api/schema', (req, res) => getFile (schemaPath, res))
 server.get('/api/ui-schema', (req, res) => getFile (uiSchemaPath, res))

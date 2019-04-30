@@ -1,7 +1,7 @@
-const path = require('path');
-const webpackMerge = require('webpack-merge');
-const modeConfig = env => require(`./build-utils/webpack.server.${env}`)(env);
-const presetConfig = require("./build-utils/loadPresets");
+const path = require('path')
+const webpackMerge = require('webpack-merge')
+const modeConfig = env => require(`./build-utils/webpack.server.${env}`)(env)
+const presetConfig = require("./build-utils/loadPresets")
 
 module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   console.log(`Building for: ${mode}`);
@@ -17,4 +17,4 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
     modeConfig(mode),
     presetConfig({ mode, presets }),
   )
-};
+}

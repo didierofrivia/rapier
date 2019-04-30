@@ -1,7 +1,7 @@
-const path = require("path");
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
+const path = require("path")
+const DashboardPlugin = require('webpack-dashboard/plugin')
+const webpack = require('webpack')
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = () => ({
     mode: 'development',
@@ -63,4 +63,4 @@ module.exports = () => ({
         __filename: false,
         __dirname: false,
     }
-});
+})

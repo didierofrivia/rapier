@@ -1,6 +1,6 @@
-const path = require("path");
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const webpack = require('webpack');
+const path = require("path")
+const DashboardPlugin = require('webpack-dashboard/plugin')
+const webpack = require('webpack')
 
 module.exports = () => ({
   module: {
@@ -71,4 +71,4 @@ module.exports = () => ({
     stats: 'errors-only',
     hot: true,
   }
-});
+})

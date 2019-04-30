@@ -3,7 +3,7 @@ import { Elm } from './Main.elm'
 import React from "react"
 import { render } from "react-dom"
 import Form from "react-jsonschema-form"
-import registerServiceWorker from './registerServiceWorker'
+// import registerServiceWorker from './registerServiceWorker'
 import './css/form.css'
 
 const toggleSection = (section, uiSchema) => {
@@ -59,4 +59,4 @@ ports.logThisShit.subscribe(function(shit) {
   console.log(shit)
 })
 
-registerServiceWorker()
+// registerServiceWorker()

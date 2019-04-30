@@ -5,6 +5,17 @@
     "access_log": "stdout",
     "opentracing_tracer": "jaeger"
   },
+  "server": {
+
+  },
+  "internal": [
+    {
+      "name": "prometheus"
+    },
+    {
+      "name": "oauth"
+    }
+  ],
   "routes": [
     {
       "name": "Some route",
@@ -13,11 +24,6 @@
         "http_method": "GET"
       },
       "destination": "prometheus"
-
     }
-  ],
-  "internal": [
-    { "name": "prometheus" },
-    { "name": "oauth" }
   ]
 }

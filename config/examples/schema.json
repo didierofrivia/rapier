@@ -23,15 +23,14 @@
           "description": "Log level",
           "type": "string",
           "title": "Debug log level.",
+          "default": "emerg",
           "enum": [
             "debug",
-            "silent",
-            "none"
+            "emerg"
           ],
           "enumNames": [
             "Debug",
-            "Silent",
-            "No logging at all."
+            "Emerg"
           ]
         },
         "error_log": {
@@ -40,7 +39,7 @@
           "title": "Error log level.",
           "enum": [
             "stderr",
-            "silent",
+            "/dev/null",
             "none"
           ],
           "enumNames": [

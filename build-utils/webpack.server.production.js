@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = () => ({
@@ -19,32 +19,6 @@ module.exports = () => ({
     modules: [
       path.resolve(__dirname, 'node_modules')
     ]
-  },
-  module : {
-    rules: [
-      {
-        test: /\.js$/,
-        use: [
-          {
-            loader: require.resolve('babel-loader'),
-            options: {
-              babelrc: true,
-              compact: true,
-              presets: [
-                [
-                  // Latest stable ECMAScript features
-                  require('@babel/preset-env').default,
-                  {
-                    // Do not transform modules to CJS
-                    modules: false
-                  }
-                ]
-              ]
-            }
-          }
-        ]
-      }
-    ],
   },
   node: {
     console: false,

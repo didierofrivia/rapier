@@ -11,6 +11,7 @@ server.use(cors())
 const configPath = `${__dirname}/config/config.json`
 const schemaPath = `${__dirname}/config/schema.json`
 const uiSchemaPath = `${__dirname}/config/ui-schema.json`
+const indexPath = `${__dirname}/index.html`
 
 
 function asyncFlow(generatorFunction) {
@@ -45,14 +46,6 @@ function writeFile (path, data, res) {
 }
 
 // ROUTES
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  server.use('/', express.static('dist'))
-
-  server.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/../dist/index.html`)
-  })
-}
 
 // API Routes
 server.get('/api/config', (req, res) => getFile (configPath, res))
@@ -60,6 +53,18 @@ server.get('/api/schema', (req, res) => getFile (schemaPath, res))
 server.get('/api/ui-schema', (req, res) => getFile (uiSchemaPath, res))
 
 server.put('/api/config', (req, res) => writeFile (configPath, req.body, res))
+
+function serveStatic (paths) {
+  paths.map(path => {
+    server.use(path, express.static('dist'))
+    server.get(path, (req, res) => {
+      res.sendFile(indexPath)
+    })
+  })
+}
+if (process.env.NODE_ENV === 'production') {
+  serveStatic(['/', '/settings'])
+}
 
 server.listen(PORT, function () {
   console.log('Server listening on', PORT)

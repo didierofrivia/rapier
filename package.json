@@ -56,7 +56,7 @@
     "build:server:once": "npm run webpack -- --env.mode production --config webpack.server.config.js",
     "prod:client": "npm run webpack -- --env.mode production --config webpack.client.config.js",
     "prod:server": "npm run webpack -- --env.mode production --config webpack.server.config.js",
-    "build": "concurrently \"npm run prod:server\" \"npm run prod:client\"",
+    "build": "npm run prod:client && npm run prod:server",
     "prod:analyze": "npm run prod -- --env.presets analyze",
     "prod:compress": "npm run prod -- --env.presets compress",
     "dev:client": "webpack-dashboard --title 'Elm Dev Server' --minimal -- npm run webpack-dev-server -- --env.mode development --config webpack.client.config.js",

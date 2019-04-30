@@ -50,7 +50,11 @@ const renderForm = (settings, changeConfig, submitConfig) => {
   ), document.getElementById("SettingsForm"))
 }
 
-const app = Elm.Main.init({node: document.getElementById('root')})
+const app = Elm.Main.init({
+  node: document.getElementById('root'),
+  apiUrl: process.env.API_URL,
+  port: process.env.PORT
+})
 const ports = app.ports
 
 ports.renderForm.subscribe((settings) => renderForm(settings, ports.changeConfig.send, ports.submitConfig.send))

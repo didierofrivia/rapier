@@ -16,8 +16,8 @@ type Endpoint
 
 toUrl : List String -> List QueryParameter -> Endpoint
 toUrl paths queryParams =
-    -- TODO: get this url from config
-    Url.Builder.crossOrigin "//localhost:3000"
+    -- TODO: Configure this with process.env and flags || config file
+    Url.Builder.crossOrigin "//thawing-mesa-80390.herokuapp.com"
         ("api" :: paths)
         queryParams
         |> Endpoint

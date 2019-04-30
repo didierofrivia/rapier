@@ -1,5 +1,6 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = () => ({
   mode: 'production',
@@ -27,5 +28,10 @@ module.exports = () => ({
     Buffer: false,
     __filename: false,
     __dirname: false,
-  }
+  },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'config/examples/', to: 'config/' },
+    ])
+  ]
 })

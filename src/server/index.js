@@ -8,9 +8,9 @@ const server = express()
 server.use(bodyParser.json())
 server.use(cors())
 
-const configPath = `${__dirname}/../config/config.json`
-const schemaPath = `${__dirname}/../config/schema.json`
-const uiSchemaPath = `${__dirname}/../config/ui-schema.json`
+const configPath = `${__dirname}/config/config.json`
+const schemaPath = `${__dirname}/config/schema.json`
+const uiSchemaPath = `${__dirname}/config/ui-schema.json`
 
 
 function asyncFlow(generatorFunction) {

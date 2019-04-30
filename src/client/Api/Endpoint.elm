@@ -17,7 +17,7 @@ type Endpoint
 toUrl : List String -> List QueryParameter -> Endpoint
 toUrl paths queryParams =
     -- TODO: get this url from config
-    Url.Builder.crossOrigin "http://localhost:3000"
+    Url.Builder.crossOrigin "//localhost:3000"
         ("api" :: paths)
         queryParams
         |> Endpoint

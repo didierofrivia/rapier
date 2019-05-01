@@ -1,4 +1,4 @@
-module Api.Endpoint exposing (Endpoint, config, request, schema, uiSchema)
+module Api.Endpoint exposing (Endpoint, config, request, schema, uiSchema, urlBuilder)
 
 import Http
 import Json.Decode exposing (Decoder, Value)
@@ -10,22 +10,17 @@ import Url.Builder exposing (QueryParameter)
 -- TYPES
 
 
-type Endpoint
-    = Endpoint String
+type alias Endpoint =
+    ( List String, List QueryParameter )
 
 
-toUrl : List String -> List QueryParameter -> Endpoint
-toUrl paths queryParams =
-    -- TODO: Configure this with process.env and flags || config file
-    Url.Builder.crossOrigin "//thawing-mesa-80390.herokuapp.com"
-        ("api" :: paths)
-        queryParams
-        |> Endpoint
-
-
-unwrap : Endpoint -> String
-unwrap (Endpoint str) =
-    str
+urlBuilder : String -> Endpoint -> String
+urlBuilder baseUrl endpoint =
+    let
+        ( paths, params ) =
+            endpoint
+    in
+    Url.Builder.crossOrigin baseUrl ("api" :: paths) params
 
 
 request :
@@ -34,7 +29,7 @@ request :
     , headers : List Http.Header
     , method : String
     , timeout : Maybe Float
-    , url : Endpoint
+    , url : String
     }
     -> Task Http.Error a
 request settings =
@@ -44,7 +39,7 @@ request settings =
         , headers = settings.headers
         , method = settings.method
         , timeout = settings.timeout
-        , url = unwrap settings.url
+        , url = settings.url
         }
 
 
@@ -54,17 +49,17 @@ request settings =
 
 schema : Endpoint
 schema =
-    toUrl [ "schema" ] []
+    ( [ "schema" ], [] )
 
 
 config : Endpoint
 config =
-    toUrl [ "config" ] []
+    ( [ "config" ], [] )
 
 
 uiSchema : Endpoint
 uiSchema =
-    toUrl [ "ui-schema" ] []
+    ( [ "ui-schema" ], [] )
 
 
 

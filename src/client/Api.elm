@@ -10,7 +10,7 @@ import Task exposing (Task)
 -- HTTP
 
 
-get : Endpoint -> Decoder a -> Task Http.Error a
+get : String -> Decoder a -> Task Http.Error a
 get url decoder =
     Endpoint.request
         { method = "GET"
@@ -22,7 +22,7 @@ get url decoder =
         }
 
 
-put : Endpoint -> Body -> Decoder a -> Task Http.Error a
+put : String -> Body -> Decoder a -> Task Http.Error a
 put url body decoder =
     Endpoint.request
         { method = "PUT"
@@ -34,7 +34,7 @@ put url body decoder =
         }
 
 
-post : Endpoint -> Body -> Decoder a -> Task Http.Error a
+post : String -> Body -> Decoder a -> Task Http.Error a
 post url body decoder =
     Endpoint.request
         { method = "POST"
@@ -46,7 +46,7 @@ post url body decoder =
         }
 
 
-delete : Endpoint -> Body -> Decoder a -> Task Http.Error a
+delete : String -> Body -> Decoder a -> Task Http.Error a
 delete url body decoder =
     Endpoint.request
         { method = "DELETE"

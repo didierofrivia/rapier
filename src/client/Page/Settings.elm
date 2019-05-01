@@ -1,4 +1,4 @@
-port module Page.Settings exposing (Model, Msg(..), Status(..), getSchema, init, initialModel, subscriptions, update, view)
+port module Page.Settings exposing (Model, Msg(..), Status(..), init, initialModel, subscriptions, update, view)
 
 import Api
 import Api.Endpoint as Endpoint exposing (Endpoint)
@@ -21,6 +21,10 @@ import Task exposing (Task)
 -- MODEL
 
 
+type alias Config =
+    { apiUrl : String, portNumber : String }
+
+
 type alias Settings =
     { schema : Value
     , uiSchema : Value
@@ -39,11 +43,12 @@ type alias Model =
     { status : Status
     , settings : Maybe Settings
     , section : Section
+    , config : Config
     }
 
 
-initialModel =
-    { section = Init, status = Empty, settings = Nothing }
+initialModel config =
+    { section = Init, status = Empty, settings = Nothing, config = config }
 
 
 init : Section -> Model -> ( Model, Cmd Msg )

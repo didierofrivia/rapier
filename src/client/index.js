@@ -52,8 +52,10 @@ const renderForm = (settings, changeConfig, submitConfig) => {
 
 const app = Elm.Main.init({
   node: document.getElementById('root'),
-  apiUrl: process.env.API_URL,
-  port: process.env.PORT
+  flags: {
+    apiUrl: process.env.API_URL,
+    portNumber: process.env.PORT
+  }
 })
 const ports = app.ports
 

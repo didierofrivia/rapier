@@ -84,7 +84,7 @@ update msg model =
         UrlChanged url ->
             loadPage (fromUrl url) model
 
-        GotDashboardMsg subMsg ->
+        GotDashboardMsg _ ->
             ( model, Cmd.none )
 
         GotSettingsMsg subMsg ->
@@ -96,7 +96,7 @@ update msg model =
                 _ ->
                     ( model, Cmd.none )
 
-        GotNotFoundMsg subMsg ->
+        GotNotFoundMsg _ ->
             ( model, Cmd.none )
 
 

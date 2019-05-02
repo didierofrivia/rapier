@@ -1,8 +1,8 @@
 module Page exposing (view)
 
 import Bulma.CDN exposing (..)
-import Bulma.Components as Components exposing (..)
-import Bulma.Elements as Elements exposing (..)
+import Bulma.Components exposing (..)
+import Bulma.Elements exposing (..)
 import Bulma.Layout as Layout exposing (SectionSpacing(..), container)
 import Bulma.Modifiers exposing (..)
 import Bulma.Modifiers.Typography exposing (textCentered)

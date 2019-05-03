@@ -6,7 +6,16 @@
     "opentracing_tracer": "jaeger"
   },
   "server": {
-
+    "listen": [
+      {
+        "port": 8001,
+        "name": "prometheus"
+      },
+      {
+        "port": 8002,
+        "name": "oauth"
+      }
+    ]
   },
   "internal": [
     {

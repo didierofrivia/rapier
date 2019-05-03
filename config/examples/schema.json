@@ -80,6 +80,29 @@
         }
       }
     },
+    "server": {
+      "type": "object",
+      "properties": {
+        "listen": {
+          "type": "array",
+          "title": "List of ports and services the proxy listens and forward to",
+          "items": {
+            "type": "object",
+            "properties": {
+              "port": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string",
+                "title": "Service",
+                "description": "choose a service motherfucker",
+                "$enum": "#/internal/name"
+              }
+            }
+          }
+        }
+      }
+    },
     "internal": {
       "type": "array",
       "title": "List of Internal Services",

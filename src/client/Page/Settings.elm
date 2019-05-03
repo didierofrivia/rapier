@@ -1,4 +1,4 @@
-port module Page.Settings exposing (Model, Msg(..), Status(..), getSchema, init, initialModel, subscriptions, update, view)
+port module Page.Settings exposing (Model, Msg(..), Status(..), init, initialModel, subscriptions, update, view)
 
 import Api
 import Api.Endpoint as Endpoint exposing (Endpoint)
@@ -21,6 +21,10 @@ import Task exposing (Task)
 -- MODEL
 
 
+type alias Config =
+    { apiUrl : String, portNumber : String }
+
+
 type alias Settings =
     { schema : Value
     , uiSchema : Value
@@ -39,11 +43,12 @@ type alias Model =
     { status : Status
     , settings : Maybe Settings
     , section : Section
+    , config : Config
     }
 
 
-initialModel =
-    { section = Init, status = Empty, settings = Nothing }
+initialModel config =
+    { section = Init, status = Empty, settings = Nothing, config = config }
 
 
 init : Section -> Model -> ( Model, Cmd Msg )
@@ -51,10 +56,13 @@ init section model =
     let
         newModel =
             { model | section = section }
+
+        apiUrl =
+            model.config.apiUrl ++ ":" ++ model.config.portNumber
     in
     if needsNewSettings model.status then
         ( newModel
-        , Task.attempt GotSettings getSettings
+        , Task.attempt GotSettings (getSettings apiUrl)
         )
 
     else
@@ -99,7 +107,11 @@ update msg model =
             ( newModel, cmdRenderFormWithSettings newModel.settings newModel.section )
 
         ConfigSubmitted config ->
-            ( updateConfig model config, Task.attempt ConfigUpdated (putConfig config) )
+            let
+                putConfigWithBase =
+                    putConfig model.config.apiUrl
+            in
+            ( updateConfig model config, Task.attempt ConfigUpdated (putConfigWithBase config) )
 
         ConfigUpdated result ->
             case result of
@@ -117,8 +129,12 @@ needsNewSettings status =
 
 requestSettings : Model -> ( Model, Cmd Msg )
 requestSettings model =
+    let
+        apiUrl =
+            model.config.apiUrl ++ ":" ++ model.config.portNumber
+    in
     ( { model | status = Loading }
-    , Task.attempt GotSettings getSettings
+    , Task.attempt GotSettings (getSettings apiUrl)
     )
 
 
@@ -136,19 +152,26 @@ updateConfig model config =
             model
 
 
-getSettings : Task Http.Error Settings
-getSettings =
+getSettings : String -> Task Http.Error Settings
+getSettings apiUrl =
     let
         settings schema uiSchema config =
             { schema = schema, uiSchema = uiSchema, config = config }
+
+        getFrom endpointDecoder =
+            let
+                ( endpoint, decoder ) =
+                    endpointDecoder
+            in
+            get (urlBuilder apiUrl endpoint) decoder
     in
-    getSchema
+    getFrom schemaEndpoint
         |> Task.andThen
             (\schema -> Task.succeed (settings schema))
         |> Task.andThen
-            (\settingsWithSchema -> getUiSchema |> Task.andThen (\uiSchema -> Task.succeed (settingsWithSchema uiSchema)))
+            (\settingsWithSchema -> getFrom uiSchemaEndpoint |> Task.andThen (\uiSchema -> Task.succeed (settingsWithSchema uiSchema)))
         |> Task.andThen
-            (\settingsWithSchemaAndUi -> getConfig |> Task.andThen (\config -> Task.succeed (settingsWithSchemaAndUi config)))
+            (\settingsWithSchemaAndUi -> getFrom configEndpoint |> Task.andThen (\config -> Task.succeed (settingsWithSchemaAndUi config)))
 
 
 cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
@@ -278,25 +301,38 @@ settingsMenu section =
 -- HTTP
 
 
-getSchema : Task Http.Error Value
-getSchema =
-    Api.get Endpoint.schema Decode.value
+urlBuilder : String -> Endpoint -> String
+urlBuilder base path =
+    Endpoint.urlBuilder base path
 
 
-getConfig : Task Http.Error Value
-getConfig =
-    Api.get Endpoint.config Decode.value
+get : String -> Decoder a -> Task Http.Error a
+get url decoder =
+    Api.get url decoder
 
 
-getUiSchema : Task Http.Error Value
-getUiSchema =
-    Api.get Endpoint.uiSchema Decode.value
+schemaEndpoint : ( Endpoint, Decoder Value )
+schemaEndpoint =
+    ( Endpoint.schema, Decode.value )
 
 
-putConfig : Value -> Task Http.Error Value
-putConfig config =
+configEndpoint : ( Endpoint, Decoder Value )
+configEndpoint =
+    ( Endpoint.config, Decode.value )
+
+
+uiSchemaEndpoint : ( Endpoint, Decoder Value )
+uiSchemaEndpoint =
+    ( Endpoint.uiSchema, Decode.value )
+
+
+putConfig : String -> Value -> Task Http.Error Value
+putConfig baseUrl config =
     let
         body =
             Http.jsonBody config
+
+        url =
+            urlBuilder baseUrl Endpoint.config
     in
-    Api.put Endpoint.config body Decode.value
+    Api.put url body Decode.value

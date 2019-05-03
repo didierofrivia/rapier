@@ -1,4 +1,4 @@
-module Api exposing (delete, get, post, put)
+module Api exposing (get, put)
 
 import Api.Endpoint as Endpoint exposing (Endpoint)
 import Http exposing (Body, Expect)
@@ -10,7 +10,7 @@ import Task exposing (Task)
 -- HTTP
 
 
-get : Endpoint -> Decoder a -> Task Http.Error a
+get : String -> Decoder a -> Task Http.Error a
 get url decoder =
     Endpoint.request
         { method = "GET"
@@ -22,34 +22,10 @@ get url decoder =
         }
 
 
-put : Endpoint -> Body -> Decoder a -> Task Http.Error a
+put : String -> Body -> Decoder a -> Task Http.Error a
 put url body decoder =
     Endpoint.request
         { method = "PUT"
-        , url = url
-        , decoder = decoder
-        , headers = []
-        , body = body
-        , timeout = Nothing
-        }
-
-
-post : Endpoint -> Body -> Decoder a -> Task Http.Error a
-post url body decoder =
-    Endpoint.request
-        { method = "POST"
-        , url = url
-        , decoder = decoder
-        , headers = []
-        , body = body
-        , timeout = Nothing
-        }
-
-
-delete : Endpoint -> Body -> Decoder a -> Task Http.Error a
-delete url body decoder =
-    Endpoint.request
-        { method = "DELETE"
         , url = url
         , decoder = decoder
         , headers = []

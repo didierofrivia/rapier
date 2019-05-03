@@ -3,7 +3,7 @@ import { Elm } from './Main.elm'
 import React from "react"
 import { render } from "react-dom"
 import Form from "react-jsonschema-form"
-import registerServiceWorker from './registerServiceWorker'
+// import registerServiceWorker from './registerServiceWorker'
 import './css/form.css'
 
 const toggleSection = (section, uiSchema) => {
@@ -50,7 +50,13 @@ const renderForm = (settings, changeConfig, submitConfig) => {
   ), document.getElementById("SettingsForm"))
 }
 
-const app = Elm.Main.init({node: document.getElementById('root')})
+const app = Elm.Main.init({
+  node: document.getElementById('root'),
+  flags: {
+    apiUrl: process.env.API_URL,
+    portNumber: process.env.PORT
+  }
+})
 const ports = app.ports
 
 ports.renderForm.subscribe((settings) => renderForm(settings, ports.changeConfig.send, ports.submitConfig.send))
@@ -59,4 +65,4 @@ ports.logThisShit.subscribe(function(shit) {
   console.log(shit)
 })
 
-registerServiceWorker()
+// registerServiceWorker()

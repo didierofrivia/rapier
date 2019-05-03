@@ -16,7 +16,7 @@ import Url
 -- MAIN
 
 
-main : Program () Model Msg
+main : Program Config Model Msg
 main =
     Browser.application
         { init = init
@@ -32,6 +32,10 @@ main =
 -- MODEL
 
 
+type alias Config =
+    { apiUrl : String, portNumber : String }
+
+
 type Page
     = Dashboard Dashboard.Model
     | Settings Settings.Model
@@ -41,16 +45,17 @@ type Page
 type alias Model =
     { page : Page
     , session : Session
+    , config : Config
     }
 
 
-init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
-init flags url key =
+init : Config -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
+init config url key =
     let
         route =
             Router.fromUrl url
     in
-    loadPage route { page = Dashboard {}, session = Session key route }
+    loadPage route { config = config, page = Dashboard {}, session = Session key route }
 
 
 
@@ -79,7 +84,7 @@ update msg model =
         UrlChanged url ->
             loadPage (fromUrl url) model
 
-        GotDashboardMsg subMsg ->
+        GotDashboardMsg _ ->
             ( model, Cmd.none )
 
         GotSettingsMsg subMsg ->
@@ -91,7 +96,7 @@ update msg model =
                 _ ->
                     ( model, Cmd.none )
 
-        GotNotFoundMsg subMsg ->
+        GotNotFoundMsg _ ->
             ( model, Cmd.none )
 
 
@@ -133,7 +138,7 @@ loadPage route model =
                     updateSubModel submodel
 
                 _ ->
-                    updateSubModel Settings.initialModel
+                    updateSubModel (Settings.initialModel model.config)
 
 
 

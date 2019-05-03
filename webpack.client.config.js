@@ -1,13 +1,14 @@
-const path = require('path');
-const webpackMerge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+require('dotenv').config()
+const path = require('path')
+const webpackMerge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-
-const modeConfig = env => require(`./build-utils/webpack.client.${env}`)(env);
-const presetConfig = require("./build-utils/loadPresets");
+const modeConfig = env => require(`./build-utils/webpack.client.${env}`)(env)
+const presetConfig = require("./build-utils/loadPresets")
 
 module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
-  console.log(`Building for: ${mode}`);
+  console.log(`Building for: ${mode}`)
 
   return webpackMerge(
     {
@@ -24,6 +25,10 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
           filename: 'index.html',
         }),
 
+        new webpack.EnvironmentPlugin([
+          'PORT', 'API_URL'
+        ]),
+
         new CopyWebpackPlugin([
           { from: 'public/favicon.ico' }
         ]),
@@ -32,4 +37,4 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
     modeConfig(mode),
     presetConfig({ mode, presets }),
   )
-};
+}

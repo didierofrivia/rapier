@@ -11,7 +11,8 @@
       "$id": "#service",
       "type": "object",
       "properties": {
-        "name": { "type": "string" }
+        "name": { "type": "string" },
+        "description": { "type": "string" }
       }
     }
   },
@@ -107,7 +108,23 @@
       "type": "array",
       "title": "List of Internal Services",
       "items": {
-        "$ref": "#/definitions/service"
+        "type": "object",
+        "properties": {
+          "service": {
+            "$ref": "#/definitions/service"
+          },
+          "policy_chain": {
+            "type": "array",
+            "title": "Policy Chain",
+            "items": {
+              "type": "string",
+              "enum": [
+                "apicast.policy.echo",
+                "apicast.policy.cors"
+              ]
+            }
+          }
+        }
       }
     },
     "routes": {

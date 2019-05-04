@@ -11,8 +11,22 @@
       "$id": "#service",
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "description": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "policy_chain": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "apicast.policy.echo",
+              "apicast.policy.cors"
+            ]
+          }
+        }
       }
     }
   },
@@ -108,23 +122,7 @@
       "type": "array",
       "title": "List of Internal Services",
       "items": {
-        "type": "object",
-        "properties": {
-          "service": {
-            "$ref": "#/definitions/service"
-          },
-          "policy_chain": {
-            "type": "array",
-            "title": "Policy Chain",
-            "items": {
-              "type": "string",
-              "enum": [
-                "apicast.policy.echo",
-                "apicast.policy.cors"
-              ]
-            }
-          }
-        }
+        "$ref": "#/definitions/service"
       }
     },
     "routes": {

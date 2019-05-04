@@ -15,6 +15,7 @@
   "internal": [
     {
       "name": "echo",
+      "description": "testing some echo service",
       "policy_chain": [ "apicast.policy.echo" ]
     }
   ],

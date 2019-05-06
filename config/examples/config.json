@@ -7,7 +7,7 @@
   "server": {
     "listen": [
       {
-        "port": 8001,
+        "port": 8080,
         "name": "test"
       }
     ]
@@ -16,7 +16,11 @@
     {
       "name": "echo",
       "description": "testing some echo service",
-      "policy_chain": [ "apicast.policy.echo" ]
+      "policy_chain": [
+        {
+          "policy": "apicast.policy.echo"
+        }
+      ]
     }
   ],
   "routes": [
@@ -24,9 +28,12 @@
       "name": "test",
       "match": {
         "uri_path": "/test",
+        "server_port": "test",
         "http_method": "GET"
       },
-      "destination": "echo"
+      "destination": {
+        "service": "echo"
+      }
     }
   ]
 }

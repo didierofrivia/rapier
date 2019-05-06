@@ -11,7 +11,38 @@
       "$id": "#service",
       "type": "object",
       "properties": {
-        "name": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "policy_chain": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "apicast.policy.echo",
+              "apicast.policy.cors",
+              "apicast.policy.caching",
+              "apicast.policy.conditional",
+              "apicast.policy.default_credentials",
+              "apicast.policy.find_service",
+              "apicast.policy.headers",
+              "apicast.policy.ip_check",
+              "apicast.policy.keycloack_role_check",
+              "apicast.policy.liquid_context_debug",
+              "apicast.policy.load_configuration",
+              "apicast.policy.local_chain",
+              "apicast.policy.logging",
+              "apicast.policy.management",
+              "apicast.policy.routing",
+              "apicast.policy.soap",
+              "apicast.policy.url_rewriting",
+              "apicast.policy.standalone"
+            ]
+          }
+        }
       }
     }
   },
@@ -80,11 +111,39 @@
         }
       }
     },
+    "server": {
+      "type": "object",
+      "properties": {
+        "listen": {
+          "type": "array",
+          "title": "List of ports and services the proxy listens and forward to",
+          "items": {
+            "type": "object",
+            "properties": {
+              "port": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string",
+                "title": "Service",
+                "description": "choose a service motherfucker",
+                "$enum": "#/internal/name"
+              }
+            }
+          }
+        }
+      }
+    },
     "internal": {
       "type": "array",
       "title": "List of Internal Services",
       "items": {
-        "$ref": "#/definitions/service"
+        "type": "object",
+        "properties": {
+          "policy": {
+            "$ref": "#/definitions/service"
+          }
+        }
       }
     },
     "routes": {
@@ -108,10 +167,14 @@
             }
           },
           "destination": {
-            "type": "string",
+            "type": "object",
             "title": "Service",
             "description": "choose a service motherfucker",
-            "$enum": "#/internal/name"
+            "properties": {
+              "service": {
+                "$enum": "#/internal/name"
+              }
+            }
           }
         }
       }

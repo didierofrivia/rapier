@@ -176,12 +176,16 @@ getSettings apiUrl =
 
 cmdRenderFormWithSettings : Maybe Settings -> Section -> Cmd Msg
 cmdRenderFormWithSettings maybeSettings section =
+    -- TODO: DRY this up
     case ( section, maybeSettings ) of
         ( Init, Just settings ) ->
             renderForm ( settings, "global" )
 
         ( Global, Just settings ) ->
             renderForm ( settings, "global" )
+
+        ( Server, Just settings ) ->
+            renderForm ( settings, "server" )
 
         ( Internal, Just settings ) ->
             renderForm ( settings, "internal" )
@@ -291,6 +295,7 @@ settingsMenu section =
     Components.menu []
         [ menuList []
             [ menuListItemLink (section == Global || section == Init) [ href "settings#global" ] [ text "Global" ]
+            , menuListItemLink (section == Server) [ href "settings#server" ] [ text "Server" ]
             , menuListItemLink (section == Internal) [ href "settings#internal" ] [ text "Internal" ]
             , menuListItemLink (section == Routes) [ href "settings#routes" ] [ text "Routes" ]
             ]

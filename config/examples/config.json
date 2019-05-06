@@ -2,28 +2,38 @@
   "global": {
     "log_level": "debug",
     "error_log": "stderr",
-    "access_log": "stdout",
-    "opentracing_tracer": "jaeger"
+    "access_log": "stdout"
   },
   "server": {
-
+    "listen": [
+      {
+        "port": 8080,
+        "name": "test"
+      }
+    ]
   },
   "internal": [
     {
-      "name": "prometheus"
-    },
-    {
-      "name": "oauth"
+      "name": "echo",
+      "description": "testing some echo service",
+      "policy_chain": [
+        {
+          "policy": "apicast.policy.echo"
+        }
+      ]
     }
   ],
   "routes": [
     {
-      "name": "Some route",
+      "name": "test",
       "match": {
-        "uri_path": "/metrics",
+        "uri_path": "/test",
+        "server_port": "test",
         "http_method": "GET"
       },
-      "destination": "prometheus"
+      "destination": {
+        "service": "echo"
+      }
     }
   ]
 }

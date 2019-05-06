@@ -3,6 +3,16 @@
 
   },
 
+  "server": {
+    "listen": {
+      "items": {
+        "name": {
+          "ui:widget": "customEnumValuesWidget"
+        }
+      }
+    }
+  },
+
   "internal": {
 
   },

@@ -20,27 +20,32 @@
         "policy_chain": {
           "type": "array",
           "items": {
-            "type": "string",
-            "enum": [
-              "apicast.policy.echo",
-              "apicast.policy.cors",
-              "apicast.policy.caching",
-              "apicast.policy.conditional",
-              "apicast.policy.default_credentials",
-              "apicast.policy.find_service",
-              "apicast.policy.headers",
-              "apicast.policy.ip_check",
-              "apicast.policy.keycloack_role_check",
-              "apicast.policy.liquid_context_debug",
-              "apicast.policy.load_configuration",
-              "apicast.policy.local_chain",
-              "apicast.policy.logging",
-              "apicast.policy.management",
-              "apicast.policy.routing",
-              "apicast.policy.soap",
-              "apicast.policy.url_rewriting",
-              "apicast.policy.standalone"
-            ]
+            "type": "object",
+            "properties": {
+              "policy": {
+                "type": "string",
+                "enum": [
+                  "apicast.policy.echo",
+                  "apicast.policy.cors",
+                  "apicast.policy.caching",
+                  "apicast.policy.conditional",
+                  "apicast.policy.default_credentials",
+                  "apicast.policy.find_service",
+                  "apicast.policy.headers",
+                  "apicast.policy.ip_check",
+                  "apicast.policy.keycloack_role_check",
+                  "apicast.policy.liquid_context_debug",
+                  "apicast.policy.load_configuration",
+                  "apicast.policy.local_chain",
+                  "apicast.policy.logging",
+                  "apicast.policy.management",
+                  "apicast.policy.routing",
+                  "apicast.policy.soap",
+                  "apicast.policy.url_rewriting",
+                  "apicast.policy.standalone"
+                ]
+              }
+            }
           }
         }
       }
@@ -138,12 +143,7 @@
       "type": "array",
       "title": "List of Internal Services",
       "items": {
-        "type": "object",
-        "properties": {
-          "policy": {
-            "$ref": "#/definitions/service"
-          }
-        }
+        "$ref": "#/definitions/service"
       }
     },
     "routes": {
@@ -163,6 +163,10 @@
               },
               "http_method": {
                 "type": "string"
+              },
+              "server_port": {
+                "type": "string",
+                "$enum": "#/server/listen/port"
               }
             }
           },
@@ -172,6 +176,7 @@
             "description": "choose a service motherfucker",
             "properties": {
               "service": {
+                "type": "string",
                 "$enum": "#/internal/name"
               }
             }

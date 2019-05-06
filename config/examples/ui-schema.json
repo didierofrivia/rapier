@@ -19,8 +19,15 @@
 
   "routes": {
     "items": {
+      "match": {
+        "server_port": {
+          "ui:widget": "customEnumValuesWidget"
+        }
+      },
       "destination": {
-        "ui:widget": "customEnumValuesWidget"
+        "service": {
+          "ui:widget": "customEnumValuesWidget"
+        }
       }
     }
   }

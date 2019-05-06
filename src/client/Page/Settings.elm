@@ -108,8 +108,11 @@ update msg model =
 
         ConfigSubmitted config ->
             let
+                apiUrl =
+                    model.config.apiUrl ++ ":" ++ model.config.portNumber
+
                 putConfigWithBase =
-                    putConfig model.config.apiUrl
+                    putConfig apiUrl
             in
             ( updateConfig model config, Task.attempt ConfigUpdated (putConfigWithBase config) )
 

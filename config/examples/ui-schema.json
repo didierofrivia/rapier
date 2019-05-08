@@ -5,6 +5,9 @@
 
   "server": {
     "listen": {
+      "ui:options": {
+        "orderable": false
+      },
       "items": {
         "name": {
           "ui:widget": "customEnumValuesWidget"
@@ -14,10 +17,15 @@
   },
 
   "internal": {
-
+    "ui:options": {
+      "orderable": false
+    }
   },
 
   "routes": {
+    "ui:options": {
+      "orderable": false
+    },
     "items": {
       "match": {
         "server_port": {

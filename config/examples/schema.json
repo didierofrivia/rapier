@@ -1,9 +1,7 @@
 {
   "$id": "http://rapier.io/config-v1/schema#",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "name": "APIcast config",
-  "summary": "Configures the standalone version of APIcast proxy.",
-  "description": "Configures the standalone version of APIcast proxy.",
+  "title": "APIcast Settings",
   "version": "1.0.0",
   "type": "object",
   "definitions": {
@@ -12,18 +10,23 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "Name"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "title": "Description"
         },
         "policy_chain": {
           "type": "array",
+          "title": "Policy Chain",
+          "description": "The list of APIcast policies in order of execution",
           "items": {
             "type": "object",
             "properties": {
               "policy": {
                 "type": "string",
+                "title": " ",
                 "enum": [
                   "apicast.policy.echo",
                   "apicast.policy.cors",
@@ -54,11 +57,12 @@
   "properties": {
     "global" : {
       "type": "object",
+      "title": "Global",
       "properties": {
         "log_level": {
-          "description": "Log level",
           "type": "string",
-          "title": "Debug log level.",
+          "title": "Debug log level",
+          "description": "The desired level of logging",
           "default": "emerg",
           "enum": [
             "debug",
@@ -70,9 +74,9 @@
           ]
         },
         "error_log": {
-          "description": "Error Log",
           "type": "string",
-          "title": "Error log level.",
+          "title": "Error log level",
+          "description": "The desired level of logging for raised errors",
           "enum": [
             "stderr",
             "/dev/null",
@@ -85,32 +89,28 @@
           ]
         },
         "access_log": {
-          "description": "Access Log",
           "type": "string",
           "title": "Access Log",
+          "description": "Where the logs are going to be displayed",
           "enum": [
             "stdout",
-            "silent",
             "none"
           ],
           "enumNames": [
             "stdout",
-            "Silent",
-            "No logging at all."
+            "Not shown"
           ]
         },
         "opentracing_tracer": {
-          "description": "Opentracing Tracer",
           "type": "string",
           "title": "Tracer",
+          "description": "Your favourite Opentracing Tracer",
           "enum": [
             "jaeger",
-            "other",
             "none"
           ],
           "enumNames": [
             "Jaeger",
-            "Other maybe?",
             "None"
           ]
         }
@@ -118,6 +118,7 @@
     },
     "server": {
       "type": "object",
+      "title": "Server",
       "properties": {
         "listen": {
           "type": "array",
@@ -126,12 +127,12 @@
             "type": "object",
             "properties": {
               "port": {
-                "type": "integer"
+                "type": "integer",
+                "title": "Port"
               },
               "name": {
                 "type": "string",
                 "title": "Service",
-                "description": "choose a service motherfucker",
                 "$enum": "#/internal/name"
               }
             }
@@ -153,27 +154,31 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "title": "Name"
           },
           "match": {
             "type": "object",
+            "title": "Matching Rules",
             "properties": {
               "uri_path": {
-                "type": "string"
+                "type": "string",
+                "title": "URI path"
               },
               "http_method": {
-                "type": "string"
+                "type": "string",
+                "title": "HTTP method"
               },
               "server_port": {
                 "type": "string",
+                "title": "Server port",
                 "$enum": "#/server/listen/port"
               }
             }
           },
           "destination": {
             "type": "object",
-            "title": "Service",
-            "description": "choose a service motherfucker",
+            "title": "Service to redirect traffic",
             "properties": {
               "service": {
                 "type": "string",

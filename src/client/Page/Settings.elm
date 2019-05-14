@@ -4,7 +4,7 @@ import Api
 import Api.Endpoint as Endpoint exposing (Endpoint)
 import Bulma.Columns exposing (..)
 import Bulma.Components as Components exposing (..)
-import Bulma.Elements exposing (content)
+import Bulma.Elements exposing (content, notificationWithDelete)
 import Bulma.Layout exposing (..)
 import Bulma.Modifiers exposing (Color(..), Size(..), Width(..))
 import Debug exposing (toString)
@@ -32,6 +32,13 @@ type alias Settings =
     }
 
 
+type alias Notification =
+    { text : String
+    , color : Bulma.Modifiers.Color
+    , visible : Bool
+    }
+
+
 type Status
     = Failure
     | Loading
@@ -44,11 +51,17 @@ type alias Model =
     , settings : Maybe Settings
     , section : Section
     , config : Config
+    , notification : Notification
     }
 
 
 initialModel config =
-    { section = Init, status = Empty, settings = Nothing, config = config }
+    { section = Init
+    , status = Empty
+    , settings = Nothing
+    , config = config
+    , notification = { visible = False, text = "", color = Bulma.Modifiers.Success }
+    }
 
 
 init : Section -> Model -> ( Model, Cmd Msg )
@@ -79,6 +92,7 @@ type Msg
     | ConfigChanged Value
     | ConfigSubmitted Value
     | ConfigUpdated (Result Http.Error Value)
+    | HideNotification
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -117,12 +131,30 @@ update msg model =
             ( updateConfig model config, Task.attempt ConfigUpdated (putConfigWithBase config) )
 
         ConfigUpdated result ->
+            let
+                notification =
+                    model.notification
+
+                newNotification color text =
+                    { notification | color = color, text = text, visible = True }
+            in
             case result of
-                Ok response ->
-                    ( model, logThisShit (toString response) )
+                Ok _ ->
+                    ( { model | notification = newNotification Bulma.Modifiers.Success "Yay! Changes saved" }, Cmd.none )
 
                 Err error ->
-                    ( model, logThisShit (toString error) )
+                    let
+                        failure =
+                            "Uh Oh!: " ++ toString error
+                    in
+                    ( { model | notification = newNotification Bulma.Modifiers.Danger failure }, logThisShit (toString error) )
+
+        HideNotification ->
+            let
+                newNotification notification =
+                    { notification | visible = False }
+            in
+            ( { model | notification = newNotification model.notification }, Cmd.none )
 
 
 needsNewSettings : Status -> Bool
@@ -245,13 +277,31 @@ view model =
                             [ settingsMenu model.section ]
                         , column columnModifiers
                             []
-                            [ viewFormContainer
+                            [ settingsNotification model.notification
+                            , viewFormContainer
                             ]
                         ]
                     , viewSettings model
                     ]
                 ]
             ]
+        ]
+
+
+settingsNotification : Notification -> Html Msg
+settingsNotification notification =
+    let
+        cssClass =
+            if notification.visible then
+                ""
+
+            else
+                "hidden"
+    in
+    notificationWithDelete notification.color
+        [ class cssClass ]
+        HideNotification
+        [ text notification.text
         ]
 
 
@@ -299,7 +349,7 @@ settingsMenu section =
         [ menuList []
             [ menuListItemLink (section == Global || section == Init) [ href "settings#global" ] [ text "Global" ]
             , menuListItemLink (section == Server) [ href "settings#server" ] [ text "Server" ]
-            , menuListItemLink (section == Internal) [ href "settings#internal" ] [ text "Internal" ]
+            , menuListItemLink (section == Internal) [ href "settings#internal" ] [ text "Internal Services" ]
             , menuListItemLink (section == Routes) [ href "settings#routes" ] [ text "Routes" ]
             ]
         ]

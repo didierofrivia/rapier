@@ -78,6 +78,9 @@ update msg model =
                 Browser.Internal url ->
                     ( model, Nav.pushUrl model.session.key (Url.toString url) )
 
+                Browser.External "" ->
+                    ( model, Cmd.none )
+
                 Browser.External href ->
                     ( model, Nav.load href )
 

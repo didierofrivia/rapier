@@ -313,17 +313,17 @@ viewFormContainer =
 viewSettings : Model -> Html Msg
 viewSettings model =
     case model.status of
-        Loading ->
-            text "Loading..."
-
         Success ->
             globalSettingsView
 
-        _ ->
+        Failure ->
             div []
                 [ text "I could not load apicast settings for some reason. "
                 , button [ onClick GetSettings ] [ text "Get Settings!" ]
                 ]
+
+        _ ->
+            text "Loading..."
 
 
 settingsMenuColumnModifier =

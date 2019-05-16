@@ -46,7 +46,9 @@ const renderForm = (settings, changeConfig, submitConfig) => {
           onError={log("errors")}
           formContext={{config}}
           widgets={widgets}
-          uiSchema={toggleSection(section, uiSchema)}/>
+          uiSchema={toggleSection(section, uiSchema)}>
+      <button className="btn btn-info" type="submit">Save config</button>
+    </Form>
   ), document.getElementById("SettingsForm"))
 }
 

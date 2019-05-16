@@ -18,10 +18,14 @@ const CustomEnumValuesWidget = (props) => {
   const path = $enum.slice(1, -1)
   const prop = $enum.slice(-1)[0]
   const values = path.reduce((acc, curr) => acc[curr], config).map(val => val[prop])
+  const change = value => {
+    props.onChange(value)
+  }
+  (values.length === 1) && change(values[0]) // Auto-select the only value
 
   return (
     (values.length) ?
-        <select value={value} id={id} className="form-control" onChange={(event) => props.onChange(event.target.value)}>
+        <select value={value} id={id} className="form-control" onChange={event => change(event.target.event)}>
           {values.map((val, idx) => <option key={`${val}-${idx}`} value={val}>{val}</option>)}
         </select>
     : <p>There's no {label} created.</p>

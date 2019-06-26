@@ -1,7 +1,7 @@
 {
   "name": "rapier",
   "version": "1.0.0",
-  "description": "o-∫)=rapier> an APIcast UI MGMT tool ",
+  "description": "o-∫)--rapier--- an APIcast UI MGMT tool ",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -23,6 +23,7 @@
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.5",
     "compression-webpack-plugin": "^2.0.0",
+    "concurrently": "^4.1.1",
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
     "elm-analyse": "^0.16.3",

@@ -1,6 +1,10 @@
 # o-∫)--rapier---
 
 ## An [APIcast](https://github.com/3scale/apicast) UI MGMT Tool
+APIcast is an API gateway built on top of [NGINX](https://www.nginx.com/). It is
+part of the [Red Hat 3scale API Management
+Platform](https://www.redhat.com/en/technologies/jboss-middleware/3scale).
+
 
 ## Getting started
 

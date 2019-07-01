@@ -5,11 +5,14 @@
 ## Getting started
 
 ### Dependencies
-
 * [Node](https://nodejs.org/en/download/)
 * [Elm](https://guide.elm-lang.org/install.html)
 
 ### Development
+Right now it's not wired up to APIcast directly, so it works with a
+"fake" backend that manages the writing of the config file.
+This is a development choice before wiring up everything together to ease
+the crafting of the schema.
 
 #### Install dependencies
 ```shell
@@ -17,7 +20,6 @@ npm install
 ```
 
 #### Run the project
-
 ```shell
 API_URL=//localhost PORT=3000 npm run dev
 ```
@@ -31,6 +33,8 @@ You might also want to run the "client" and "server" separately
 npm run dev:server
 npm run dev:client
 ```
-Note: Take a look at the [package.json](/package.json) for the full list of scripts
+Note: Take a look at the [package.json](/package.json) for the full
+list of scripts
+
 ## License
 [Apache 2.0](LICENSE)

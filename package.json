@@ -49,7 +49,7 @@
     "webpack-cli": "^3.3.5",
     "webpack-dashboard": "^3.0.7",
     "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.2.1",
+    "webpack-merge": "^5.4.0",
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
